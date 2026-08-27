@@ -1,0 +1,438 @@
+{
+  "version": 1,
+  "description": "Manuelt verifiserte draktnummer-berikelser for Brannspillet. Brukes bare når draktnummer mangler i Branntall-rådataene og samme-sesong-inferens ikke gir ett entydig nummer. Rådata skal aldri endres.",
+  "rules": [
+    {
+      "player_name": "Hassan El Fakiri",
+      "from_date": "2000-04-09",
+      "to_date": "2000-05-21",
+      "shirt_number": 20,
+      "confidence": "confirmed",
+      "method": "official_match_record",
+      "sources": [
+        {
+          "label": "Norges Fotballforbund – Brann–Viking 09.04.2000",
+          "url": "https://www.fotball.no/fotballdata/kamp/?fiksId=3458270"
+        }
+      ],
+      "note": "NFFs offisielle kampdata viser Hassan El Fakiri med nr. 20."
+    },
+    {
+      "player_name": "Kjetil Norland",
+      "from_date": "2000-08-20",
+      "to_date": "2000-08-20",
+      "shirt_number": 20,
+      "confidence": "confirmed",
+      "method": "exact_official_match_record",
+      "sources": [
+        {
+          "label": "Norges Fotballforbund – Vålerenga–Brann 20.08.2000",
+          "url": "https://www.fotball.no/fotballdata/kamp/?fiksId=3458403"
+        }
+      ],
+      "note": "Eksakt manglende kamp; NFF viser Kjetil Norland med nr. 20."
+    },
+    {
+      "player_name": "Raymond Kvisvik",
+      "from_date": "2002-04-13",
+      "to_date": "2002-05-01",
+      "shirt_number": 27,
+      "confidence": "confirmed",
+      "method": "official_match_record",
+      "sources": [
+        {
+          "label": "Norges Fotballforbund – Molde–Brann 13.04.2002",
+          "url": "https://www.fotball.no/fotballdata/kamp/?fiksId=3460922"
+        }
+      ],
+      "note": "NFF viser Raymond Kvisvik med nr. 27 i starten av den aktuelle perioden."
+    },
+    {
+      "player_name": "Thorstein Helstad",
+      "from_date": "2002-04-13",
+      "to_date": "2002-05-16",
+      "shirt_number": 22,
+      "confidence": "confirmed",
+      "method": "official_match_record",
+      "sources": [
+        {
+          "label": "Norges Fotballforbund – Molde–Brann 13.04.2002",
+          "url": "https://www.fotball.no/fotballdata/kamp/?fiksId=3460922"
+        }
+      ],
+      "note": "NFF viser Thorstein Helstad med nr. 22 i den aktuelle perioden."
+    },
+    {
+      "player_name": "Runar Normann",
+      "from_date": "2003-04-14",
+      "to_date": "2003-05-11",
+      "shirt_number": 26,
+      "confidence": "confirmed",
+      "method": "official_match_record",
+      "sources": [
+        {
+          "label": "Norges Fotballforbund – Brann–Rosenborg 22.04.2003",
+          "url": "https://www.fotball.no/fotballdata/kamp/?fiksId=3481007"
+        }
+      ],
+      "note": "NFF viser Runar Normann med nr. 26 i en kamp midt i den aktuelle perioden."
+    },
+    {
+      "player_name": "Toni Nhleko",
+      "from_date": "2003-04-22",
+      "to_date": "2003-04-22",
+      "shirt_number": 18,
+      "confidence": "confirmed",
+      "method": "exact_official_match_record",
+      "sources": [
+        {
+          "label": "Norges Fotballforbund – Brann–Rosenborg 22.04.2003",
+          "url": "https://www.fotball.no/fotballdata/kamp/?fiksId=3481007"
+        }
+      ],
+      "note": "Eksakt manglende kamp; NFF viser Nkosinathi Antonio Nhleko med nr. 18."
+    },
+    {
+      "player_name": "Ivar Rønningen",
+      "from_date": "2004-04-18",
+      "to_date": "2004-06-21",
+      "shirt_number": 24,
+      "confidence": "confirmed",
+      "method": "official_match_record",
+      "sources": [
+        {
+          "label": "Norges Fotballforbund – Brann–Molde 18.04.2004",
+          "url": "https://www.fotball.no/fotballdata/kamp/?fiksId=3482935"
+        }
+      ],
+      "note": "NFF viser Ivar Rønningen med nr. 24 ved starten av det aktuelle intervallet."
+    },
+    {
+      "player_name": "Raymond Kvisvik",
+      "from_date": "2005-04-11",
+      "to_date": "2005-07-03",
+      "shirt_number": 27,
+      "confidence": "confirmed",
+      "method": "official_match_record",
+      "sources": [
+        {
+          "label": "Norges Fotballforbund – Brann–Rosenborg 19.06.2005",
+          "url": "https://www.fotball.no/fotballdata/kamp/?fiksId=3484797"
+        }
+      ],
+      "note": "NFF viser Raymond Kvisvik med nr. 27 i den aktuelle perioden."
+    },
+    {
+      "player_name": "Ardian Gashi",
+      "from_date": "2007-04-10",
+      "to_date": "2007-06-24",
+      "shirt_number": 7,
+      "confidence": "confirmed",
+      "method": "official_match_record",
+      "sources": [
+        {
+          "label": "Norges Fotballforbund – Rosenborg–Brann 29.04.2007",
+          "url": "https://www.fotball.no/fotballdata/kamp/?fiksId=3488414"
+        }
+      ],
+      "note": "NFF viser Ardian Gashi med nr. 7 i en kamp innenfor intervallet."
+    },
+    {
+      "player_name": "Eirik Bakke",
+      "from_date": "2008-07-23",
+      "to_date": "2008-08-13",
+      "shirt_number": 17,
+      "confidence": "confirmed",
+      "method": "official_plus_exact_secondary_match_record",
+      "sources": [
+        {
+          "label": "Norges Fotballforbund – Rosenborg–Brann 04.06.2008",
+          "url": "https://www.fotball.no/fotballdata/kamp/?fiksId=3490612"
+        },
+        {
+          "label": "Global Sports Archive – Ventspils–Brann 05.08.2008",
+          "url": "https://globalsportsarchive.com/match/soccer/2008-08-05/fk-ventspils-vs-sk-brann/1004185/"
+        }
+      ],
+      "note": "NFF viser nr. 17 før intervallet; kampdata fra Ventspils-kampen, som er en av de berørte kampene, viser også nr. 17."
+    },
+    {
+      "player_name": "Bjørn Dahl",
+      "from_date": "2009-03-16",
+      "to_date": "2009-06-17",
+      "shirt_number": 3,
+      "confidence": "confirmed",
+      "method": "exact_official_match_record",
+      "sources": [
+        {
+          "label": "Norges Fotballforbund – Bodø/Glimt–Brann 27.04.2009",
+          "url": "https://www.fotball.no/fotballdata/kamp/?fiksId=1492479"
+        }
+      ],
+      "note": "NFF viser Bjørn Dahl med nr. 3 på en av de manglende datoene."
+    },
+    {
+      "player_name": "Cato Hansen",
+      "from_date": "2009-05-24",
+      "to_date": "2009-07-12",
+      "shirt_number": 19,
+      "confidence": "confirmed",
+      "method": "exact_official_plus_club_history",
+      "sources": [
+        {
+          "label": "Norges Fotballforbund – Molde–Brann 12.07.2009",
+          "url": "https://www.fotball.no/fotballdata/kamp/?fiksId=1492449"
+        },
+        {
+          "label": "Brann Historie – Cato Hansen",
+          "url": "https://historie.brann.no/spillere/cato-hansen"
+        }
+      ],
+      "note": "NFF viser nr. 19 på en berørt dato; Branns historikkside oppgir spillernummer 19."
+    },
+    {
+      "player_name": "Ármann Björnsson",
+      "from_date": "2009-05-13",
+      "to_date": "2009-05-24",
+      "shirt_number": 28,
+      "confidence": "confirmed",
+      "method": "bracketed_by_official_match_records",
+      "sources": [
+        {
+          "label": "Norges Fotballforbund – Bodø/Glimt–Brann 27.04.2009",
+          "url": "https://www.fotball.no/fotballdata/kamp/?fiksId=1492479"
+        },
+        {
+          "label": "Norges Fotballforbund – Molde–Brann 12.07.2009",
+          "url": "https://www.fotball.no/fotballdata/kamp/?fiksId=1492449"
+        }
+      ],
+      "note": "NFF viser nr. 28 både før og etter de to berørte kampene."
+    },
+    {
+      "player_name": "Bjarte Haugsdal",
+      "from_date": "2010-03-13",
+      "to_date": "2010-05-19",
+      "shirt_number": 16,
+      "confidence": "confirmed",
+      "method": "exact_official_match_record",
+      "sources": [
+        {
+          "label": "Norges Fotballforbund – Brann–Haugesund 13.03.2010",
+          "url": "https://www.fotball.no/fotballdata/kamp/?fiksId=3355208"
+        }
+      ],
+      "note": "NFF viser Bjarte Haugsdal med nr. 16 på en av de berørte datoene."
+    },
+    {
+      "player_name": "Tijan Jaiteh",
+      "from_date": "2010-03-13",
+      "to_date": "2010-05-24",
+      "shirt_number": 14,
+      "confidence": "confirmed",
+      "method": "exact_official_match_record",
+      "sources": [
+        {
+          "label": "Norges Fotballforbund – Brann–Haugesund 13.03.2010",
+          "url": "https://www.fotball.no/fotballdata/kamp/?fiksId=3355208"
+        }
+      ],
+      "note": "NFF viser Tijan Jaiteh med nr. 14 på en av de berørte datoene."
+    },
+    {
+      "player_name": "Hannes Halldórsson",
+      "from_date": "2012-03-30",
+      "to_date": "2012-05-01",
+      "shirt_number": 33,
+      "confidence": "confirmed",
+      "method": "exact_official_plus_club_history",
+      "sources": [
+        {
+          "label": "Norges Fotballforbund – Brann–Sandnes Ulf 30.03.2012",
+          "url": "https://www.fotball.no/fotballdata/kamp/?fiksId=5450881"
+        },
+        {
+          "label": "Brann Historie – Hannes Halldórsson",
+          "url": "https://historie.brann.no/spillere/hannes-halldorsson"
+        }
+      ],
+      "note": "NFF viser nr. 33; Branns historikkside oppgir spillernummer 33 og at han spilte de to aktuelle Brann-kampene."
+    },
+    {
+      "player_name": "Lars Grorud",
+      "from_date": "2012-03-25",
+      "to_date": "2012-05-20",
+      "shirt_number": 4,
+      "confidence": "confirmed",
+      "method": "official_match_plus_club_history",
+      "sources": [
+        {
+          "label": "Norges Fotballforbund – Brann–Sandnes Ulf 30.03.2012",
+          "url": "https://www.fotball.no/fotballdata/kamp/?fiksId=5450881"
+        },
+        {
+          "label": "Brann Historie – Lars Grorud",
+          "url": "https://historie.brann.no/spillere/lars-grorud"
+        }
+      ],
+      "note": "NFF og Branns historikkside støtter nr. 4."
+    },
+    {
+      "player_name": "Rodolph Austin",
+      "from_date": "2012-03-25",
+      "to_date": "2012-07-22",
+      "shirt_number": 5,
+      "confidence": "confirmed",
+      "method": "official_match_plus_club_history",
+      "sources": [
+        {
+          "label": "Norges Fotballforbund – Brann–Sandnes Ulf 30.03.2012",
+          "url": "https://www.fotball.no/fotballdata/kamp/?fiksId=5450881"
+        },
+        {
+          "label": "Brann Historie – Rodolph Austin",
+          "url": "https://historie.brann.no/spillere/rodolph-austin"
+        }
+      ],
+      "note": "NFF og Branns historikkside støtter nr. 5."
+    },
+    {
+      "player_name": "Fredrik Nordkvelle",
+      "from_date": "2013-05-05",
+      "to_date": "2013-07-08",
+      "shirt_number": 14,
+      "confidence": "confirmed",
+      "method": "exact_official_match_record",
+      "sources": [
+        {
+          "label": "Norges Fotballforbund – Sogndal–Brann 05.05.2013",
+          "url": "https://www.fotball.no/fotballdata/kamp/?fiksId=5669693"
+        }
+      ],
+      "note": "NFF viser Fredrik Nordkvelle med nr. 14 på en av de berørte datoene."
+    },
+    {
+      "player_name": "Vasili Pavlov",
+      "from_date": "2013-04-17",
+      "to_date": "2013-04-17",
+      "shirt_number": 11,
+      "confidence": "confirmed",
+      "method": "exact_official_match_record",
+      "sources": [
+        {
+          "label": "Norges Fotballforbund – Hovding–Brann 17.04.2013",
+          "url": "https://www.fotball.no/fotballdata/kamp/?fiksId=5820971"
+        }
+      ],
+      "note": "Eksakt berørt kamp; NFF viser Vasiliy/Vasili Pavlov med nr. 11."
+    },
+    {
+      "player_name": "Kristoffer Larsen",
+      "from_date": "2014-03-30",
+      "to_date": "2014-06-04",
+      "shirt_number": 19,
+      "confidence": "confirmed",
+      "method": "exact_official_match_record",
+      "sources": [
+        {
+          "label": "Norges Fotballforbund – Varegg–Brann 24.04.2014",
+          "url": "https://www.fotball.no/fotballdata/kamp/?fiksId=6055343"
+        }
+      ],
+      "note": "NFF viser Kristoffer Larsen med nr. 19 på en av de berørte datoene."
+    },
+    {
+      "player_name": "Emil Hansson",
+      "from_date": "2015-05-06",
+      "to_date": "2015-05-06",
+      "shirt_number": 16,
+      "confidence": "confirmed",
+      "method": "exact_official_match_record",
+      "sources": [
+        {
+          "label": "Norges Fotballforbund – Vard Haugesund–Brann 06.05.2015",
+          "url": "https://www.fotball.no/fotballdata/kamp/?fiksId=6340328"
+        }
+      ],
+      "note": "Eksakt berørt kamp; NFF viser Emil Hansson med nr. 16."
+    },
+    {
+      "player_name": "Halldor Stenevik",
+      "from_date": "2017-04-26",
+      "to_date": "2017-04-26",
+      "shirt_number": 20,
+      "confidence": "confirmed",
+      "method": "official_club_number_announcement",
+      "sources": [
+        {
+          "label": "SK Brann – draktnumre 2017",
+          "url": "https://www.brann.no/nyheter/vito-valgte-nummer-3"
+        },
+        {
+          "label": "Brann Historie – Halldor Stenevik",
+          "url": "https://historie.brann.no/spillere/halldor-stenevik"
+        }
+      ],
+      "note": "Brann annonserte at Stenevik valgte nr. 20 for 2017."
+    },
+    {
+      "player_name": "Steffen Lie Skålevik",
+      "from_date": "2017-04-26",
+      "to_date": "2017-08-09",
+      "shirt_number": 11,
+      "confidence": "confirmed",
+      "method": "official_match_plus_club_history",
+      "sources": [
+        {
+          "label": "Norges Fotballforbund – Nest-Sotra–Brann 31.05.2017",
+          "url": "https://www.fotball.no/fotballdata/kamp/?fiksId=6845526"
+        },
+        {
+          "label": "SK Brann – Mjøndalen–Brann 09.08.2017",
+          "url": "https://www.brann.no/nyheter/disse-kjemper-for-kvartfinaleplass"
+        },
+        {
+          "label": "Brann Historie – Steffen Lie Skålevik",
+          "url": "https://historie.brann.no/spillere/steffen-lie-skalevik"
+        }
+      ],
+      "note": "Offisielle kilder viser nr. 11 gjennom den berørte perioden."
+    },
+    {
+      "player_name": "Kristoffer Løkberg",
+      "from_date": "2019-07-21",
+      "to_date": "2019-07-21",
+      "shirt_number": 23,
+      "confidence": "confirmed",
+      "method": "exact_official_match_plus_club_announcement",
+      "sources": [
+        {
+          "label": "Norges Fotballforbund – Brann–Stabæk 21.07.2019",
+          "url": "https://www.fotball.no/fotballdata/kamp/?fiksId=7158768"
+        },
+        {
+          "label": "SK Brann – draktnumre for nykommerne 2019",
+          "url": "https://www.brann.no/nyheter/se-hvilke-draktnumre-nykommerne-far"
+        }
+      ],
+      "note": "Eksakt kamp og Branns nummerannonsering viser nr. 23."
+    }
+  ],
+  "unresolved": [
+    {
+      "player_name": "Andreas Vindheim",
+      "date": "2012-05-01",
+      "reason": "Fant ikke en tilstrekkelig sikker kilde for draktnummeret i A-lagsdebuten mot Bjarg. NFFs kampside dokumenterer kampen, men ikke fullstendig draktnummer for ham. Han brukte nr. 2 for Brann 2 ni dager tidligere, men Birkir Sævarsson (førstelagets nr. 2) var også i A-lagstroppen mot Bjarg, så nr. 2 kan ikke overføres sikkert.",
+      "sources": [
+        {
+          "label": "Norges Fotballforbund – Bjarg–Brann 01.05.2012",
+          "url": "https://www.fotball.no/fotballdata/kamp/?fiksId=5633323"
+        },
+        {
+          "label": "SK Brann Historie – Andreas Vindheim",
+          "url": "https://historie.brann.no/spillere/andreas-vindheim"
+        }
+      ]
+    }
+  ]
+}

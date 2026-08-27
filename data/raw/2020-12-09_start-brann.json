@@ -1,0 +1,4835 @@
+{
+  "componentChunkName": "component---src-templates-match-jsx",
+  "path": "/2020/12/09/start-brann/",
+  "result": {
+    "data": {
+      "site": {
+        "pathPrefix": "",
+        "siteMetadata": {
+          "title": "Branntall",
+          "siteUrl": "https://branntall.no",
+          "description": null
+        }
+      },
+      "team": {
+        "_id": "05bb57f9-3430-5a18-b77c-96b578525b9c",
+        "_type": "team",
+        "_createdAt": "2022-01-03T14:47:26Z",
+        "_updatedAt": "2022-11-01T18:04:15Z",
+        "id": "-cd556b93-2007-5146-847b-5242f19656a0",
+        "name": "Brann",
+        "abbr": "SKB",
+        "fullName": "SK Brann",
+        "countryCode": null,
+        "slug": {
+          "current": "brann"
+        },
+        "history": null
+      },
+      "model": {
+        "_id": "616ebf9a-ce53-459c-a4e3-92d551b6d6fc",
+        "_type": "match",
+        "_createdAt": "2022-01-03T19:36:29Z",
+        "_updatedAt": "2025-10-10T14:43:36Z",
+        "id": "-88c50319-876f-5d53-bc8c-712b48cfa10f",
+        "date": "2020-12-09",
+        "time": "20:00",
+        "status": null,
+        "season": {
+          "_id": "a2823f29-3201-4828-82da-99b9e29ec205",
+          "_type": "season",
+          "slug": {
+            "current": "2020"
+          },
+          "id": "-4813e3a4-5b62-51ee-876d-88472de50cfe",
+          "name": "2020",
+          "startedAt": null,
+          "endedAt": null
+        },
+        "competition": {
+          "_type": "competition",
+          "_id": "bbad8232-716a-4b19-9ecd-06fdffa22469",
+          "id": "-81d466b5-ef05-569b-b89f-fa6ee6d155a9",
+          "sort": 1.1,
+          "name": "Eliteserien",
+          "abbr": "ES",
+          "level": 1,
+          "official": true,
+          "countAs": "serie",
+          "slug": {
+            "current": "serie/es"
+          },
+          "history": [],
+          "isPartOf": {
+            "_type": "competition",
+            "_id": "de3cd224-252f-4ccb-999d-24e8e768db7f",
+            "sort": 1,
+            "name": "Serien",
+            "abbr": "LG",
+            "official": true,
+            "countAs": "serie",
+            "slug": {
+              "current": "serie"
+            },
+            "history": [],
+            "isPartOf": null
+          }
+        },
+        "round": {
+          "_id": "b80bb2af-eab3-4533-b4e9-82962eff968d",
+          "name": "29. runde",
+          "abbr": "29",
+          "sort": 29,
+          "slug": {
+            "current": "r29"
+          }
+        },
+        "leg": null,
+        "ground": {
+          "_id": "88d43c53-1a6d-59c1-92da-de9b5b584363",
+          "_type": "ground",
+          "id": "-88e86570-31a0-53ce-aa7e-4cec969965eb",
+          "name": "Sparebanken Sør Arena",
+          "abbr": null,
+          "fullName": null,
+          "countryCode": null,
+          "location": null,
+          "slug": null,
+          "history": null
+        },
+        "homeTeam": {
+          "_id": "4f02795e-4ca3-529a-a8f4-009543f78568",
+          "_type": "team",
+          "_createdAt": "2022-01-03T19:35:40Z",
+          "_updatedAt": "2022-11-03T13:06:06Z",
+          "id": "-65f249ea-1410-5d30-bec8-551fd580557b",
+          "name": "Start",
+          "abbr": null,
+          "fullName": null,
+          "countryCode": null,
+          "slug": {
+            "current": "start"
+          },
+          "history": null
+        },
+        "awayTeam": {
+          "_id": "05bb57f9-3430-5a18-b77c-96b578525b9c",
+          "_type": "team",
+          "_createdAt": "2022-01-03T14:47:26Z",
+          "_updatedAt": "2022-11-01T18:04:15Z",
+          "id": "-cd556b93-2007-5146-847b-5242f19656a0",
+          "name": "Brann",
+          "abbr": "SKB",
+          "fullName": "SK Brann",
+          "countryCode": null,
+          "slug": {
+            "current": "brann"
+          },
+          "history": null
+        },
+        "score": "1-1",
+        "aggregateScore": null,
+        "shootoutScore": null,
+        "attendance": 600,
+        "homeSquad": [
+          {
+            "shirt": 1,
+            "role": {
+              "_id": "56954d00-afe3-5c75-84bb-b8b8812bb228",
+              "sort": 1,
+              "starting": true,
+              "abbr": "gk"
+            },
+            "player": {
+              "_id": "9071cda8-b39b-5776-90fc-41a3ea856a84",
+              "_type": "person",
+              "slug": null,
+              "name": "Jonas Deumeland",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1988-02-09",
+              "birthplace": null,
+              "countryCode": "DE"
+            }
+          },
+          {
+            "shirt": 27,
+            "role": {
+              "_id": "15f38d37-83f6-5db6-9d72-873946699605",
+              "sort": 2,
+              "starting": true,
+              "abbr": "def"
+            },
+            "player": {
+              "_id": "4a936157-59d9-58ba-9034-67b4589c6ac8",
+              "_type": "person",
+              "slug": null,
+              "name": "Eirik Wichne",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1997-05-12",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 6,
+            "role": {
+              "_id": "15f38d37-83f6-5db6-9d72-873946699605",
+              "sort": 2,
+              "starting": true,
+              "abbr": "def"
+            },
+            "player": {
+              "_id": "64d3c17a-af26-503c-88a7-01b307a2fba6",
+              "_type": "person",
+              "slug": null,
+              "name": "Joackim Jørgensen",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1988-09-20",
+              "birthplace": "Fredrikstad",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 2,
+            "role": {
+              "_id": "15f38d37-83f6-5db6-9d72-873946699605",
+              "sort": 2,
+              "starting": true,
+              "abbr": "def"
+            },
+            "player": {
+              "_id": "32dc5220-ca2f-5786-a5bf-95055352e80a",
+              "_type": "person",
+              "slug": null,
+              "name": "Jesper Daland",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "2000-01-06",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 22,
+            "role": {
+              "_id": "15f38d37-83f6-5db6-9d72-873946699605",
+              "sort": 2,
+              "starting": true,
+              "abbr": "def"
+            },
+            "player": {
+              "_id": "7ff8caac-674b-5866-89e4-8665a12518e0",
+              "_type": "person",
+              "slug": null,
+              "name": "Kristoffer Tønnessen",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1997-10-01",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 23,
+            "role": {
+              "_id": "37eca793-f61d-5675-8421-6dfdeae6b07a",
+              "sort": 3,
+              "starting": true,
+              "abbr": "mid"
+            },
+            "player": {
+              "_id": "c56c6d2f-5e22-5cc3-a1af-82aa58df1e3f",
+              "_type": "person",
+              "slug": null,
+              "name": "Erlend Segberg",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1997-04-12",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 4,
+            "role": {
+              "_id": "37eca793-f61d-5675-8421-6dfdeae6b07a",
+              "sort": 3,
+              "starting": true,
+              "abbr": "mid"
+            },
+            "player": {
+              "_id": "5064a200-d011-51bb-845d-ea982ec61afe",
+              "_type": "person",
+              "slug": null,
+              "name": "Mohamed el Makrini",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1987-07-06",
+              "birthplace": null,
+              "countryCode": "NL"
+            }
+          },
+          {
+            "shirt": 11,
+            "role": {
+              "_id": "37eca793-f61d-5675-8421-6dfdeae6b07a",
+              "sort": 3,
+              "starting": true,
+              "abbr": "mid"
+            },
+            "player": {
+              "_id": "9debda8a-b216-5a01-8e08-0f20d05ae05f",
+              "_type": "person",
+              "slug": null,
+              "name": "Eirik Schulze",
+              "fullName": "Eirik Wilberg Schulze",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1993-01-07",
+              "birthplace": "Mandal",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 30,
+            "role": {
+              "_id": "5f737a8f-a09d-53f5-8aed-d325a5f0f006",
+              "sort": 4,
+              "starting": true,
+              "abbr": "att"
+            },
+            "player": {
+              "_id": "b49ca415-48c7-5396-ac6a-dd6ed6d247fa",
+              "_type": "person",
+              "slug": null,
+              "name": "Christian Bolaños",
+              "fullName": "Christian Bolaños Navarro",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1984-05-17",
+              "birthplace": "San José",
+              "countryCode": "CR"
+            }
+          },
+          {
+            "shirt": 8,
+            "role": {
+              "_id": "5f737a8f-a09d-53f5-8aed-d325a5f0f006",
+              "sort": 4,
+              "starting": true,
+              "abbr": "att"
+            },
+            "player": {
+              "_id": "273152bc-914c-5038-8615-565ba42a0c48",
+              "_type": "person",
+              "slug": null,
+              "name": "Eman Markovic",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1999-05-08",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 7,
+            "role": {
+              "_id": "5f737a8f-a09d-53f5-8aed-d325a5f0f006",
+              "sort": 4,
+              "starting": true,
+              "abbr": "att"
+            },
+            "player": {
+              "_id": "a1fa5914-fcd3-504f-b3ed-4123d4ddaaec",
+              "_type": "person",
+              "slug": null,
+              "name": "Kevin Kabran",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1993-11-22",
+              "birthplace": null,
+              "countryCode": "SE"
+            }
+          },
+          {
+            "shirt": 12,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "2f8bf5e8-6de0-5f50-96e0-c0d4ec17487a",
+              "_type": "person",
+              "slug": null,
+              "name": "Amund Wichne",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1997-05-12",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 3,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "afd8bdb9-e85c-52e7-822c-23f1ead3f86b",
+              "_type": "person",
+              "slug": null,
+              "name": "Vegard Bergan",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1995-02-20",
+              "birthplace": "Porsgrunn",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 9,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "75732123-7347-548f-8639-54eab2336b76",
+              "_type": "person",
+              "slug": null,
+              "name": "Martin Ramsland",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1993-04-02",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 10,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "faead38a-391f-5347-ad2a-ae314ac794cd",
+              "_type": "person",
+              "slug": {
+                "current": "steffen-lie-skalevik"
+              },
+              "name": "Steffen Lie Skålevik",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1993-01-31",
+              "birthplace": "Sotra",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 15,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "11c3c552-29aa-5892-9ebf-c7f17d4ea378",
+              "_type": "person",
+              "slug": null,
+              "name": "Henrik Robstad",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1991-05-12",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 19,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "1cf263ac-8f81-5d15-9c6e-0b8106c8c6b7",
+              "_type": "person",
+              "slug": {
+                "current": "kasper-skaanes"
+              },
+              "name": "Kasper Skaanes",
+              "fullName": "Kasper Holmboe Skaanes",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1995-03-19",
+              "birthplace": "Bergen",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 20,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "5e724a35-436d-503a-b46e-575b2a154602",
+              "_type": "person",
+              "slug": null,
+              "name": "Mathias Bringaker",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1997-01-30",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          }
+        ],
+        "awaySquad": [
+          {
+            "shirt": 1,
+            "role": {
+              "_id": "56954d00-afe3-5c75-84bb-b8b8812bb228",
+              "sort": 1,
+              "starting": true,
+              "abbr": "gk"
+            },
+            "player": {
+              "_id": "83130615-4862-572c-9b4d-6f4b60ffc4aa",
+              "_type": "person",
+              "slug": {
+                "current": "håkon-opdal"
+              },
+              "name": "Håkon Opdal",
+              "fullName": "Håkon Eikemo Opdal",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1982-06-11",
+              "birthplace": "Odda",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 18,
+            "role": {
+              "_id": "15f38d37-83f6-5db6-9d72-873946699605",
+              "sort": 2,
+              "starting": true,
+              "abbr": "def"
+            },
+            "player": {
+              "_id": "dc23a5bc-d80c-5f2a-a944-5c220d4a3e79",
+              "_type": "person",
+              "slug": {
+                "current": "ole-didrik-blomberg"
+              },
+              "name": "Ole Didrik Blomberg",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "2000-06-12",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 4,
+            "role": {
+              "_id": "15f38d37-83f6-5db6-9d72-873946699605",
+              "sort": 2,
+              "starting": true,
+              "abbr": "def"
+            },
+            "player": {
+              "_id": "1bb8272a-d11b-54f1-97d7-a57a4162833f",
+              "_type": "person",
+              "slug": {
+                "current": "jon-gudni-fjoluson"
+              },
+              "name": "Jón Gudni Fjóluson",
+              "fullName": "Jón Guðni Fjóluson",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1989-04-10",
+              "birthplace": null,
+              "countryCode": "IS"
+            }
+          },
+          {
+            "shirt": 3,
+            "role": {
+              "_id": "15f38d37-83f6-5db6-9d72-873946699605",
+              "sort": 2,
+              "starting": true,
+              "abbr": "def"
+            },
+            "player": {
+              "_id": "addf90d1-dc19-50ce-845a-1a78ca832794",
+              "_type": "person",
+              "slug": {
+                "current": "vegard-forren"
+              },
+              "name": "Vegard Forren",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1988-02-16",
+              "birthplace": "Orkdal",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 5,
+            "role": {
+              "_id": "15f38d37-83f6-5db6-9d72-873946699605",
+              "sort": 2,
+              "starting": true,
+              "abbr": "def"
+            },
+            "player": {
+              "_id": "f580d109-7aba-5c59-a7bc-17007e0b84a8",
+              "_type": "person",
+              "slug": {
+                "current": "thomas-grogaard"
+              },
+              "name": "Thomas Grøgaard",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1994-02-08",
+              "birthplace": "Arendal",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 9,
+            "role": {
+              "_id": "06726cba-a691-4a0e-bc46-abaa2096cd36",
+              "sort": 2.5,
+              "starting": true,
+              "abbr": "d-m"
+            },
+            "player": {
+              "_id": "15268c43-a5f8-5089-9db1-f97122bebfc7",
+              "_type": "person",
+              "slug": {
+                "current": "petter-strand"
+              },
+              "name": "Petter Strand",
+              "fullName": "Petter Dahle Strand",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1994-08-24",
+              "birthplace": "Morvik",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 29,
+            "role": {
+              "_id": "06726cba-a691-4a0e-bc46-abaa2096cd36",
+              "sort": 2.5,
+              "starting": true,
+              "abbr": "d-m"
+            },
+            "player": {
+              "_id": "2f4e78d7-75c5-55e0-8bf7-9b198da8adbb",
+              "_type": "person",
+              "slug": {
+                "current": "kristoffer-barmen"
+              },
+              "name": "Kristoffer Barmen",
+              "fullName": "Kristoffer Ramos Barmen",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1993-08-19",
+              "birthplace": "Bergen",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 17,
+            "role": {
+              "_id": "37eca793-f61d-5675-8421-6dfdeae6b07a",
+              "sort": 3,
+              "starting": true,
+              "abbr": "mid"
+            },
+            "player": {
+              "_id": "f6f6e245-4c20-50ca-9435-85e04f587357",
+              "_type": "person",
+              "slug": {
+                "current": "gilli-rolantsson"
+              },
+              "name": "Gilli Rólantsson",
+              "fullName": "Gilli Rólantsson Sørensen",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1992-08-11",
+              "birthplace": "Tvøroyri",
+              "countryCode": "FO"
+            }
+          },
+          {
+            "shirt": 16,
+            "role": {
+              "_id": "37eca793-f61d-5675-8421-6dfdeae6b07a",
+              "sort": 3,
+              "starting": true,
+              "abbr": "mid"
+            },
+            "player": {
+              "_id": "ee49cac5-b728-5341-b440-84aa6acf9e1b",
+              "_type": "person",
+              "slug": {
+                "current": "robert-taylor"
+              },
+              "name": "Robert Taylor",
+              "fullName": "Robert Thomas Taylor",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1994-10-21",
+              "birthplace": "Kuopio",
+              "countryCode": "FI"
+            }
+          },
+          {
+            "shirt": 7,
+            "role": {
+              "_id": "37eca793-f61d-5675-8421-6dfdeae6b07a",
+              "sort": 3,
+              "starting": true,
+              "abbr": "mid"
+            },
+            "player": {
+              "_id": "25f2696a-a654-5ab7-b26d-3fcc62b9c88d",
+              "_type": "person",
+              "slug": {
+                "current": "mathias-rasmussen"
+              },
+              "name": "Mathias Rasmussen",
+              "fullName": "Mathias Knutsen Rasmussen",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1997-11-25",
+              "birthplace": "Lyngdal",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 11,
+            "role": {
+              "_id": "5f737a8f-a09d-53f5-8aed-d325a5f0f006",
+              "sort": 4,
+              "starting": true,
+              "abbr": "att"
+            },
+            "player": {
+              "_id": "b078cd75-f836-5f7e-819a-493af08bc12f",
+              "_type": "person",
+              "slug": {
+                "current": "daouda-bamba"
+              },
+              "name": "Daouda Bamba",
+              "fullName": "Daouda Karamoko Bamba",
+              "lastName": "Bamba",
+              "firstName": "Daouda",
+              "initials": "DB",
+              "birthdate": "1995-03-05",
+              "birthplace": "Dabou",
+              "countryCode": "CI"
+            }
+          },
+          {
+            "shirt": 30,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "d2557711-1629-5007-81d6-43e6a4f9b477",
+              "_type": "person",
+              "slug": {
+                "current": "ali-ahamada"
+              },
+              "name": "Ali Ahamada",
+              "fullName": "Ali Nadhoim Ahamada",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1990-06-14",
+              "birthplace": "Martigues, Frankrike",
+              "countryCode": "KM"
+            }
+          },
+          {
+            "shirt": 8,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "550adf62-a6ec-52e1-ae2d-f76c37d768f2",
+              "_type": "person",
+              "slug": {
+                "current": "fredrik-haugen"
+              },
+              "name": "Fredrik Haugen",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1992-06-13",
+              "birthplace": "Bergen",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 14,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "fed0f057-fa2f-525c-9e60-074e1d3c4013",
+              "_type": "person",
+              "slug": {
+                "current": "erlend-hustad"
+              },
+              "name": "Erlend Hustad",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1997-01-03",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 19,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "88a19aa0-8801-5bbb-ac45-7aaa0e85aec5",
+              "_type": "person",
+              "slug": {
+                "current": "jon-helge-tveita"
+              },
+              "name": "Jon-Helge Tveita",
+              "fullName": "Jon-Helge Ødegård Tveita",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1992-01-27",
+              "birthplace": "Stavanger",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 20,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "f35703ff-fcef-50cd-be11-e1eee04d392a",
+              "_type": "person",
+              "slug": {
+                "current": "marcus-mehnert"
+              },
+              "name": "Marcus Mehnert",
+              "fullName": "Marcus Johnson Mehnert",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1997-10-28",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 21,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "22318baf-0826-5332-b876-46fbba0ca4dc",
+              "_type": "person",
+              "slug": {
+                "current": "ruben-kristiansen"
+              },
+              "name": "Ruben Kristiansen",
+              "fullName": "Ruben Kristiansen",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1988-02-20",
+              "birthplace": "Bodø",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 25,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "a69c041e-2980-5e6a-9f3e-c67bc521659b",
+              "_type": "person",
+              "slug": {
+                "current": "ole-martin-kolskogen"
+              },
+              "name": "Ole Martin Kolskogen",
+              "fullName": "Ole Martin Lekven Kolskogen",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "2001-01-20",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 27,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "810d46c8-2555-5aed-b973-3f034a1dc161",
+              "_type": "person",
+              "slug": {
+                "current": "sander-svendsen"
+              },
+              "name": "Sander Svendsen",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1997-08-06",
+              "birthplace": "Molde",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 41,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "b91c662b-94e1-5d09-a240-d9607d9c263a",
+              "_type": "person",
+              "slug": {
+                "current": "mikal-berg-kvinge"
+              },
+              "name": "Mikal Berg Kvinge",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "2003-06-24",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          }
+        ],
+        "events": [
+          {
+            "time": 42,
+            "type": {
+              "name": "Bytte",
+              "countAs": "subApp"
+            },
+            "team": {
+              "_id": "4f02795e-4ca3-529a-a8f4-009543f78568"
+            },
+            "player": null,
+            "scoredBy": null,
+            "assistedBy": null,
+            "subOn": {
+              "_id": "faead38a-391f-5347-ad2a-ae314ac794cd",
+              "_type": "person",
+              "slug": {
+                "current": "steffen-lie-skalevik"
+              },
+              "name": "Steffen Lie Skålevik",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1993-01-31",
+              "birthplace": "Sotra",
+              "countryCode": "NO"
+            },
+            "subOff": {
+              "_id": "5064a200-d011-51bb-845d-ea982ec61afe",
+              "_type": "person",
+              "slug": null,
+              "name": "Mohamed el Makrini",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1987-07-06",
+              "birthplace": null,
+              "countryCode": "NL"
+            }
+          },
+          {
+            "time": 46,
+            "type": {
+              "name": "Bytte",
+              "countAs": "subApp"
+            },
+            "team": {
+              "_id": "05bb57f9-3430-5a18-b77c-96b578525b9c"
+            },
+            "player": null,
+            "scoredBy": null,
+            "assistedBy": null,
+            "subOn": {
+              "_id": "88a19aa0-8801-5bbb-ac45-7aaa0e85aec5",
+              "_type": "person",
+              "slug": {
+                "current": "jon-helge-tveita"
+              },
+              "name": "Jon-Helge Tveita",
+              "fullName": "Jon-Helge Ødegård Tveita",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1992-01-27",
+              "birthplace": "Stavanger",
+              "countryCode": "NO"
+            },
+            "subOff": {
+              "_id": "25f2696a-a654-5ab7-b26d-3fcc62b9c88d",
+              "_type": "person",
+              "slug": {
+                "current": "mathias-rasmussen"
+              },
+              "name": "Mathias Rasmussen",
+              "fullName": "Mathias Knutsen Rasmussen",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1997-11-25",
+              "birthplace": "Lyngdal",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "time": 46,
+            "type": {
+              "name": "Bytte",
+              "countAs": "subApp"
+            },
+            "team": {
+              "_id": "05bb57f9-3430-5a18-b77c-96b578525b9c"
+            },
+            "player": null,
+            "scoredBy": null,
+            "assistedBy": null,
+            "subOn": {
+              "_id": "22318baf-0826-5332-b876-46fbba0ca4dc",
+              "_type": "person",
+              "slug": {
+                "current": "ruben-kristiansen"
+              },
+              "name": "Ruben Kristiansen",
+              "fullName": "Ruben Kristiansen",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1988-02-20",
+              "birthplace": "Bodø",
+              "countryCode": "NO"
+            },
+            "subOff": {
+              "_id": "f580d109-7aba-5c59-a7bc-17007e0b84a8",
+              "_type": "person",
+              "slug": {
+                "current": "thomas-grogaard"
+              },
+              "name": "Thomas Grøgaard",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1994-02-08",
+              "birthplace": "Arendal",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "time": 60,
+            "type": {
+              "name": "Mål",
+              "countAs": "goal"
+            },
+            "team": {
+              "_id": "05bb57f9-3430-5a18-b77c-96b578525b9c"
+            },
+            "player": null,
+            "scoredBy": {
+              "_id": "15268c43-a5f8-5089-9db1-f97122bebfc7",
+              "_type": "person",
+              "slug": {
+                "current": "petter-strand"
+              },
+              "name": "Petter Strand",
+              "fullName": "Petter Dahle Strand",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1994-08-24",
+              "birthplace": "Morvik",
+              "countryCode": "NO"
+            },
+            "assistedBy": null,
+            "subOn": null,
+            "subOff": null
+          },
+          {
+            "time": 65,
+            "type": {
+              "name": "Gult kort",
+              "countAs": "yc"
+            },
+            "team": {
+              "_id": "4f02795e-4ca3-529a-a8f4-009543f78568"
+            },
+            "player": {
+              "_id": "273152bc-914c-5038-8615-565ba42a0c48",
+              "_type": "person",
+              "slug": null,
+              "name": "Eman Markovic",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1999-05-08",
+              "birthplace": null,
+              "countryCode": "NO"
+            },
+            "scoredBy": null,
+            "assistedBy": null,
+            "subOn": null,
+            "subOff": null
+          },
+          {
+            "time": 69,
+            "type": {
+              "name": "Mål",
+              "countAs": "goal"
+            },
+            "team": {
+              "_id": "4f02795e-4ca3-529a-a8f4-009543f78568"
+            },
+            "player": null,
+            "scoredBy": {
+              "_id": "9debda8a-b216-5a01-8e08-0f20d05ae05f",
+              "_type": "person",
+              "slug": null,
+              "name": "Eirik Schulze",
+              "fullName": "Eirik Wilberg Schulze",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1993-01-07",
+              "birthplace": "Mandal",
+              "countryCode": "NO"
+            },
+            "assistedBy": {
+              "_id": "a1fa5914-fcd3-504f-b3ed-4123d4ddaaec",
+              "_type": "person",
+              "slug": null,
+              "name": "Kevin Kabran",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1993-11-22",
+              "birthplace": null,
+              "countryCode": "SE"
+            },
+            "subOn": null,
+            "subOff": null
+          },
+          {
+            "time": 84,
+            "type": {
+              "name": "Bytte",
+              "countAs": "subApp"
+            },
+            "team": {
+              "_id": "4f02795e-4ca3-529a-a8f4-009543f78568"
+            },
+            "player": null,
+            "scoredBy": null,
+            "assistedBy": null,
+            "subOn": {
+              "_id": "75732123-7347-548f-8639-54eab2336b76",
+              "_type": "person",
+              "slug": null,
+              "name": "Martin Ramsland",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1993-04-02",
+              "birthplace": null,
+              "countryCode": "NO"
+            },
+            "subOff": {
+              "_id": "b49ca415-48c7-5396-ac6a-dd6ed6d247fa",
+              "_type": "person",
+              "slug": null,
+              "name": "Christian Bolaños",
+              "fullName": "Christian Bolaños Navarro",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1984-05-17",
+              "birthplace": "San José",
+              "countryCode": "CR"
+            }
+          },
+          {
+            "time": 84,
+            "type": {
+              "name": "Gult kort",
+              "countAs": "yc"
+            },
+            "team": {
+              "_id": "4f02795e-4ca3-529a-a8f4-009543f78568"
+            },
+            "player": {
+              "_id": "c56c6d2f-5e22-5cc3-a1af-82aa58df1e3f",
+              "_type": "person",
+              "slug": null,
+              "name": "Erlend Segberg",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1997-04-12",
+              "birthplace": null,
+              "countryCode": "NO"
+            },
+            "scoredBy": null,
+            "assistedBy": null,
+            "subOn": null,
+            "subOff": null
+          },
+          {
+            "time": 85,
+            "type": {
+              "name": "Straffemiss",
+              "countAs": "penaltyMiss"
+            },
+            "team": {
+              "_id": "05bb57f9-3430-5a18-b77c-96b578525b9c"
+            },
+            "player": {
+              "_id": "b078cd75-f836-5f7e-819a-493af08bc12f",
+              "_type": "person",
+              "slug": {
+                "current": "daouda-bamba"
+              },
+              "name": "Daouda Bamba",
+              "fullName": "Daouda Karamoko Bamba",
+              "lastName": "Bamba",
+              "firstName": "Daouda",
+              "initials": "DB",
+              "birthdate": "1995-03-05",
+              "birthplace": "Dabou",
+              "countryCode": "CI"
+            },
+            "scoredBy": null,
+            "assistedBy": null,
+            "subOn": null,
+            "subOff": null
+          },
+          {
+            "time": 90,
+            "type": {
+              "name": "Bytte",
+              "countAs": "subApp"
+            },
+            "team": {
+              "_id": "4f02795e-4ca3-529a-a8f4-009543f78568"
+            },
+            "player": null,
+            "scoredBy": null,
+            "assistedBy": null,
+            "subOn": {
+              "_id": "11c3c552-29aa-5892-9ebf-c7f17d4ea378",
+              "_type": "person",
+              "slug": null,
+              "name": "Henrik Robstad",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1991-05-12",
+              "birthplace": null,
+              "countryCode": "NO"
+            },
+            "subOff": {
+              "_id": "273152bc-914c-5038-8615-565ba42a0c48",
+              "_type": "person",
+              "slug": null,
+              "name": "Eman Markovic",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1999-05-08",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          },
+          {
+            "time": 90,
+            "type": {
+              "name": "Bytte",
+              "countAs": "subApp"
+            },
+            "team": {
+              "_id": "05bb57f9-3430-5a18-b77c-96b578525b9c"
+            },
+            "player": null,
+            "scoredBy": null,
+            "assistedBy": null,
+            "subOn": {
+              "_id": "810d46c8-2555-5aed-b973-3f034a1dc161",
+              "_type": "person",
+              "slug": {
+                "current": "sander-svendsen"
+              },
+              "name": "Sander Svendsen",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1997-08-06",
+              "birthplace": "Molde",
+              "countryCode": "NO"
+            },
+            "subOff": {
+              "_id": "b078cd75-f836-5f7e-819a-493af08bc12f",
+              "_type": "person",
+              "slug": {
+                "current": "daouda-bamba"
+              },
+              "name": "Daouda Bamba",
+              "fullName": "Daouda Karamoko Bamba",
+              "lastName": "Bamba",
+              "firstName": "Daouda",
+              "initials": "DB",
+              "birthdate": "1995-03-05",
+              "birthplace": "Dabou",
+              "countryCode": "CI"
+            }
+          }
+        ]
+      },
+      "prev": {
+        "_id": "38a92065-0da6-4f4c-adc7-fcdc69d71560",
+        "_type": "match",
+        "_createdAt": "2022-01-03T19:37:14Z",
+        "_updatedAt": "2025-10-10T14:43:36Z",
+        "id": "-eeb92734-88f1-585c-9cea-cf856e448f76",
+        "date": "2020-12-06",
+        "time": "17:00",
+        "status": null,
+        "season": {
+          "_id": "a2823f29-3201-4828-82da-99b9e29ec205",
+          "_type": "season",
+          "slug": {
+            "current": "2020"
+          },
+          "id": "-4813e3a4-5b62-51ee-876d-88472de50cfe",
+          "name": "2020",
+          "startedAt": null,
+          "endedAt": null
+        },
+        "competition": {
+          "_type": "competition",
+          "_id": "bbad8232-716a-4b19-9ecd-06fdffa22469",
+          "id": "-81d466b5-ef05-569b-b89f-fa6ee6d155a9",
+          "sort": 1.1,
+          "name": "Eliteserien",
+          "abbr": "ES",
+          "level": 1,
+          "official": true,
+          "countAs": "serie",
+          "slug": {
+            "current": "serie/es"
+          },
+          "history": [],
+          "isPartOf": {
+            "_type": "competition",
+            "_id": "de3cd224-252f-4ccb-999d-24e8e768db7f",
+            "sort": 1,
+            "name": "Serien",
+            "abbr": "LG",
+            "official": true,
+            "countAs": "serie",
+            "slug": {
+              "current": "serie"
+            },
+            "history": [],
+            "isPartOf": null
+          }
+        },
+        "round": {
+          "_id": "1c371d01-5c52-47a8-9d77-7f09d1d75373",
+          "name": "28. runde",
+          "abbr": "28",
+          "sort": 28,
+          "slug": {
+            "current": "r28"
+          }
+        },
+        "leg": null,
+        "ground": {
+          "_id": "07a92154-39c4-5239-a5e1-95b5da5f5a28",
+          "_type": "ground",
+          "id": "-912bbd46-7232-5c71-8667-7694d6ad515d",
+          "name": "Brann Stadion",
+          "abbr": null,
+          "fullName": null,
+          "countryCode": "NO",
+          "location": {
+            "lat": 60.36711440000001,
+            "lng": 5.3589889
+          },
+          "slug": {
+            "current": "brann-stadion"
+          },
+          "history": null
+        },
+        "homeTeam": {
+          "_id": "05bb57f9-3430-5a18-b77c-96b578525b9c",
+          "_type": "team",
+          "_createdAt": "2022-01-03T14:47:26Z",
+          "_updatedAt": "2022-11-01T18:04:15Z",
+          "id": "-cd556b93-2007-5146-847b-5242f19656a0",
+          "name": "Brann",
+          "abbr": "SKB",
+          "fullName": "SK Brann",
+          "countryCode": null,
+          "slug": {
+            "current": "brann"
+          },
+          "history": null
+        },
+        "awayTeam": {
+          "_id": "de38de47-a156-5252-b1b2-4597ae94df97",
+          "_type": "team",
+          "_createdAt": "2022-01-03T18:47:34Z",
+          "_updatedAt": "2022-03-06T20:04:15Z",
+          "id": "-c693abb3-1773-56fe-bc9f-93b48761a854",
+          "name": "Sarpsborg 08",
+          "abbr": null,
+          "fullName": null,
+          "countryCode": null,
+          "slug": {
+            "current": "sarpsborg"
+          },
+          "history": null
+        },
+        "score": "1-1",
+        "aggregateScore": null,
+        "shootoutScore": null,
+        "attendance": 600,
+        "homeSquad": [
+          {
+            "shirt": 1,
+            "role": {
+              "_id": "56954d00-afe3-5c75-84bb-b8b8812bb228",
+              "sort": 1,
+              "starting": true,
+              "abbr": "gk"
+            },
+            "player": {
+              "_id": "83130615-4862-572c-9b4d-6f4b60ffc4aa",
+              "_type": "person",
+              "slug": {
+                "current": "håkon-opdal"
+              },
+              "name": "Håkon Opdal",
+              "fullName": "Håkon Eikemo Opdal",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1982-06-11",
+              "birthplace": "Odda",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 18,
+            "role": {
+              "_id": "15f38d37-83f6-5db6-9d72-873946699605",
+              "sort": 2,
+              "starting": true,
+              "abbr": "def"
+            },
+            "player": {
+              "_id": "dc23a5bc-d80c-5f2a-a944-5c220d4a3e79",
+              "_type": "person",
+              "slug": {
+                "current": "ole-didrik-blomberg"
+              },
+              "name": "Ole Didrik Blomberg",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "2000-06-12",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 4,
+            "role": {
+              "_id": "15f38d37-83f6-5db6-9d72-873946699605",
+              "sort": 2,
+              "starting": true,
+              "abbr": "def"
+            },
+            "player": {
+              "_id": "1bb8272a-d11b-54f1-97d7-a57a4162833f",
+              "_type": "person",
+              "slug": {
+                "current": "jon-gudni-fjoluson"
+              },
+              "name": "Jón Gudni Fjóluson",
+              "fullName": "Jón Guðni Fjóluson",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1989-04-10",
+              "birthplace": null,
+              "countryCode": "IS"
+            }
+          },
+          {
+            "shirt": 3,
+            "role": {
+              "_id": "15f38d37-83f6-5db6-9d72-873946699605",
+              "sort": 2,
+              "starting": true,
+              "abbr": "def"
+            },
+            "player": {
+              "_id": "addf90d1-dc19-50ce-845a-1a78ca832794",
+              "_type": "person",
+              "slug": {
+                "current": "vegard-forren"
+              },
+              "name": "Vegard Forren",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1988-02-16",
+              "birthplace": "Orkdal",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 5,
+            "role": {
+              "_id": "15f38d37-83f6-5db6-9d72-873946699605",
+              "sort": 2,
+              "starting": true,
+              "abbr": "def"
+            },
+            "player": {
+              "_id": "f580d109-7aba-5c59-a7bc-17007e0b84a8",
+              "_type": "person",
+              "slug": {
+                "current": "thomas-grogaard"
+              },
+              "name": "Thomas Grøgaard",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1994-02-08",
+              "birthplace": "Arendal",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 9,
+            "role": {
+              "_id": "06726cba-a691-4a0e-bc46-abaa2096cd36",
+              "sort": 2.5,
+              "starting": true,
+              "abbr": "d-m"
+            },
+            "player": {
+              "_id": "15268c43-a5f8-5089-9db1-f97122bebfc7",
+              "_type": "person",
+              "slug": {
+                "current": "petter-strand"
+              },
+              "name": "Petter Strand",
+              "fullName": "Petter Dahle Strand",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1994-08-24",
+              "birthplace": "Morvik",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 29,
+            "role": {
+              "_id": "06726cba-a691-4a0e-bc46-abaa2096cd36",
+              "sort": 2.5,
+              "starting": true,
+              "abbr": "d-m"
+            },
+            "player": {
+              "_id": "2f4e78d7-75c5-55e0-8bf7-9b198da8adbb",
+              "_type": "person",
+              "slug": {
+                "current": "kristoffer-barmen"
+              },
+              "name": "Kristoffer Barmen",
+              "fullName": "Kristoffer Ramos Barmen",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1993-08-19",
+              "birthplace": "Bergen",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 27,
+            "role": {
+              "_id": "37eca793-f61d-5675-8421-6dfdeae6b07a",
+              "sort": 3,
+              "starting": true,
+              "abbr": "mid"
+            },
+            "player": {
+              "_id": "810d46c8-2555-5aed-b973-3f034a1dc161",
+              "_type": "person",
+              "slug": {
+                "current": "sander-svendsen"
+              },
+              "name": "Sander Svendsen",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1997-08-06",
+              "birthplace": "Molde",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 16,
+            "role": {
+              "_id": "37eca793-f61d-5675-8421-6dfdeae6b07a",
+              "sort": 3,
+              "starting": true,
+              "abbr": "mid"
+            },
+            "player": {
+              "_id": "ee49cac5-b728-5341-b440-84aa6acf9e1b",
+              "_type": "person",
+              "slug": {
+                "current": "robert-taylor"
+              },
+              "name": "Robert Taylor",
+              "fullName": "Robert Thomas Taylor",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1994-10-21",
+              "birthplace": "Kuopio",
+              "countryCode": "FI"
+            }
+          },
+          {
+            "shirt": 7,
+            "role": {
+              "_id": "37eca793-f61d-5675-8421-6dfdeae6b07a",
+              "sort": 3,
+              "starting": true,
+              "abbr": "mid"
+            },
+            "player": {
+              "_id": "25f2696a-a654-5ab7-b26d-3fcc62b9c88d",
+              "_type": "person",
+              "slug": {
+                "current": "mathias-rasmussen"
+              },
+              "name": "Mathias Rasmussen",
+              "fullName": "Mathias Knutsen Rasmussen",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1997-11-25",
+              "birthplace": "Lyngdal",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 11,
+            "role": {
+              "_id": "5f737a8f-a09d-53f5-8aed-d325a5f0f006",
+              "sort": 4,
+              "starting": true,
+              "abbr": "att"
+            },
+            "player": {
+              "_id": "b078cd75-f836-5f7e-819a-493af08bc12f",
+              "_type": "person",
+              "slug": {
+                "current": "daouda-bamba"
+              },
+              "name": "Daouda Bamba",
+              "fullName": "Daouda Karamoko Bamba",
+              "lastName": "Bamba",
+              "firstName": "Daouda",
+              "initials": "DB",
+              "birthdate": "1995-03-05",
+              "birthplace": "Dabou",
+              "countryCode": "CI"
+            }
+          },
+          {
+            "shirt": 30,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "d2557711-1629-5007-81d6-43e6a4f9b477",
+              "_type": "person",
+              "slug": {
+                "current": "ali-ahamada"
+              },
+              "name": "Ali Ahamada",
+              "fullName": "Ali Nadhoim Ahamada",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1990-06-14",
+              "birthplace": "Martigues, Frankrike",
+              "countryCode": "KM"
+            }
+          },
+          {
+            "shirt": null,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "550adf62-a6ec-52e1-ae2d-f76c37d768f2",
+              "_type": "person",
+              "slug": {
+                "current": "fredrik-haugen"
+              },
+              "name": "Fredrik Haugen",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1992-06-13",
+              "birthplace": "Bergen",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 14,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "fed0f057-fa2f-525c-9e60-074e1d3c4013",
+              "_type": "person",
+              "slug": {
+                "current": "erlend-hustad"
+              },
+              "name": "Erlend Hustad",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1997-01-03",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 17,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "f6f6e245-4c20-50ca-9435-85e04f587357",
+              "_type": "person",
+              "slug": {
+                "current": "gilli-rolantsson"
+              },
+              "name": "Gilli Rólantsson",
+              "fullName": "Gilli Rólantsson Sørensen",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1992-08-11",
+              "birthplace": "Tvøroyri",
+              "countryCode": "FO"
+            }
+          },
+          {
+            "shirt": 19,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "88a19aa0-8801-5bbb-ac45-7aaa0e85aec5",
+              "_type": "person",
+              "slug": {
+                "current": "jon-helge-tveita"
+              },
+              "name": "Jon-Helge Tveita",
+              "fullName": "Jon-Helge Ødegård Tveita",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1992-01-27",
+              "birthplace": "Stavanger",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 20,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "f35703ff-fcef-50cd-be11-e1eee04d392a",
+              "_type": "person",
+              "slug": {
+                "current": "marcus-mehnert"
+              },
+              "name": "Marcus Mehnert",
+              "fullName": "Marcus Johnson Mehnert",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1997-10-28",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 21,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "22318baf-0826-5332-b876-46fbba0ca4dc",
+              "_type": "person",
+              "slug": {
+                "current": "ruben-kristiansen"
+              },
+              "name": "Ruben Kristiansen",
+              "fullName": "Ruben Kristiansen",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1988-02-20",
+              "birthplace": "Bodø",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 25,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "a69c041e-2980-5e6a-9f3e-c67bc521659b",
+              "_type": "person",
+              "slug": {
+                "current": "ole-martin-kolskogen"
+              },
+              "name": "Ole Martin Kolskogen",
+              "fullName": "Ole Martin Lekven Kolskogen",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "2001-01-20",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 41,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "b91c662b-94e1-5d09-a240-d9607d9c263a",
+              "_type": "person",
+              "slug": {
+                "current": "mikal-berg-kvinge"
+              },
+              "name": "Mikal Berg Kvinge",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "2003-06-24",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          }
+        ],
+        "awaySquad": [
+          {
+            "shirt": 33,
+            "role": {
+              "_id": "56954d00-afe3-5c75-84bb-b8b8812bb228",
+              "sort": 1,
+              "starting": true,
+              "abbr": "gk"
+            },
+            "player": {
+              "_id": "0d7cadb1-9394-51bd-a7eb-2096e69cf291",
+              "_type": "person",
+              "slug": null,
+              "name": "David Mitov Nilsson",
+              "fullName": "David Erik Johan Mitov Nilsson",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1991-01-12",
+              "birthplace": "Norrköping, Sverige",
+              "countryCode": "MK"
+            }
+          },
+          {
+            "shirt": 5,
+            "role": {
+              "_id": "15f38d37-83f6-5db6-9d72-873946699605",
+              "sort": 2,
+              "starting": true,
+              "abbr": "def"
+            },
+            "player": {
+              "_id": "f9ff0159-90d4-58d6-b20e-b911974658c0",
+              "_type": "person",
+              "slug": null,
+              "name": "Magnar Ødegård",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1993-05-11",
+              "birthplace": "Fredrikstad",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 4,
+            "role": {
+              "_id": "15f38d37-83f6-5db6-9d72-873946699605",
+              "sort": 2,
+              "starting": true,
+              "abbr": "def"
+            },
+            "player": {
+              "_id": "14a020eb-ed16-504b-8a68-f45e8b50bc75",
+              "_type": "person",
+              "slug": null,
+              "name": "Bjørn Inge Utvik",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1996-02-28",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 18,
+            "role": {
+              "_id": "15f38d37-83f6-5db6-9d72-873946699605",
+              "sort": 2,
+              "starting": true,
+              "abbr": "def"
+            },
+            "player": {
+              "_id": "a1ca694c-28c6-5743-be0e-f987f6046cd0",
+              "_type": "person",
+              "slug": null,
+              "name": "Sebastian Jarl",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "2000-01-11",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 16,
+            "role": {
+              "_id": "15f38d37-83f6-5db6-9d72-873946699605",
+              "sort": 2,
+              "starting": true,
+              "abbr": "def"
+            },
+            "player": {
+              "_id": "d459c54a-25c6-5db8-9edb-cd2ac0abc55c",
+              "_type": "person",
+              "slug": null,
+              "name": "Joachim Thomassen",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1988-05-04",
+              "birthplace": "Sarpsborg",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 7,
+            "role": {
+              "_id": "37eca793-f61d-5675-8421-6dfdeae6b07a",
+              "sort": 3,
+              "starting": true,
+              "abbr": "mid"
+            },
+            "player": {
+              "_id": "8704d324-d8a9-5172-ac0c-592c5a137205",
+              "_type": "person",
+              "slug": null,
+              "name": "Ole Jørgen Halvorsen",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1987-10-02",
+              "birthplace": "Sarpsborg",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 20,
+            "role": {
+              "_id": "37eca793-f61d-5675-8421-6dfdeae6b07a",
+              "sort": 3,
+              "starting": true,
+              "abbr": "mid"
+            },
+            "player": {
+              "_id": "28462aa5-d4fd-537f-bf33-0bbdaa2ca446",
+              "_type": "person",
+              "slug": null,
+              "name": "Anton Salétros",
+              "fullName": "Anton Janos Jönsson Salétros",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1996-04-12",
+              "birthplace": "Stockholm",
+              "countryCode": "SE"
+            }
+          },
+          {
+            "shirt": 6,
+            "role": {
+              "_id": "37eca793-f61d-5675-8421-6dfdeae6b07a",
+              "sort": 3,
+              "starting": true,
+              "abbr": "mid"
+            },
+            "player": {
+              "_id": "36e3af5d-edfc-5cd3-a499-9f30f11910b7",
+              "_type": "person",
+              "slug": null,
+              "name": "Nicolai Næss",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1993-01-18",
+              "birthplace": "Oslo",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 15,
+            "role": {
+              "_id": "37eca793-f61d-5675-8421-6dfdeae6b07a",
+              "sort": 3,
+              "starting": true,
+              "abbr": "mid"
+            },
+            "player": {
+              "_id": "17d4e6e2-00e9-50c6-b3a6-9a0d4fe383bb",
+              "_type": "person",
+              "slug": {
+                "current": "gaute-vetti"
+              },
+              "name": "Gaute Vetti",
+              "fullName": "Gaute Høberg Vetti",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1998-09-02",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 14,
+            "role": {
+              "_id": "37eca793-f61d-5675-8421-6dfdeae6b07a",
+              "sort": 3,
+              "starting": true,
+              "abbr": "mid"
+            },
+            "player": {
+              "_id": "7ddb44c1-1114-592f-8915-e549e81eb95d",
+              "_type": "person",
+              "slug": null,
+              "name": "Tobias Heintz",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1998-07-13",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 2,
+            "role": {
+              "_id": "5f737a8f-a09d-53f5-8aed-d325a5f0f006",
+              "sort": 4,
+              "starting": true,
+              "abbr": "att"
+            },
+            "player": {
+              "_id": "5e7becf6-2eec-5ab1-bfac-0c6547e907f2",
+              "_type": "person",
+              "slug": null,
+              "name": "Sulayman Bojang",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1997-09-03",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 12,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "0b993cc9-963a-5e2f-8a5b-0197e1942acd",
+              "_type": "person",
+              "slug": null,
+              "name": "Simon Thomas",
+              "fullName": "Simon Edmund Thomas",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1990-04-12",
+              "birthplace": "Victoria, BC",
+              "countryCode": "CA"
+            }
+          },
+          {
+            "shirt": 8,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "f0c0de2d-dd6e-5092-9e6b-184fc5edfb73",
+              "_type": "person",
+              "slug": null,
+              "name": "Mohamed Ofkir",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1996-08-04",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 17,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "cdc7c659-7bf9-5a4b-a0a2-24df0a7822f9",
+              "_type": "person",
+              "slug": {
+                "current": "joachim-soltvedt"
+              },
+              "name": "Joachim Soltvedt",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1995-09-09",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 21,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "ddcbf0d0-b1f3-503a-82e6-4149cf81fcc4",
+              "_type": "person",
+              "slug": null,
+              "name": "Jordan Adéoti",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1989-03-12",
+              "birthplace": "Toulouse",
+              "countryCode": "BJ"
+            }
+          },
+          {
+            "shirt": 24,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "4adecb8b-6060-56e1-986e-20121c02b71c",
+              "_type": "person",
+              "slug": null,
+              "name": "Anwar Elyounoussi",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1999-03-29",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          }
+        ],
+        "events": [
+          {
+            "time": 7,
+            "type": {
+              "name": "Gult kort",
+              "countAs": "yc"
+            },
+            "team": {
+              "_id": "de38de47-a156-5252-b1b2-4597ae94df97"
+            },
+            "player": {
+              "_id": "14a020eb-ed16-504b-8a68-f45e8b50bc75",
+              "_type": "person",
+              "slug": null,
+              "name": "Bjørn Inge Utvik",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1996-02-28",
+              "birthplace": null,
+              "countryCode": "NO"
+            },
+            "scoredBy": null,
+            "assistedBy": null,
+            "subOn": null,
+            "subOff": null
+          },
+          {
+            "time": 52,
+            "type": {
+              "name": "Mål",
+              "countAs": "goal"
+            },
+            "team": {
+              "_id": "de38de47-a156-5252-b1b2-4597ae94df97"
+            },
+            "player": null,
+            "scoredBy": {
+              "_id": "17d4e6e2-00e9-50c6-b3a6-9a0d4fe383bb",
+              "_type": "person",
+              "slug": {
+                "current": "gaute-vetti"
+              },
+              "name": "Gaute Vetti",
+              "fullName": "Gaute Høberg Vetti",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1998-09-02",
+              "birthplace": null,
+              "countryCode": "NO"
+            },
+            "assistedBy": null,
+            "subOn": null,
+            "subOff": null
+          },
+          {
+            "time": 64,
+            "type": {
+              "name": "Gult kort",
+              "countAs": "yc"
+            },
+            "team": {
+              "_id": "de38de47-a156-5252-b1b2-4597ae94df97"
+            },
+            "player": {
+              "_id": "a1ca694c-28c6-5743-be0e-f987f6046cd0",
+              "_type": "person",
+              "slug": null,
+              "name": "Sebastian Jarl",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "2000-01-11",
+              "birthplace": null,
+              "countryCode": "NO"
+            },
+            "scoredBy": null,
+            "assistedBy": null,
+            "subOn": null,
+            "subOff": null
+          },
+          {
+            "time": 65,
+            "type": {
+              "name": "Bytte",
+              "countAs": "subApp"
+            },
+            "team": {
+              "_id": "05bb57f9-3430-5a18-b77c-96b578525b9c"
+            },
+            "player": null,
+            "scoredBy": null,
+            "assistedBy": null,
+            "subOn": {
+              "_id": "550adf62-a6ec-52e1-ae2d-f76c37d768f2",
+              "_type": "person",
+              "slug": {
+                "current": "fredrik-haugen"
+              },
+              "name": "Fredrik Haugen",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1992-06-13",
+              "birthplace": "Bergen",
+              "countryCode": "NO"
+            },
+            "subOff": {
+              "_id": "25f2696a-a654-5ab7-b26d-3fcc62b9c88d",
+              "_type": "person",
+              "slug": {
+                "current": "mathias-rasmussen"
+              },
+              "name": "Mathias Rasmussen",
+              "fullName": "Mathias Knutsen Rasmussen",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1997-11-25",
+              "birthplace": "Lyngdal",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "time": 65,
+            "type": {
+              "name": "Bytte",
+              "countAs": "subApp"
+            },
+            "team": {
+              "_id": "05bb57f9-3430-5a18-b77c-96b578525b9c"
+            },
+            "player": null,
+            "scoredBy": null,
+            "assistedBy": null,
+            "subOn": {
+              "_id": "f6f6e245-4c20-50ca-9435-85e04f587357",
+              "_type": "person",
+              "slug": {
+                "current": "gilli-rolantsson"
+              },
+              "name": "Gilli Rólantsson",
+              "fullName": "Gilli Rólantsson Sørensen",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1992-08-11",
+              "birthplace": "Tvøroyri",
+              "countryCode": "FO"
+            },
+            "subOff": {
+              "_id": "810d46c8-2555-5aed-b973-3f034a1dc161",
+              "_type": "person",
+              "slug": {
+                "current": "sander-svendsen"
+              },
+              "name": "Sander Svendsen",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1997-08-06",
+              "birthplace": "Molde",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "time": 66,
+            "type": {
+              "name": "Gult kort",
+              "countAs": "yc"
+            },
+            "team": {
+              "_id": "de38de47-a156-5252-b1b2-4597ae94df97"
+            },
+            "player": {
+              "_id": "8704d324-d8a9-5172-ac0c-592c5a137205",
+              "_type": "person",
+              "slug": null,
+              "name": "Ole Jørgen Halvorsen",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1987-10-02",
+              "birthplace": "Sarpsborg",
+              "countryCode": "NO"
+            },
+            "scoredBy": null,
+            "assistedBy": null,
+            "subOn": null,
+            "subOff": null
+          },
+          {
+            "time": 75,
+            "type": {
+              "name": "Mål",
+              "countAs": "goal"
+            },
+            "team": {
+              "_id": "05bb57f9-3430-5a18-b77c-96b578525b9c"
+            },
+            "player": null,
+            "scoredBy": {
+              "_id": "2f4e78d7-75c5-55e0-8bf7-9b198da8adbb",
+              "_type": "person",
+              "slug": {
+                "current": "kristoffer-barmen"
+              },
+              "name": "Kristoffer Barmen",
+              "fullName": "Kristoffer Ramos Barmen",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1993-08-19",
+              "birthplace": "Bergen",
+              "countryCode": "NO"
+            },
+            "assistedBy": {
+              "_id": "b078cd75-f836-5f7e-819a-493af08bc12f",
+              "_type": "person",
+              "slug": {
+                "current": "daouda-bamba"
+              },
+              "name": "Daouda Bamba",
+              "fullName": "Daouda Karamoko Bamba",
+              "lastName": "Bamba",
+              "firstName": "Daouda",
+              "initials": "DB",
+              "birthdate": "1995-03-05",
+              "birthplace": "Dabou",
+              "countryCode": "CI"
+            },
+            "subOn": null,
+            "subOff": null
+          },
+          {
+            "time": 78,
+            "type": {
+              "name": "Bytte",
+              "countAs": "subApp"
+            },
+            "team": {
+              "_id": "de38de47-a156-5252-b1b2-4597ae94df97"
+            },
+            "player": null,
+            "scoredBy": null,
+            "assistedBy": null,
+            "subOn": {
+              "_id": "f0c0de2d-dd6e-5092-9e6b-184fc5edfb73",
+              "_type": "person",
+              "slug": null,
+              "name": "Mohamed Ofkir",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1996-08-04",
+              "birthplace": null,
+              "countryCode": "NO"
+            },
+            "subOff": {
+              "_id": "7ddb44c1-1114-592f-8915-e549e81eb95d",
+              "_type": "person",
+              "slug": null,
+              "name": "Tobias Heintz",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1998-07-13",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          },
+          {
+            "time": 78,
+            "type": {
+              "name": "Bytte",
+              "countAs": "subApp"
+            },
+            "team": {
+              "_id": "de38de47-a156-5252-b1b2-4597ae94df97"
+            },
+            "player": null,
+            "scoredBy": null,
+            "assistedBy": null,
+            "subOn": {
+              "_id": "ddcbf0d0-b1f3-503a-82e6-4149cf81fcc4",
+              "_type": "person",
+              "slug": null,
+              "name": "Jordan Adéoti",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1989-03-12",
+              "birthplace": "Toulouse",
+              "countryCode": "BJ"
+            },
+            "subOff": {
+              "_id": "17d4e6e2-00e9-50c6-b3a6-9a0d4fe383bb",
+              "_type": "person",
+              "slug": {
+                "current": "gaute-vetti"
+              },
+              "name": "Gaute Vetti",
+              "fullName": "Gaute Høberg Vetti",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1998-09-02",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          },
+          {
+            "time": 85,
+            "type": {
+              "name": "Gult kort",
+              "countAs": "yc"
+            },
+            "team": {
+              "_id": "05bb57f9-3430-5a18-b77c-96b578525b9c"
+            },
+            "player": {
+              "_id": "1bb8272a-d11b-54f1-97d7-a57a4162833f",
+              "_type": "person",
+              "slug": {
+                "current": "jon-gudni-fjoluson"
+              },
+              "name": "Jón Gudni Fjóluson",
+              "fullName": "Jón Guðni Fjóluson",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1989-04-10",
+              "birthplace": null,
+              "countryCode": "IS"
+            },
+            "scoredBy": null,
+            "assistedBy": null,
+            "subOn": null,
+            "subOff": null
+          }
+        ]
+      },
+      "next": {
+        "_id": "3ab0497e-12d1-4df9-9316-4560461f3b17",
+        "_type": "match",
+        "_createdAt": "2022-01-03T19:35:25Z",
+        "_updatedAt": "2025-10-10T14:43:35Z",
+        "id": "-1604ecc8-5af6-53a1-b88b-5269ab62ae4b",
+        "date": "2020-12-22",
+        "time": "18:00",
+        "status": null,
+        "season": {
+          "_id": "a2823f29-3201-4828-82da-99b9e29ec205",
+          "_type": "season",
+          "slug": {
+            "current": "2020"
+          },
+          "id": "-4813e3a4-5b62-51ee-876d-88472de50cfe",
+          "name": "2020",
+          "startedAt": null,
+          "endedAt": null
+        },
+        "competition": {
+          "_type": "competition",
+          "_id": "bbad8232-716a-4b19-9ecd-06fdffa22469",
+          "id": "-81d466b5-ef05-569b-b89f-fa6ee6d155a9",
+          "sort": 1.1,
+          "name": "Eliteserien",
+          "abbr": "ES",
+          "level": 1,
+          "official": true,
+          "countAs": "serie",
+          "slug": {
+            "current": "serie/es"
+          },
+          "history": [],
+          "isPartOf": {
+            "_type": "competition",
+            "_id": "de3cd224-252f-4ccb-999d-24e8e768db7f",
+            "sort": 1,
+            "name": "Serien",
+            "abbr": "LG",
+            "official": true,
+            "countAs": "serie",
+            "slug": {
+              "current": "serie"
+            },
+            "history": [],
+            "isPartOf": null
+          }
+        },
+        "round": {
+          "_id": "adbe732a-4bc3-4ddc-a71c-5592eacbafd7",
+          "name": "30. runde",
+          "abbr": "30",
+          "sort": 30,
+          "slug": {
+            "current": "r30"
+          }
+        },
+        "leg": null,
+        "ground": {
+          "_id": "07a92154-39c4-5239-a5e1-95b5da5f5a28",
+          "_type": "ground",
+          "id": "-912bbd46-7232-5c71-8667-7694d6ad515d",
+          "name": "Brann Stadion",
+          "abbr": null,
+          "fullName": null,
+          "countryCode": "NO",
+          "location": {
+            "lat": 60.36711440000001,
+            "lng": 5.3589889
+          },
+          "slug": {
+            "current": "brann-stadion"
+          },
+          "history": null
+        },
+        "homeTeam": {
+          "_id": "05bb57f9-3430-5a18-b77c-96b578525b9c",
+          "_type": "team",
+          "_createdAt": "2022-01-03T14:47:26Z",
+          "_updatedAt": "2022-11-01T18:04:15Z",
+          "id": "-cd556b93-2007-5146-847b-5242f19656a0",
+          "name": "Brann",
+          "abbr": "SKB",
+          "fullName": "SK Brann",
+          "countryCode": null,
+          "slug": {
+            "current": "brann"
+          },
+          "history": null
+        },
+        "awayTeam": {
+          "_id": "717e51ae-e333-5f0d-a3e4-6b1043057c9a",
+          "_type": "team",
+          "_createdAt": "2022-01-03T18:48:41Z",
+          "_updatedAt": "2022-11-03T11:08:14Z",
+          "id": "-dad4dcca-17b5-572c-9fd3-7826ef0e5b43",
+          "name": "Odd",
+          "abbr": null,
+          "fullName": null,
+          "countryCode": null,
+          "slug": {
+            "current": "odd"
+          },
+          "history": null
+        },
+        "score": "2-1",
+        "aggregateScore": null,
+        "shootoutScore": null,
+        "attendance": 600,
+        "homeSquad": [
+          {
+            "shirt": 1,
+            "role": {
+              "_id": "56954d00-afe3-5c75-84bb-b8b8812bb228",
+              "sort": 1,
+              "starting": true,
+              "abbr": "gk"
+            },
+            "player": {
+              "_id": "83130615-4862-572c-9b4d-6f4b60ffc4aa",
+              "_type": "person",
+              "slug": {
+                "current": "håkon-opdal"
+              },
+              "name": "Håkon Opdal",
+              "fullName": "Håkon Eikemo Opdal",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1982-06-11",
+              "birthplace": "Odda",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 18,
+            "role": {
+              "_id": "15f38d37-83f6-5db6-9d72-873946699605",
+              "sort": 2,
+              "starting": true,
+              "abbr": "def"
+            },
+            "player": {
+              "_id": "dc23a5bc-d80c-5f2a-a944-5c220d4a3e79",
+              "_type": "person",
+              "slug": {
+                "current": "ole-didrik-blomberg"
+              },
+              "name": "Ole Didrik Blomberg",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "2000-06-12",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 4,
+            "role": {
+              "_id": "15f38d37-83f6-5db6-9d72-873946699605",
+              "sort": 2,
+              "starting": true,
+              "abbr": "def"
+            },
+            "player": {
+              "_id": "1bb8272a-d11b-54f1-97d7-a57a4162833f",
+              "_type": "person",
+              "slug": {
+                "current": "jon-gudni-fjoluson"
+              },
+              "name": "Jón Gudni Fjóluson",
+              "fullName": "Jón Guðni Fjóluson",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1989-04-10",
+              "birthplace": null,
+              "countryCode": "IS"
+            }
+          },
+          {
+            "shirt": 3,
+            "role": {
+              "_id": "15f38d37-83f6-5db6-9d72-873946699605",
+              "sort": 2,
+              "starting": true,
+              "abbr": "def"
+            },
+            "player": {
+              "_id": "addf90d1-dc19-50ce-845a-1a78ca832794",
+              "_type": "person",
+              "slug": {
+                "current": "vegard-forren"
+              },
+              "name": "Vegard Forren",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1988-02-16",
+              "birthplace": "Orkdal",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 5,
+            "role": {
+              "_id": "15f38d37-83f6-5db6-9d72-873946699605",
+              "sort": 2,
+              "starting": true,
+              "abbr": "def"
+            },
+            "player": {
+              "_id": "f580d109-7aba-5c59-a7bc-17007e0b84a8",
+              "_type": "person",
+              "slug": {
+                "current": "thomas-grogaard"
+              },
+              "name": "Thomas Grøgaard",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1994-02-08",
+              "birthplace": "Arendal",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 29,
+            "role": {
+              "_id": "06726cba-a691-4a0e-bc46-abaa2096cd36",
+              "sort": 2.5,
+              "starting": true,
+              "abbr": "d-m"
+            },
+            "player": {
+              "_id": "2f4e78d7-75c5-55e0-8bf7-9b198da8adbb",
+              "_type": "person",
+              "slug": {
+                "current": "kristoffer-barmen"
+              },
+              "name": "Kristoffer Barmen",
+              "fullName": "Kristoffer Ramos Barmen",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1993-08-19",
+              "birthplace": "Bergen",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 9,
+            "role": {
+              "_id": "06726cba-a691-4a0e-bc46-abaa2096cd36",
+              "sort": 2.5,
+              "starting": true,
+              "abbr": "d-m"
+            },
+            "player": {
+              "_id": "15268c43-a5f8-5089-9db1-f97122bebfc7",
+              "_type": "person",
+              "slug": {
+                "current": "petter-strand"
+              },
+              "name": "Petter Strand",
+              "fullName": "Petter Dahle Strand",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1994-08-24",
+              "birthplace": "Morvik",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 27,
+            "role": {
+              "_id": "37eca793-f61d-5675-8421-6dfdeae6b07a",
+              "sort": 3,
+              "starting": true,
+              "abbr": "mid"
+            },
+            "player": {
+              "_id": "810d46c8-2555-5aed-b973-3f034a1dc161",
+              "_type": "person",
+              "slug": {
+                "current": "sander-svendsen"
+              },
+              "name": "Sander Svendsen",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1997-08-06",
+              "birthplace": "Molde",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 16,
+            "role": {
+              "_id": "37eca793-f61d-5675-8421-6dfdeae6b07a",
+              "sort": 3,
+              "starting": true,
+              "abbr": "mid"
+            },
+            "player": {
+              "_id": "ee49cac5-b728-5341-b440-84aa6acf9e1b",
+              "_type": "person",
+              "slug": {
+                "current": "robert-taylor"
+              },
+              "name": "Robert Taylor",
+              "fullName": "Robert Thomas Taylor",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1994-10-21",
+              "birthplace": "Kuopio",
+              "countryCode": "FI"
+            }
+          },
+          {
+            "shirt": 7,
+            "role": {
+              "_id": "37eca793-f61d-5675-8421-6dfdeae6b07a",
+              "sort": 3,
+              "starting": true,
+              "abbr": "mid"
+            },
+            "player": {
+              "_id": "25f2696a-a654-5ab7-b26d-3fcc62b9c88d",
+              "_type": "person",
+              "slug": {
+                "current": "mathias-rasmussen"
+              },
+              "name": "Mathias Rasmussen",
+              "fullName": "Mathias Knutsen Rasmussen",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1997-11-25",
+              "birthplace": "Lyngdal",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 11,
+            "role": {
+              "_id": "5f737a8f-a09d-53f5-8aed-d325a5f0f006",
+              "sort": 4,
+              "starting": true,
+              "abbr": "att"
+            },
+            "player": {
+              "_id": "b078cd75-f836-5f7e-819a-493af08bc12f",
+              "_type": "person",
+              "slug": {
+                "current": "daouda-bamba"
+              },
+              "name": "Daouda Bamba",
+              "fullName": "Daouda Karamoko Bamba",
+              "lastName": "Bamba",
+              "firstName": "Daouda",
+              "initials": "DB",
+              "birthdate": "1995-03-05",
+              "birthplace": "Dabou",
+              "countryCode": "CI"
+            }
+          },
+          {
+            "shirt": 30,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "d2557711-1629-5007-81d6-43e6a4f9b477",
+              "_type": "person",
+              "slug": {
+                "current": "ali-ahamada"
+              },
+              "name": "Ali Ahamada",
+              "fullName": "Ali Nadhoim Ahamada",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1990-06-14",
+              "birthplace": "Martigues, Frankrike",
+              "countryCode": "KM"
+            }
+          },
+          {
+            "shirt": 14,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "fed0f057-fa2f-525c-9e60-074e1d3c4013",
+              "_type": "person",
+              "slug": {
+                "current": "erlend-hustad"
+              },
+              "name": "Erlend Hustad",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1997-01-03",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 19,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "88a19aa0-8801-5bbb-ac45-7aaa0e85aec5",
+              "_type": "person",
+              "slug": {
+                "current": "jon-helge-tveita"
+              },
+              "name": "Jon-Helge Tveita",
+              "fullName": "Jon-Helge Ødegård Tveita",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1992-01-27",
+              "birthplace": "Stavanger",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 20,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "f35703ff-fcef-50cd-be11-e1eee04d392a",
+              "_type": "person",
+              "slug": {
+                "current": "marcus-mehnert"
+              },
+              "name": "Marcus Mehnert",
+              "fullName": "Marcus Johnson Mehnert",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1997-10-28",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 21,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "22318baf-0826-5332-b876-46fbba0ca4dc",
+              "_type": "person",
+              "slug": {
+                "current": "ruben-kristiansen"
+              },
+              "name": "Ruben Kristiansen",
+              "fullName": "Ruben Kristiansen",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1988-02-20",
+              "birthplace": "Bodø",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 25,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "a69c041e-2980-5e6a-9f3e-c67bc521659b",
+              "_type": "person",
+              "slug": {
+                "current": "ole-martin-kolskogen"
+              },
+              "name": "Ole Martin Kolskogen",
+              "fullName": "Ole Martin Lekven Kolskogen",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "2001-01-20",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 41,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "b91c662b-94e1-5d09-a240-d9607d9c263a",
+              "_type": "person",
+              "slug": {
+                "current": "mikal-berg-kvinge"
+              },
+              "name": "Mikal Berg Kvinge",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "2003-06-24",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          }
+        ],
+        "awaySquad": [
+          {
+            "shirt": 1,
+            "role": {
+              "_id": "56954d00-afe3-5c75-84bb-b8b8812bb228",
+              "sort": 1,
+              "starting": true,
+              "abbr": "gk"
+            },
+            "player": {
+              "_id": "583d2979-0720-51b5-b502-fea40d51ea9a",
+              "_type": "person",
+              "slug": null,
+              "name": "Sondre Rossbach",
+              "fullName": "Sondre Løvseth Rossbach",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1996-02-07",
+              "birthplace": "Porsgrunn",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 2,
+            "role": {
+              "_id": "15f38d37-83f6-5db6-9d72-873946699605",
+              "sort": 2,
+              "starting": true,
+              "abbr": "def"
+            },
+            "player": {
+              "_id": "5fc97050-ec91-5f32-8851-f0114d06d8f1",
+              "_type": "person",
+              "slug": null,
+              "name": "Espen Ruud",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1984-02-26",
+              "birthplace": "Porsgrunn",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 18,
+            "role": {
+              "_id": "15f38d37-83f6-5db6-9d72-873946699605",
+              "sort": 2,
+              "starting": true,
+              "abbr": "def"
+            },
+            "player": {
+              "_id": "a2a4a515-33fc-51a4-8b9a-1d8c6e688058",
+              "_type": "person",
+              "slug": null,
+              "name": "Odin Bjørtuft",
+              "fullName": "Odin Lurås Bjørtuft",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1998-12-19",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 6,
+            "role": {
+              "_id": "15f38d37-83f6-5db6-9d72-873946699605",
+              "sort": 2,
+              "starting": true,
+              "abbr": "def"
+            },
+            "player": {
+              "_id": "61850a90-ac92-5015-a837-84e627ed12f1",
+              "_type": "person",
+              "slug": null,
+              "name": "Vebjørn Hoff",
+              "fullName": "Vebjørn Alvestad Hoff",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1996-02-13",
+              "birthplace": "Ålesund",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 13,
+            "role": {
+              "_id": "15f38d37-83f6-5db6-9d72-873946699605",
+              "sort": 2,
+              "starting": true,
+              "abbr": "def"
+            },
+            "player": {
+              "_id": "16db240b-7112-5592-85b7-d53cfca5c75c",
+              "_type": "person",
+              "slug": null,
+              "name": "Kevin Egell-Johnsen",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "2000-05-13",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 16,
+            "role": {
+              "_id": "37eca793-f61d-5675-8421-6dfdeae6b07a",
+              "sort": 3,
+              "starting": true,
+              "abbr": "mid"
+            },
+            "player": {
+              "_id": "ca4da8ec-8b4a-5d39-84ec-8343f9bfc157",
+              "_type": "person",
+              "slug": null,
+              "name": "Joshua Kitolano",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "2001-08-03",
+              "birthplace": "Santiago, Chile",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 26,
+            "role": {
+              "_id": "37eca793-f61d-5675-8421-6dfdeae6b07a",
+              "sort": 3,
+              "starting": true,
+              "abbr": "mid"
+            },
+            "player": {
+              "_id": "1be1c3f9-798b-57d7-9ebb-048bf0327cb7",
+              "_type": "person",
+              "slug": null,
+              "name": "Filip Jørgensen",
+              "fullName": "Filip Rønningen Jørgensen",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "2002-05-27",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 8,
+            "role": {
+              "_id": "37eca793-f61d-5675-8421-6dfdeae6b07a",
+              "sort": 3,
+              "starting": true,
+              "abbr": "mid"
+            },
+            "player": {
+              "_id": "1abf1ffe-0ad2-5c25-a69a-6845de107ee8",
+              "_type": "person",
+              "slug": null,
+              "name": "Markus Kaasa",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1997-07-15",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 20,
+            "role": {
+              "_id": "5f737a8f-a09d-53f5-8aed-d325a5f0f006",
+              "sort": 4,
+              "starting": true,
+              "abbr": "att"
+            },
+            "player": {
+              "_id": "17211e60-7c5c-5708-92b5-627ff3f8874d",
+              "_type": "person",
+              "slug": null,
+              "name": "Tobias Lauritsen",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1997-08-30",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 9,
+            "role": {
+              "_id": "5f737a8f-a09d-53f5-8aed-d325a5f0f006",
+              "sort": 4,
+              "starting": true,
+              "abbr": "att"
+            },
+            "player": {
+              "_id": "4991eab3-da56-5bba-bb74-de9300ac675b",
+              "_type": "person",
+              "slug": null,
+              "name": "Mushaga Bakenga",
+              "fullName": "Mushaga Lusa Bakenga Joar Bahati Namugunga",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1992-08-08",
+              "birthplace": "Trondheim",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 11,
+            "role": {
+              "_id": "5f737a8f-a09d-53f5-8aed-d325a5f0f006",
+              "sort": 4,
+              "starting": true,
+              "abbr": "att"
+            },
+            "player": {
+              "_id": "cfbc6948-26ba-59b2-b49a-957940270b94",
+              "_type": "person",
+              "slug": null,
+              "name": "Elbasan Rashani",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1993-05-09",
+              "birthplace": "Hillerstorp, Sverige",
+              "countryCode": "XK"
+            }
+          },
+          {
+            "shirt": 12,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "65ca53e6-592c-58fd-a0fb-db6e5a0ade11",
+              "_type": "person",
+              "slug": null,
+              "name": "Egil Selvik",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1997-07-30",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 7,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "f722cabe-ca16-5575-a0f5-844b2d2769e3",
+              "_type": "person",
+              "slug": null,
+              "name": "Vladimir Rodic",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1993-09-07",
+              "birthplace": null,
+              "countryCode": "RS"
+            }
+          },
+          {
+            "shirt": 10,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "adbdcf9d-cf27-5aff-bd82-f97adf03476b",
+              "_type": "person",
+              "slug": null,
+              "name": "Kachi",
+              "fullName": "Onyekachi Hope Ugwuadu",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1997-05-05",
+              "birthplace": null,
+              "countryCode": "NG"
+            }
+          },
+          {
+            "shirt": 14,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "c5373dc5-1160-5d69-9cdc-1928ccab2b45",
+              "_type": "person",
+              "slug": {
+                "current": "fredik-nordkvelle"
+              },
+              "name": "Fredrik Nordkvelle",
+              "fullName": "Fredrik Lund Nordkvelle",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1985-09-13",
+              "birthplace": "Porsgrunn",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 15,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "1f66d766-8183-509f-8293-ab05e9e050a3",
+              "_type": "person",
+              "slug": null,
+              "name": "Eirik Asante Gayi",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "2001-01-23",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 22,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "a5490728-0a61-5c42-96f3-21aea59e5b31",
+              "_type": "person",
+              "slug": null,
+              "name": "Robin Simovic",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1991-05-29",
+              "birthplace": "197",
+              "countryCode": "SE"
+            }
+          },
+          {
+            "shirt": 24,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "ac186fa1-792e-5549-ba01-17db98afc89b",
+              "_type": "person",
+              "slug": null,
+              "name": "Bjørn Mæland",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "2001-02-24",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 25,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "7a877d4a-31e7-591e-8ea7-d92e31e9f50e",
+              "_type": "person",
+              "slug": null,
+              "name": "Thomas Hallstensen",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "2002-06-12",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          },
+          {
+            "shirt": 27,
+            "role": {
+              "_id": "8c309d28-b183-535b-8288-fc1653ef80c3",
+              "sort": 30,
+              "starting": null,
+              "abbr": "res"
+            },
+            "player": {
+              "_id": "72c9a888-a17c-507e-b896-92760a7a8ac1",
+              "_type": "person",
+              "slug": null,
+              "name": "Syver Aas",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "2004-01-15",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          }
+        ],
+        "events": [
+          {
+            "time": 18,
+            "type": {
+              "name": "Bytte",
+              "countAs": "subApp"
+            },
+            "team": {
+              "_id": "717e51ae-e333-5f0d-a3e4-6b1043057c9a"
+            },
+            "player": null,
+            "scoredBy": null,
+            "assistedBy": null,
+            "subOn": {
+              "_id": "c5373dc5-1160-5d69-9cdc-1928ccab2b45",
+              "_type": "person",
+              "slug": {
+                "current": "fredik-nordkvelle"
+              },
+              "name": "Fredrik Nordkvelle",
+              "fullName": "Fredrik Lund Nordkvelle",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1985-09-13",
+              "birthplace": "Porsgrunn",
+              "countryCode": "NO"
+            },
+            "subOff": {
+              "_id": "5fc97050-ec91-5f32-8851-f0114d06d8f1",
+              "_type": "person",
+              "slug": null,
+              "name": "Espen Ruud",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1984-02-26",
+              "birthplace": "Porsgrunn",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "time": 45,
+            "type": {
+              "name": "Gult kort",
+              "countAs": "yc"
+            },
+            "team": {
+              "_id": "717e51ae-e333-5f0d-a3e4-6b1043057c9a"
+            },
+            "player": {
+              "_id": "1be1c3f9-798b-57d7-9ebb-048bf0327cb7",
+              "_type": "person",
+              "slug": null,
+              "name": "Filip Jørgensen",
+              "fullName": "Filip Rønningen Jørgensen",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "2002-05-27",
+              "birthplace": null,
+              "countryCode": "NO"
+            },
+            "scoredBy": null,
+            "assistedBy": null,
+            "subOn": null,
+            "subOff": null
+          },
+          {
+            "time": 45,
+            "type": {
+              "name": "Straffemål",
+              "countAs": "penaltyGoal"
+            },
+            "team": {
+              "_id": "05bb57f9-3430-5a18-b77c-96b578525b9c"
+            },
+            "player": null,
+            "scoredBy": {
+              "_id": "ee49cac5-b728-5341-b440-84aa6acf9e1b",
+              "_type": "person",
+              "slug": {
+                "current": "robert-taylor"
+              },
+              "name": "Robert Taylor",
+              "fullName": "Robert Thomas Taylor",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1994-10-21",
+              "birthplace": "Kuopio",
+              "countryCode": "FI"
+            },
+            "assistedBy": null,
+            "subOn": null,
+            "subOff": null
+          },
+          {
+            "time": 46,
+            "type": {
+              "name": "Bytte",
+              "countAs": "subApp"
+            },
+            "team": {
+              "_id": "05bb57f9-3430-5a18-b77c-96b578525b9c"
+            },
+            "player": null,
+            "scoredBy": null,
+            "assistedBy": null,
+            "subOn": {
+              "_id": "22318baf-0826-5332-b876-46fbba0ca4dc",
+              "_type": "person",
+              "slug": {
+                "current": "ruben-kristiansen"
+              },
+              "name": "Ruben Kristiansen",
+              "fullName": "Ruben Kristiansen",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1988-02-20",
+              "birthplace": "Bodø",
+              "countryCode": "NO"
+            },
+            "subOff": {
+              "_id": "25f2696a-a654-5ab7-b26d-3fcc62b9c88d",
+              "_type": "person",
+              "slug": {
+                "current": "mathias-rasmussen"
+              },
+              "name": "Mathias Rasmussen",
+              "fullName": "Mathias Knutsen Rasmussen",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1997-11-25",
+              "birthplace": "Lyngdal",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "time": 46,
+            "type": {
+              "name": "Bytte",
+              "countAs": "subApp"
+            },
+            "team": {
+              "_id": "05bb57f9-3430-5a18-b77c-96b578525b9c"
+            },
+            "player": null,
+            "scoredBy": null,
+            "assistedBy": null,
+            "subOn": {
+              "_id": "88a19aa0-8801-5bbb-ac45-7aaa0e85aec5",
+              "_type": "person",
+              "slug": {
+                "current": "jon-helge-tveita"
+              },
+              "name": "Jon-Helge Tveita",
+              "fullName": "Jon-Helge Ødegård Tveita",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1992-01-27",
+              "birthplace": "Stavanger",
+              "countryCode": "NO"
+            },
+            "subOff": {
+              "_id": "2f4e78d7-75c5-55e0-8bf7-9b198da8adbb",
+              "_type": "person",
+              "slug": {
+                "current": "kristoffer-barmen"
+              },
+              "name": "Kristoffer Barmen",
+              "fullName": "Kristoffer Ramos Barmen",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1993-08-19",
+              "birthplace": "Bergen",
+              "countryCode": "NO"
+            }
+          },
+          {
+            "time": 54,
+            "type": {
+              "name": "Gult kort",
+              "countAs": "yc"
+            },
+            "team": {
+              "_id": "05bb57f9-3430-5a18-b77c-96b578525b9c"
+            },
+            "player": {
+              "_id": "addf90d1-dc19-50ce-845a-1a78ca832794",
+              "_type": "person",
+              "slug": {
+                "current": "vegard-forren"
+              },
+              "name": "Vegard Forren",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1988-02-16",
+              "birthplace": "Orkdal",
+              "countryCode": "NO"
+            },
+            "scoredBy": null,
+            "assistedBy": null,
+            "subOn": null,
+            "subOff": null
+          },
+          {
+            "time": 66,
+            "type": {
+              "name": "Mål",
+              "countAs": "goal"
+            },
+            "team": {
+              "_id": "717e51ae-e333-5f0d-a3e4-6b1043057c9a"
+            },
+            "player": null,
+            "scoredBy": {
+              "_id": "4991eab3-da56-5bba-bb74-de9300ac675b",
+              "_type": "person",
+              "slug": null,
+              "name": "Mushaga Bakenga",
+              "fullName": "Mushaga Lusa Bakenga Joar Bahati Namugunga",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1992-08-08",
+              "birthplace": "Trondheim",
+              "countryCode": "NO"
+            },
+            "assistedBy": {
+              "_id": "cfbc6948-26ba-59b2-b49a-957940270b94",
+              "_type": "person",
+              "slug": null,
+              "name": "Elbasan Rashani",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1993-05-09",
+              "birthplace": "Hillerstorp, Sverige",
+              "countryCode": "XK"
+            },
+            "subOn": null,
+            "subOff": null
+          },
+          {
+            "time": 69,
+            "type": {
+              "name": "Bytte",
+              "countAs": "subApp"
+            },
+            "team": {
+              "_id": "717e51ae-e333-5f0d-a3e4-6b1043057c9a"
+            },
+            "player": null,
+            "scoredBy": null,
+            "assistedBy": null,
+            "subOn": {
+              "_id": "a5490728-0a61-5c42-96f3-21aea59e5b31",
+              "_type": "person",
+              "slug": null,
+              "name": "Robin Simovic",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1991-05-29",
+              "birthplace": "197",
+              "countryCode": "SE"
+            },
+            "subOff": {
+              "_id": "1be1c3f9-798b-57d7-9ebb-048bf0327cb7",
+              "_type": "person",
+              "slug": null,
+              "name": "Filip Jørgensen",
+              "fullName": "Filip Rønningen Jørgensen",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "2002-05-27",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          },
+          {
+            "time": 69,
+            "type": {
+              "name": "Gult kort",
+              "countAs": "yc"
+            },
+            "team": {
+              "_id": "717e51ae-e333-5f0d-a3e4-6b1043057c9a"
+            },
+            "player": {
+              "_id": "17211e60-7c5c-5708-92b5-627ff3f8874d",
+              "_type": "person",
+              "slug": null,
+              "name": "Tobias Lauritsen",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1997-08-30",
+              "birthplace": null,
+              "countryCode": "NO"
+            },
+            "scoredBy": null,
+            "assistedBy": null,
+            "subOn": null,
+            "subOff": null
+          },
+          {
+            "time": 71,
+            "type": {
+              "name": "Mål",
+              "countAs": "goal"
+            },
+            "team": {
+              "_id": "05bb57f9-3430-5a18-b77c-96b578525b9c"
+            },
+            "player": null,
+            "scoredBy": {
+              "_id": "88a19aa0-8801-5bbb-ac45-7aaa0e85aec5",
+              "_type": "person",
+              "slug": {
+                "current": "jon-helge-tveita"
+              },
+              "name": "Jon-Helge Tveita",
+              "fullName": "Jon-Helge Ødegård Tveita",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1992-01-27",
+              "birthplace": "Stavanger",
+              "countryCode": "NO"
+            },
+            "assistedBy": {
+              "_id": "ee49cac5-b728-5341-b440-84aa6acf9e1b",
+              "_type": "person",
+              "slug": {
+                "current": "robert-taylor"
+              },
+              "name": "Robert Taylor",
+              "fullName": "Robert Thomas Taylor",
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1994-10-21",
+              "birthplace": "Kuopio",
+              "countryCode": "FI"
+            },
+            "subOn": null,
+            "subOff": null
+          },
+          {
+            "time": 79,
+            "type": {
+              "name": "Bytte",
+              "countAs": "subApp"
+            },
+            "team": {
+              "_id": "717e51ae-e333-5f0d-a3e4-6b1043057c9a"
+            },
+            "player": null,
+            "scoredBy": null,
+            "assistedBy": null,
+            "subOn": {
+              "_id": "f722cabe-ca16-5575-a0f5-844b2d2769e3",
+              "_type": "person",
+              "slug": null,
+              "name": "Vladimir Rodic",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1993-09-07",
+              "birthplace": null,
+              "countryCode": "RS"
+            },
+            "subOff": {
+              "_id": "17211e60-7c5c-5708-92b5-627ff3f8874d",
+              "_type": "person",
+              "slug": null,
+              "name": "Tobias Lauritsen",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1997-08-30",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          },
+          {
+            "time": 79,
+            "type": {
+              "name": "Bytte",
+              "countAs": "subApp"
+            },
+            "team": {
+              "_id": "717e51ae-e333-5f0d-a3e4-6b1043057c9a"
+            },
+            "player": null,
+            "scoredBy": null,
+            "assistedBy": null,
+            "subOn": {
+              "_id": "1f66d766-8183-509f-8293-ab05e9e050a3",
+              "_type": "person",
+              "slug": null,
+              "name": "Eirik Asante Gayi",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "2001-01-23",
+              "birthplace": null,
+              "countryCode": "NO"
+            },
+            "subOff": {
+              "_id": "1abf1ffe-0ad2-5c25-a69a-6845de107ee8",
+              "_type": "person",
+              "slug": null,
+              "name": "Markus Kaasa",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1997-07-15",
+              "birthplace": null,
+              "countryCode": "NO"
+            }
+          },
+          {
+            "time": 90,
+            "type": {
+              "name": "Bytte",
+              "countAs": "subApp"
+            },
+            "team": {
+              "_id": "05bb57f9-3430-5a18-b77c-96b578525b9c"
+            },
+            "player": null,
+            "scoredBy": null,
+            "assistedBy": null,
+            "subOn": {
+              "_id": "fed0f057-fa2f-525c-9e60-074e1d3c4013",
+              "_type": "person",
+              "slug": {
+                "current": "erlend-hustad"
+              },
+              "name": "Erlend Hustad",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1997-01-03",
+              "birthplace": null,
+              "countryCode": "NO"
+            },
+            "subOff": {
+              "_id": "810d46c8-2555-5aed-b973-3f034a1dc161",
+              "_type": "person",
+              "slug": {
+                "current": "sander-svendsen"
+              },
+              "name": "Sander Svendsen",
+              "fullName": null,
+              "lastName": null,
+              "firstName": null,
+              "initials": null,
+              "birthdate": "1997-08-06",
+              "birthplace": "Molde",
+              "countryCode": "NO"
+            }
+          }
+        ]
+      },
+      "seasonSquad": {
+        "players": [
+          {
+            "person": {
+              "_id": "fed0f057-fa2f-525c-9e60-074e1d3c4013"
+            },
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-02e89de246271eed1169d30bc4aef3031c928087-2102x1396-jpg",
+                "_type": "reference"
+              },
+              "crop": {
+                "_type": "sanity.imageCrop",
+                "bottom": 0.8458491500247574,
+                "left": 0.13013698630137005,
+                "right": 0.7945205479452042,
+                "top": 0.0412609341475491
+              },
+              "hotspot": {
+                "_type": "sanity.imageHotspot",
+                "height": 0.11288991582769359,
+                "width": 0.07534246575342574,
+                "x": 0.16780821917808292,
+                "y": 0.09770589206139589
+              }
+            }
+          },
+          {
+            "person": {
+              "_id": "f6f6e245-4c20-50ca-9435-85e04f587357"
+            },
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-02e89de246271eed1169d30bc4aef3031c928087-2102x1396-jpg",
+                "_type": "reference"
+              },
+              "crop": {
+                "_type": "sanity.imageCrop",
+                "bottom": 0.8277974913352045,
+                "left": 0.2123287671232877,
+                "right": 0.7140410958904095,
+                "top": 0.054154976068658184
+              },
+              "hotspot": {
+                "_type": "sanity.imageHotspot",
+                "height": 0.11804753259613732,
+                "width": 0.06849315068493278,
+                "x": 0.2517123287671241,
+                "y": 0.11317874236672684
+              }
+            }
+          },
+          {
+            "person": {
+              "_id": "2f4e78d7-75c5-55e0-8bf7-9b198da8adbb"
+            },
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-02e89de246271eed1169d30bc4aef3031c928087-2102x1396-jpg",
+                "_type": "reference"
+              },
+              "crop": {
+                "_type": "sanity.imageCrop",
+                "bottom": 0.853585575177422,
+                "left": 0.29623287671232895,
+                "right": 0.6301369863013695,
+                "top": 0.03352450899488365
+              },
+              "hotspot": {
+                "_type": "sanity.imageHotspot",
+                "height": 0.11288991582769436,
+                "width": 0.0736301369863015,
+                "x": 0.3330479452054797,
+                "y": 0.08996946690873084
+              }
+            }
+          },
+          {
+            "person": {
+              "_id": "6d987d27-b0eb-5a6c-a673-56d57f994c65"
+            },
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-02e89de246271eed1169d30bc4aef3031c928087-2102x1396-jpg",
+                "_type": "reference"
+              },
+              "crop": {
+                "_type": "sanity.imageCrop",
+                "bottom": 0.8432703416405355,
+                "left": 0.38527397260274016,
+                "right": 0.5428082191780814,
+                "top": 0.048997359300214545
+              },
+              "hotspot": {
+                "_type": "sanity.imageHotspot",
+                "height": 0.10773229905924997,
+                "width": 0.07191780821917848,
+                "x": 0.4212328767123294,
+                "y": 0.10286350882983952
+              }
+            }
+          },
+          {
+            "person": {
+              "_id": "d2557711-1629-5007-81d6-43e6a4f9b477"
+            },
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-02e89de246271eed1169d30bc4aef3031c928087-2102x1396-jpg",
+                "_type": "reference"
+              },
+              "crop": {
+                "_type": "sanity.imageCrop",
+                "bottom": 0.8432703416405355,
+                "left": 0.47773972602739756,
+                "right": 0.4589041095890415,
+                "top": 0.048997359300214545
+              },
+              "hotspot": {
+                "_type": "sanity.imageHotspot",
+                "height": 0.10773229905924997,
+                "width": 0.06335616438356095,
+                "x": 0.509417808219178,
+                "y": 0.10286350882983952
+              }
+            }
+          },
+          {
+            "person": {
+              "_id": "83130615-4862-572c-9b4d-6f4b60ffc4aa"
+            },
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-02e89de246271eed1169d30bc4aef3031c928087-2102x1396-jpg",
+                "_type": "reference"
+              },
+              "crop": {
+                "_type": "sanity.imageCrop",
+                "bottom": 0.8484279584089792,
+                "left": 0.5753424657534237,
+                "right": 0.35958904109589085,
+                "top": 0.04383974253177091
+              },
+              "hotspot": {
+                "_type": "sanity.imageHotspot",
+                "height": 0.10773229905924986,
+                "width": 0.061643835616438936,
+                "x": 0.6095890410958897,
+                "y": 0.09770589206139585
+              }
+            }
+          },
+          {
+            "person": {
+              "_id": "8fb597c5-ba09-527c-92e8-4e872a3fe77f"
+            },
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-02e89de246271eed1169d30bc4aef3031c928087-2102x1396-jpg",
+                "_type": "reference"
+              },
+              "crop": {
+                "_type": "sanity.imageCrop",
+                "bottom": 0.8561643835616444,
+                "left": 0.664383561643835,
+                "right": 0.26712328767123283,
+                "top": 0.02836689222644001
+              },
+              "hotspot": {
+                "_type": "sanity.imageHotspot",
+                "height": 0.11546872421191556,
+                "width": 0.06678082191780887,
+                "x": 0.6994863013698627,
+                "y": 0.08610125433239779
+              }
+            }
+          },
+          {
+            "person": {
+              "_id": "addf90d1-dc19-50ce-845a-1a78ca832794"
+            },
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-02e89de246271eed1169d30bc4aef3031c928087-2102x1396-jpg",
+                "_type": "reference"
+              },
+              "crop": {
+                "_type": "sanity.imageCrop",
+                "bottom": 0.8432703416405357,
+                "left": 0.7551369863013698,
+                "right": 0.17465753424657549,
+                "top": 0.04383974253177091
+              },
+              "hotspot": {
+                "_type": "sanity.imageHotspot",
+                "height": 0.11288991582769337,
+                "width": 0.06678082191780821,
+                "x": 0.7919520547945205,
+                "y": 0.1002847004456176
+              }
+            }
+          },
+          {
+            "person": {
+              "_id": "a69c041e-2980-5e6a-9f3e-c67bc521659b"
+            },
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-02e89de246271eed1169d30bc4aef3031c928087-2102x1396-jpg",
+                "_type": "reference"
+              },
+              "crop": {
+                "_type": "sanity.imageCrop",
+                "bottom": 0.8406915332563134,
+                "left": 0.8441780821917799,
+                "right": 0.08561643835616439,
+                "top": 0.05157616768443636
+              },
+              "hotspot": {
+                "_type": "sanity.imageHotspot",
+                "height": 0.10773229905925019,
+                "width": 0.061643835616439435,
+                "x": 0.8835616438356159,
+                "y": 0.10544231721406146
+              }
+            }
+          },
+          {
+            "person": {
+              "_id": "c7d5c0a2-8d2d-56fb-900c-c49bf256fcf6"
+            },
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-02e89de246271eed1169d30bc4aef3031c928087-2102x1396-jpg",
+                "_type": "reference"
+              },
+              "crop": {
+                "_type": "sanity.imageCrop",
+                "bottom": 0.7323815811189971,
+                "left": 0.20376712328767144,
+                "right": 0.7328767123287662,
+                "top": 0.16762254497441806
+              },
+              "hotspot": {
+                "_type": "sanity.imageHotspot",
+                "height": 0.09741706552236284,
+                "width": 0.0633561643835624,
+                "x": 0.23544520547945264,
+                "y": 0.21633107773559948
+              }
+            }
+          },
+          {
+            "person": {
+              "_id": "b91c662b-94e1-5d09-a240-d9607d9c263a"
+            },
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-02e89de246271eed1169d30bc4aef3031c928087-2102x1396-jpg",
+                "_type": "reference"
+              },
+              "crop": {
+                "_type": "sanity.imageCrop",
+                "bottom": 0.7375391978874402,
+                "left": 0.28082191780821925,
+                "right": 0.6472602739726021,
+                "top": 0.1521496946690873
+              },
+              "hotspot": {
+                "_type": "sanity.imageHotspot",
+                "height": 0.11031110744347261,
+                "width": 0.0719178082191787,
+                "x": 0.3167808219178086,
+                "y": 0.2073052483908236
+              }
+            }
+          },
+          {
+            "person": {
+              "_id": "f35703ff-fcef-50cd-be11-e1eee04d392a"
+            },
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-02e89de246271eed1169d30bc4aef3031c928087-2102x1396-jpg",
+                "_type": "reference"
+              },
+              "crop": {
+                "_type": "sanity.imageCrop",
+                "bottom": 0.7530120481927716,
+                "left": 0.36643835616438375,
+                "right": 0.5650684931506842,
+                "top": 0.13925565274797821
+              },
+              "hotspot": {
+                "_type": "sanity.imageHotspot",
+                "height": 0.10773229905925019,
+                "width": 0.06335616438356229,
+                "x": 0.3981164383561649,
+                "y": 0.1931218022776033
+              }
+            }
+          },
+          {
+            "person": {
+              "_id": "15268c43-a5f8-5089-9db1-f97122bebfc7"
+            },
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-02e89de246271eed1169d30bc4aef3031c928087-2102x1396-jpg",
+                "_type": "reference"
+              },
+              "crop": {
+                "_type": "sanity.imageCrop",
+                "bottom": 0.7401180062716628,
+                "left": 0.45719178082191797,
+                "right": 0.4794520547945207,
+                "top": 0.15730731143753082
+              },
+              "hotspot": {
+                "_type": "sanity.imageHotspot",
+                "height": 0.10257468229080635,
+                "width": 0.06164383561643799,
+                "x": 0.48972602739726023,
+                "y": 0.208594652582934
+              }
+            }
+          },
+          {
+            "person": {
+              "_id": "88a19aa0-8801-5bbb-ac45-7aaa0e85aec5"
+            },
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-02e89de246271eed1169d30bc4aef3031c928087-2102x1396-jpg",
+                "_type": "reference"
+              },
+              "crop": {
+                "_type": "sanity.imageCrop",
+                "bottom": 0.7555908565769941,
+                "left": 0.5376712328767134,
+                "right": 0.3904109589041096,
+                "top": 0.12894041921109092
+              },
+              "hotspot": {
+                "_type": "sanity.imageHotspot",
+                "height": 0.11546872421191501,
+                "width": 0.05993150684931425,
+                "x": 0.5744863013698635,
+                "y": 0.18667478131704843
+              }
+            }
+          },
+          {
+            "person": {
+              "_id": "f580d109-7aba-5c59-a7bc-17007e0b84a8"
+            },
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-02e89de246271eed1169d30bc4aef3031c928087-2102x1396-jpg",
+                "_type": "reference"
+              },
+              "crop": {
+                "_type": "sanity.imageCrop",
+                "bottom": 0.7452756230401056,
+                "left": 0.6284246575342449,
+                "right": 0.3047945205479453,
+                "top": 0.1444132695164218
+              },
+              "hotspot": {
+                "_type": "sanity.imageHotspot",
+                "height": 0.1103111074434725,
+                "width": 0.06678082191780976,
+                "x": 0.6618150684931499,
+                "y": 0.19956882323815806
+              }
+            }
+          },
+          {
+            "person": {
+              "_id": "acae6aa3-b19f-5933-8d26-a48ba77c6e56"
+            },
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-02e89de246271eed1169d30bc4aef3031c928087-2102x1396-jpg",
+                "_type": "reference"
+              },
+              "crop": {
+                "_type": "sanity.imageCrop",
+                "bottom": 0.7581696649612149,
+                "left": 0.7020547945205475,
+                "right": 0.22431506849315075,
+                "top": 0.12636161082686917
+              },
+              "hotspot": {
+                "_type": "sanity.imageHotspot",
+                "height": 0.11546872421191601,
+                "width": 0.06506849315068558,
+                "x": 0.7431506849315065,
+                "y": 0.18409597293282717
+              }
+            }
+          },
+          {
+            "person": {
+              "_id": "ee49cac5-b728-5341-b440-84aa6acf9e1b"
+            },
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-02e89de246271eed1169d30bc4aef3031c928087-2102x1396-jpg",
+                "_type": "reference"
+              },
+              "crop": {
+                "_type": "sanity.imageCrop",
+                "bottom": 0.6111775870605719,
+                "left": 0.113013698630137,
+                "right": 0.8167808219178068,
+                "top": 0.27335368872751264
+              },
+              "hotspot": {
+                "_type": "sanity.imageHotspot",
+                "height": 0.11546872421191545,
+                "width": 0.07020547945205624,
+                "x": 0.14811643835616511,
+                "y": 0.33108805083347037
+              }
+            }
+          },
+          {
+            "person": {
+              "_id": "1bf96b85-bd66-5786-9a57-b7322c490f4d"
+            },
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-02e89de246271eed1169d30bc4aef3031c928087-2102x1396-jpg",
+                "_type": "reference"
+              },
+              "crop": {
+                "_type": "sanity.imageCrop",
+                "bottom": 0.6137563954447931,
+                "left": 0.19863013698630155,
+                "right": 0.7260273972602729,
+                "top": 0.26819607195906886
+              },
+              "hotspot": {
+                "_type": "sanity.imageHotspot",
+                "height": 0.1180475325961381,
+                "width": 0.07534246575342562,
+                "x": 0.23630136986301437,
+                "y": 0.3272198382571379
+              }
+            }
+          },
+          {
+            "person": {
+              "_id": "22318baf-0826-5332-b876-46fbba0ca4dc"
+            },
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-02e89de246271eed1169d30bc4aef3031c928087-2102x1396-jpg",
+                "_type": "reference"
+              },
+              "crop": {
+                "_type": "sanity.imageCrop",
+                "bottom": 0.618914012213237,
+                "left": 0.2945205479452057,
+                "right": 0.6369863013698625,
+                "top": 0.28366892226440016
+              },
+              "hotspot": {
+                "_type": "sanity.imageHotspot",
+                "height": 0.09741706552236273,
+                "width": 0.06849315068493178,
+                "x": 0.3287671232876716,
+                "y": 0.3323774550255815
+              }
+            }
+          },
+          {
+            "person": {
+              "_id": "0254e380-0ec3-539c-b1ca-6a0fa081bf6c"
+            },
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-02e89de246271eed1169d30bc4aef3031c928087-2102x1396-jpg",
+                "_type": "reference"
+              },
+              "crop": {
+                "_type": "sanity.imageCrop",
+                "bottom": 0.621492820597459,
+                "left": 0.3869863013698631,
+                "right": 0.5445205479452048,
+                "top": 0.2656172635748472
+              },
+              "hotspot": {
+                "_type": "sanity.imageHotspot",
+                "height": 0.1128899158276937,
+                "width": 0.06849315068493211,
+                "x": 0.4212328767123292,
+                "y": 0.32206222148869407
+              }
+            }
+          },
+          {
+            "person": {
+              "_id": "b078cd75-f836-5f7e-819a-493af08bc12f"
+            },
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-02e89de246271eed1169d30bc4aef3031c928087-2102x1396-jpg",
+                "_type": "reference"
+              },
+              "crop": {
+                "_type": "sanity.imageCrop",
+                "bottom": 0.6214928205974593,
+                "left": 0.5753424657534244,
+                "right": 0.3595890410958905,
+                "top": 0.27593249711173456
+              },
+              "hotspot": {
+                "_type": "sanity.imageHotspot",
+                "height": 0.10257468229080624,
+                "width": 0.06335616438356184,
+                "x": 0.6087328767123286,
+                "y": 0.3272198382571377
+              }
+            }
+          },
+          {
+            "person": {
+              "_id": "550adf62-a6ec-52e1-ae2d-f76c37d768f2"
+            },
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-02e89de246271eed1169d30bc4aef3031c928087-2102x1396-jpg",
+                "_type": "reference"
+              },
+              "crop": {
+                "_type": "sanity.imageCrop",
+                "bottom": 0.6266504373659021,
+                "left": 0.6660958904109574,
+                "right": 0.26712328767123306,
+                "top": 0.26303845519062546
+              },
+              "hotspot": {
+                "_type": "sanity.imageHotspot",
+                "height": 0.11031110744347239,
+                "width": 0.0667808219178096,
+                "x": 0.6994863013698622,
+                "y": 0.31819400891236166
+              }
+            }
+          },
+          {
+            "person": {
+              "_id": "e520a6af-8c6e-5d65-80ee-5351ac1b69a7"
+            },
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-02e89de246271eed1169d30bc4aef3031c928087-2102x1396-jpg",
+                "_type": "reference"
+              },
+              "crop": {
+                "_type": "sanity.imageCrop",
+                "bottom": 0.6214928205974577,
+                "left": 0.7585616438356155,
+                "right": 0.17979452054794542,
+                "top": 0.281090113880178
+              },
+              "hotspot": {
+                "_type": "sanity.imageHotspot",
+                "height": 0.09741706552236429,
+                "width": 0.05821917808219257,
+                "x": 0.7910958904109583,
+                "y": 0.32979864664136016
+              }
+            }
+          },
+          {
+            "person": {
+              "_id": "7ca7b889-85ad-59cf-ba8c-57961f36bdef"
+            },
+            "image": {
+              "_type": "image",
+              "asset": {
+                "_ref": "image-02e89de246271eed1169d30bc4aef3031c928087-2102x1396-jpg",
+                "_type": "reference"
+              },
+              "crop": {
+                "_type": "sanity.imageCrop",
+                "bottom": 0.6189140122132377,
+                "left": 0.8424657534246563,
+                "right": 0.08561643835616439,
+                "top": 0.27077488034329084
+              },
+              "hotspot": {
+                "_type": "sanity.imageHotspot",
+                "height": 0.1103111074434715,
+                "width": 0.07020547945205602,
+                "x": 0.8792808219178077,
+                "y": 0.3259304340650266
+              }
+            }
+          }
+        ]
+      }
+    },
+    "pageContext": {
+      "prevId": "-eeb92734-88f1-585c-9cea-cf856e448f76",
+      "nextId": "-1604ecc8-5af6-53a1-b88b-5269ab62ae4b",
+      "matchId": "-88c50319-876f-5d53-bc8c-712b48cfa10f",
+      "seasonId": "-4813e3a4-5b62-51ee-876d-88472de50cfe",
+      "homeTeamId": "-65f249ea-1410-5d30-bec8-551fd580557b",
+      "awayTeamId": "-cd556b93-2007-5146-847b-5242f19656a0"
+    }
+  },
+  "staticQueryHashes": [],
+  "slicesMap": {
+    "layout": "layout"
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "version": 1,
+  "event_corrections": [
+    {
+      "id": "2005-08-14-tom-sanne-suboff",
+      "source_filename": "2005-08-14_glimt-brann.json",
+      "minute": 59,
+      "event_type": "subApp",
+      "match_field": "subOn",
+      "match_player_id": "f25ada1d-e8f1-5c59-b519-e49bf72c7bd3",
+      "set_field": "subOff",
+      "replacement_player": {
+        "_id": "bf636d82-f5b4-5c63-9352-609b82dee4e8",
+        "_type": "person",
+        "name": "Martin Knudsen"
+      },
+      "source_label": "Norges Fotballforbund",
+      "source_reference": "Kampnummer 99120001120",
+      "reason": "NFF registrerer Tom Sanne inn og Martin Knudsen ut. Branntall har feilaktig Knut Walde som subOff."
+    },
+    {
+      "id": "2011-07-18-kalvenes-suboff",
+      "source_filename": "2011-07-18_fredrikstad-brann.json",
+      "minute": 88,
+      "event_type": "subApp",
+      "match_field": "subOn",
+      "match_player_id": "5727d7f7-41c3-57bf-94b7-a6a2461a942d",
+      "set_field": "subOff",
+      "replacement_player": {
+        "_id": "5ebd1a53-f259-5771-8f4b-192aa6f6dddb",
+        "_type": "person",
+        "name": "Zsolt Korcsmár"
+      },
+      "source_label": "Norges Fotballforbund",
+      "source_reference": "Kamp-ID 5256139",
+      "reason": "NFF registrerer Christian Kalvenes inn og Zsolt Korcsmár ut. Branntall har Ukjent Ukjent som subOff."
+    }
+  ],
+  "squad_entry_exclusions": [
+    {
+      "id": "1937-06-21-leif-eriksen-duplicate-squad-entry",
+      "source_filename": "1937-06-21_brann-arstad.json",
+      "squad_name": "homeSquad",
+      "team_id": "05bb57f9-3430-5a18-b77c-96b578525b9c",
+      "player_id": "f7548d12-6fae-4db3-b194-1db8f3b7c1aa",
+      "squad_index": 4,
+      "action": "exclude_duplicate_squad_entry",
+      "source_label": "Branntall raw data inspection",
+      "source_reference": "1937-06-21_brann-arstad.json homeSquad[4]",
+      "reason": "Leif Magnus Eriksen is listed twice for Brann with the same starting role. The later duplicate is excluded from derived appearances; this does not identify the missing starter."
+    },
+    {
+      "id": "1979-09-09-ingvald-huseklepp-duplicate-squad-entry",
+      "source_filename": "1979-09-09_start-brann.json",
+      "squad_name": "awaySquad",
+      "team_id": "05bb57f9-3430-5a18-b77c-96b578525b9c",
+      "player_id": "c37e7895-dc2d-480c-879a-1f598f092372",
+      "squad_index": 9,
+      "action": "exclude_duplicate_squad_entry",
+      "source_label": "Branntall raw data inspection",
+      "source_reference": "1979-09-09_start-brann.json awaySquad[9]",
+      "reason": "Ingvald Huseklepp is listed twice for Brann as a starter with conflicting roles. The later duplicate is excluded from derived appearances; this leaves the lineup incomplete rather than guessing the missing player."
+    },
+    {
+      "id": "1914-09-13-birger-lunde-duplicate-squad-entry",
+      "source_filename": "1914-09-13_stavanger-brann.json",
+      "squad_name": "homeSquad",
+      "team_id": "5c351334-2dba-442c-b90d-1a5bc2db1568",
+      "player_id": "0abd919b-ae1f-4408-9a12-afb456882c28",
+      "squad_index": 2,
+      "action": "exclude_duplicate_squad_entry",
+      "source_label": "Branntall raw data inspection",
+      "source_reference": "1914-09-13_stavanger-brann.json homeSquad[2]",
+      "reason": "Birger Lunde is listed twice for Stavanger with the same starting role. The later duplicate is excluded from derived appearances."
+    },
+    {
+      "id": "1952-05-18-asbjorn-andersen-duplicate-squad-entry",
+      "source_filename": "1952-05-18_vif-brann.json",
+      "squad_name": "homeSquad",
+      "team_id": "1417ff14-3e9e-50a2-ad2f-666c5444eca8",
+      "player_id": "23ef273b-c50b-46a6-966a-7fa8a579346d",
+      "squad_index": 6,
+      "action": "exclude_duplicate_squad_entry",
+      "source_label": "Branntall raw data inspection",
+      "source_reference": "1952-05-18_vif-brann.json homeSquad[6]",
+      "reason": "Asbjorn Andersen is listed twice for Valerenga as a starter with conflicting roles. The later duplicate is excluded from derived appearances; this does not identify any missing player."
+    },
+    {
+      "id": "1963-08-18-bjorn-elvenes-duplicate-squad-entry",
+      "source_filename": "1963-08-18_brann-skeid.json",
+      "squad_name": "awaySquad",
+      "team_id": "84b8ccfb-a674-5409-b9da-4ca7ed1fb4ca",
+      "player_id": "e4cb3db9-a089-43d9-a95d-9e36435c6710",
+      "squad_index": 8,
+      "action": "exclude_duplicate_squad_entry",
+      "source_label": "Branntall raw data inspection",
+      "source_reference": "1963-08-18_brann-skeid.json awaySquad[8]",
+      "reason": "Bjorn Elvenes is listed twice for Skeid as a starter with conflicting roles. The later duplicate is excluded from derived appearances; this does not identify any missing player."
+    },
+    {
+      "id": "1970-08-30-svein-bjorn-olsen-duplicate-squad-entry",
+      "source_filename": "1970-08-30_brann-lyn.json",
+      "squad_name": "awaySquad",
+      "team_id": "1054c2dc-f02b-532b-9c04-a40b4c76028a",
+      "player_id": "fa894124-e8b8-43c9-8f2b-3dc7d8ad2cad",
+      "squad_index": 3,
+      "action": "exclude_duplicate_squad_entry",
+      "source_label": "Branntall raw data inspection",
+      "source_reference": "1970-08-30_brann-lyn.json awaySquad[3]",
+      "reason": "Svein Bjorn Olsen is listed twice for Lyn as a starter with conflicting roles. The later duplicate is excluded from derived appearances; this does not identify any missing player."
+    },
+    {
+      "id": "1973-10-24-warren-feeney-duplicate-squad-entry",
+      "source_filename": "1973-10-24_brann-glentoran.json",
+      "squad_name": "awaySquad",
+      "team_id": "4cef837d-2f0a-5b65-aee2-6405100b5c85",
+      "player_id": "0745cc1e-d538-4524-b22e-757dadb60557",
+      "squad_index": 11,
+      "action": "exclude_duplicate_squad_entry",
+      "source_label": "Branntall raw data inspection",
+      "source_reference": "1973-10-24_brann-glentoran.json awaySquad[11]",
+      "reason": "Warren Feeney is listed twice for Glentoran. The later duplicate has no role data and is excluded from derived appearances."
+    },
+    {
+      "id": "1997-09-21-ole-hjelmhaug-duplicate-squad-entry",
+      "source_filename": "1997-09-21_brann-sogndal.json",
+      "squad_name": "awaySquad",
+      "team_id": "ff0989fa-04a7-5735-896f-958a67753ff6",
+      "player_id": "f5204095-974f-5f2a-abf3-225ba3048368",
+      "squad_index": 14,
+      "action": "exclude_duplicate_squad_entry",
+      "source_label": "Branntall raw data inspection",
+      "source_reference": "1997-09-21_brann-sogndal.json awaySquad[14]",
+      "reason": "Ole Hjelmhaug is listed twice for Sogndal with different shirt numbers. The later duplicate is excluded from derived appearances."
+    },
+    {
+      "id": "1998-07-05-ole-hjelmhaug-duplicate-squad-entry",
+      "source_filename": "1998-07-05_sogndal-brann.json",
+      "squad_name": "homeSquad",
+      "team_id": "ff0989fa-04a7-5735-896f-958a67753ff6",
+      "player_id": "f5204095-974f-5f2a-abf3-225ba3048368",
+      "squad_index": 14,
+      "action": "exclude_duplicate_squad_entry",
+      "source_label": "Branntall raw data inspection",
+      "source_reference": "1998-07-05_sogndal-brann.json homeSquad[14]",
+      "reason": "Ole Hjelmhaug is listed twice for Sogndal; one row is a starter with shirt 19 and the later row is a bench-style row with shirt 11. The later duplicate is excluded from derived appearances."
+    }
+  ]
+}

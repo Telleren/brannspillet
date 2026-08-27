@@ -1,0 +1,19 @@
+__pycache__/
+*.py[cod]
+*$py.class
+
+.venv/
+venv/
+env/
+
+.env
+.env.*
+*.log
+
+# Derived SQLite databases. Rebuild from raw data, corrections,
+# enrichment files, and import scripts.
+data/*.db
+data/*.db-*
+data/*.sqlite
+data/*.sqlite3
+
