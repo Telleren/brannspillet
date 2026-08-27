@@ -1638,6 +1638,44 @@ Current eligible candidate counts:
 1911-2026: 2379
 ```
 
+## Static GitHub Pages beta
+
+Current static beta path:
+
+```text
+docs/hvem-mangler/
+```
+
+The static beta is a plain HTML/CSS/JavaScript version of Hvem mangler that can be served by GitHub Pages from the repository's `docs/` folder.
+
+Generated puzzle data:
+
+```text
+docs/hvem-mangler/puzzles.json
+```
+
+Regenerate it with:
+
+```powershell
+python export_hvem_mangler_pages_data.py
+```
+
+Current exported puzzle count:
+- 2,379 total eligible puzzles
+- 1,414 historical pre-2000 puzzles
+- 965 modern 2000-onward puzzles
+
+The JSON export preserves:
+- exactly 11 Brann starters per puzzle
+- original squad insertion order
+- visible hidden-player placeholder
+- hidden-player rule based on fewest Brann appearances in that calendar year
+- shirt-number priority from the terminal prototype
+
+Static beta limitation:
+- answers are included client-side in the downloaded JSON
+- this version is for informal beta testing, not anti-cheat production use
+
 ## Answer handling
 
 Accept:

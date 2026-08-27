@@ -70,3 +70,9 @@ Current prototype: hvem_mangler.py
   2. verified shirt_number_enrichments.json
   3. unambiguous same-season inference
   4. "?" if still unknown
+
+Current static beta: docs/hvem-mangler/
+- GitHub Pages-compatible static version of Hvem mangler.
+- Generated puzzle data lives in docs/hvem-mangler/puzzles.json.
+- Regenerate it with export_hvem_mangler_pages_data.py after changes to eligible data, hidden-player logic, or shirt-number display.
+- The static beta includes answers client-side and is meant for informal beta testing, not anti-cheat production use.

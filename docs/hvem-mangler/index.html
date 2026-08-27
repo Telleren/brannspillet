@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="no">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hvem mangler?</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="setup-view" id="setup-view">
+        <div class="brand-row">
+          <div>
+            <p class="eyebrow">Brannspillet beta</p>
+            <h1>Hvem mangler?</h1>
+          </div>
+          <div class="crest-mark" aria-hidden="true">B</div>
+        </div>
+
+        <form class="setup-panel" id="setup-form">
+          <div class="range-head">
+            <label for="year-min">Årsintervall</label>
+            <output id="year-output">1911-2026</output>
+          </div>
+
+          <div class="range-control">
+            <input id="year-min" type="range" min="1911" max="2026" value="1911">
+            <input id="year-max" type="range" min="1911" max="2026" value="2026">
+          </div>
+
+          <div class="setup-meta">
+            <span id="candidate-count">Laster kamper...</span>
+            <span>3 liv</span>
+          </div>
+
+          <button class="primary-button" type="submit">Start</button>
+        </form>
+      </section>
+
+      <section class="game-view hidden" id="game-view" aria-live="polite">
+        <header class="scorebar">
+          <button class="icon-button" type="button" id="back-button" aria-label="Tilbake til årsvalg">
+            ←
+          </button>
+          <div>
+            <p class="eyebrow" id="range-label">1911-2026</p>
+            <h1>Hvem mangler?</h1>
+          </div>
+          <div class="score-cluster">
+            <div>
+              <span>Streak</span>
+              <strong id="score-value">0</strong>
+            </div>
+            <div>
+              <span>Liv</span>
+              <strong id="lives-value">3</strong>
+            </div>
+          </div>
+        </header>
+
+        <article class="match-panel">
+          <div class="match-strip">
+            <div>
+              <p id="match-date">----</p>
+              <h2 id="match-title">Laster kamp</h2>
+            </div>
+            <strong id="match-score">-</strong>
+          </div>
+
+          <div class="lineup-pitch" id="lineup"></div>
+        </article>
+
+        <form class="answer-panel" id="answer-form">
+          <label for="answer-input">Hvem mangler?</label>
+          <div class="answer-row">
+            <input id="answer-input" name="answer" type="text" autocomplete="off" autocapitalize="words">
+            <button class="primary-button" type="submit">Svar</button>
+          </div>
+          <p class="feedback" id="feedback"></p>
+        </form>
+
+        <section class="result-panel hidden" id="result-panel">
+          <p class="eyebrow">Streaken er over</p>
+          <h2 id="final-score">0 riktige</h2>
+          <p id="final-detail">0 feil</p>
+          <button class="primary-button" type="button" id="restart-button">Spill igjen</button>
+        </section>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
