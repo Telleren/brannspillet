@@ -77,3 +77,11 @@ Current static beta: docs/hvem-mangler/
 - Regenerate it with export_hvem_mangler_pages_data.py after changes to eligible data, hidden-player logic, or shirt-number display.
 - Static beta includes a first autocomplete pass based on players from the selected year range, excluding visible starters in the current lineup.
 - The static beta includes answers client-side and is meant for informal beta testing, not anti-cheat production use.
+
+Current Tenable foundation: tenable.py
+- Terminal prototype for top-10 list questions.
+- Default year range is 1963 through 2026, but the script can query 1911 through 2026.
+- Implemented themes: appearances, starts, substitute appearances, goals, wins, appearances against an opponent, goals against an opponent.
+- A question is playable only when it has exactly 10 answers without a tie crossing 10th place.
+- Three lives; the third wrong answer ends the question.
+- Coach-based themes are not implemented because the current database has no coach/manager table.

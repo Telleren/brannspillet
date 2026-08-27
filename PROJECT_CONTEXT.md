@@ -64,9 +64,24 @@ Database-generated ranking questions:
 - most games against a club
 - etc.
 
-Potentially highly automatable.
+Current foundation prototype:
+- `tenable.py`
+- terminal-only
+- three lives
+- explicit SQL-backed top-10 themes
+- rejects lists with a tie crossing 10th place
+- random playable question support
 
-Not yet implemented.
+Currently implemented themes:
+- most Brann appearances
+- most Brann starts
+- most Brann substitute appearances
+- most Brann goals
+- most Brann wins appeared in
+- most Brann appearances against a selected opponent
+- most Brann goals against a selected opponent
+
+Coach/manager themes are not implemented yet because the current SQLite schema does not include coach data.
 
 ## 2.4 Fotball Sudoku / Grid
 
@@ -1892,6 +1907,7 @@ Brannspillet/
 │
 ├── query.py
 ├── hvem_mangler.py
+├── tenable.py
 │
 ├── AGENTS.md
 ├── PROJECT_CONTEXT.md
