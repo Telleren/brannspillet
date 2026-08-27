@@ -23,6 +23,16 @@ MAX_YEAR = 2026
 ANSWER_COUNT = 10
 STARTING_LIVES = 3
 
+MIN_CUTOFF_BY_THEME = {
+    "kamper": 50,
+    "starter": 35,
+    "innhopp": 20,
+    "maal": 10,
+    "seire": 30,
+    "kamper-mot": 5,
+    "maal-mot": 3,
+}
+
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(
         encoding="utf-8",
@@ -218,23 +228,7 @@ def rank_rows(rows):
     )
 
 
-def has_cutoff_tie(rows):
-
-    if len(rows) <= ANSWER_COUNT:
-        return False
-
-    cutoff_value = rows[
-        ANSWER_COUNT - 1
-    ]["value"]
-
-    next_value = rows[
-        ANSWER_COUNT
-    ]["value"]
-
-    return cutoff_value == next_value
-
-
-def build_top_ten(rows):
+def build_answer_slots(rows):
 
     ranked = rank_rows(
         rows
@@ -245,22 +239,96 @@ def build_top_ten(rows):
         return {
             "playable": False,
             "reason": "Listen har færre enn 10 svar.",
-            "answers": ranked,
+            "slots": [],
+            "eligible_answers": ranked,
+            "cutoff_value": None,
         }
 
-    if has_cutoff_tie(ranked):
+    cutoff_value = ranked[
+        ANSWER_COUNT - 1
+    ]["value"]
 
-        return {
-            "playable": False,
-            "reason": "Det er delt 10.-plass.",
-            "answers": ranked,
+    above_cutoff = [
+        row
+        for row in ranked
+        if row["value"] > cutoff_value
+    ]
+
+    cutoff_players = [
+        row
+        for row in ranked
+        if row["value"] == cutoff_value
+    ]
+
+    slots = [
+        {
+            "value": row["value"],
+            "players": [
+                row
+            ]
         }
+        for row in above_cutoff
+    ]
+
+    remaining_slots = (
+        ANSWER_COUNT
+        - len(slots)
+    )
+
+    for _ in range(remaining_slots):
+
+        slots.append(
+            {
+                "value": cutoff_value,
+                "players": cutoff_players
+            }
+        )
+
+    top_answers = (
+        above_cutoff
+        + cutoff_players
+    )
+
+    slots = slots[
+        :ANSWER_COUNT
+    ]
 
     return {
         "playable": True,
         "reason": None,
-        "answers": ranked[:ANSWER_COUNT],
+        "slots": slots,
+        "eligible_answers": top_answers,
+        "cutoff_value": cutoff_value,
     }
+
+
+def build_top_ten(rows, theme_id):
+
+    answer_data = build_answer_slots(
+        rows
+    )
+
+    if not answer_data["playable"]:
+        return answer_data
+
+    minimum = MIN_CUTOFF_BY_THEME[
+        theme_id
+    ]
+
+    if answer_data["cutoff_value"] < minimum:
+
+        return {
+            "playable": False,
+            "reason": (
+                "10.-plassen har for lav verdi "
+                f"({answer_data['cutoff_value']} < {minimum})."
+            ),
+            "slots": answer_data["slots"],
+            "eligible_answers": answer_data["eligible_answers"],
+            "cutoff_value": answer_data["cutoff_value"],
+        }
+
+    return answer_data
 
 
 def player_names(player):
@@ -771,7 +839,8 @@ def build_question(
     top_ten = build_top_ten(
         combine_rows(
             rows
-        )
+        ),
+        theme_id
     )
 
     title = theme["title"]
@@ -796,7 +865,9 @@ def build_question(
         "opponent": opponent,
         "playable": top_ten["playable"],
         "reason": top_ten["reason"],
-        "answers": top_ten["answers"],
+        "slots": top_ten["slots"],
+        "eligible_answers": top_ten["eligible_answers"],
+        "cutoff_value": top_ten["cutoff_value"],
     }
 
 
@@ -854,6 +925,62 @@ def get_playable_questions(
 # SVAR OG SPILL
 # ============================================================
 
+def get_slot_results(
+    question,
+    guessed_ids
+):
+
+    used_ids = set()
+    results = []
+
+    for slot in question["slots"]:
+
+        guessed_player = None
+        players_by_id = {
+            player["player_id"]: player
+            for player in slot["players"]
+        }
+
+        for player_id in guessed_ids:
+
+            if (
+                player_id in players_by_id
+                and player_id not in used_ids
+            ):
+
+                guessed_player = players_by_id[
+                    player_id
+                ]
+                used_ids.add(
+                    player_id
+                )
+                break
+
+        results.append(
+            {
+                "slot": slot,
+                "player": guessed_player
+            }
+        )
+
+    return results
+
+
+def count_solved_slots(
+    question,
+    guessed_ids
+):
+
+    return sum(
+        1
+        for result in get_slot_results(
+            question,
+            guessed_ids
+        )
+        if result["player"] is not None
+    )
+
+
 def match_answer(
     answer,
     question,
@@ -872,7 +999,7 @@ def match_answer(
 
     matches = []
 
-    for player in question["answers"]:
+    for player in question["eligible_answers"]:
 
         names = player_names(
             player
@@ -940,17 +1067,23 @@ def print_board(
     )
     print()
 
-    for index, player in enumerate(
-        question["answers"],
+    for index, result in enumerate(
+        get_slot_results(
+            question,
+            guessed_ids
+        ),
         start=1
     ):
 
-        if player["player_id"] in guessed_ids:
+        slot = result["slot"]
+        player = result["player"]
+
+        if player:
 
             print(
                 f"{index:>2}. "
                 f"{player['name']:<28} "
-                f"{player['value']:>4} "
+                f"{slot['value']:>4} "
                 f"{question['metric']}"
             )
 
@@ -959,7 +1092,7 @@ def print_board(
             print(
                 f"{index:>2}. "
                 "____________________________ "
-                f"{player['value']:>4} "
+                f"{slot['value']:>4} "
                 f"{question['metric']}"
             )
 
@@ -973,7 +1106,10 @@ def print_result(
     mistakes
 ):
 
-    correct = len(guessed_ids)
+    correct = count_solved_slots(
+        question,
+        guessed_ids
+    )
 
     print()
     print("=" * 72)
@@ -985,24 +1121,67 @@ def print_result(
     )
     print("=" * 72)
 
-    for index, player in enumerate(
-        question["answers"],
+    revealed_ids = set()
+
+    for index, result in enumerate(
+        get_slot_results(
+            question,
+            guessed_ids
+        ),
         start=1
     ):
 
-        marker = "x" if player["player_id"] in guessed_ids else " "
+        slot = result["slot"]
+        player = result["player"]
+
+        if player:
+            marker = "x"
+            revealed_ids.add(
+                player["player_id"]
+            )
+
+        else:
+
+            player = next(
+                (
+                    candidate
+                    for candidate in slot["players"]
+                    if candidate["player_id"]
+                    not in revealed_ids
+                ),
+                slot["players"][0]
+            )
+            revealed_ids.add(
+                player["player_id"]
+            )
+            marker = " "
 
         print(
             f"{marker} {index:>2}. "
             f"{player['name']:<28} "
-            f"{player['value']:>4} "
+            f"{slot['value']:>4} "
             f"{question['metric']}"
         )
+
+        if (
+            index == ANSWER_COUNT
+            and len(slot["players"]) > 1
+        ):
+
+            alternatives = [
+                player["name"]
+                for player in slot["players"]
+            ]
+
+            print(
+                "      Delt cutoff-gruppe: "
+                + ", ".join(alternatives)
+            )
 
 
 def play_question(question):
 
-    guessed_ids = set()
+    guessed_ids = []
     mistakes = 0
 
     while True:
@@ -1013,7 +1192,12 @@ def play_question(question):
             mistakes
         )
 
-        if len(guessed_ids) == ANSWER_COUNT:
+        solved_slots = count_solved_slots(
+            question,
+            guessed_ids
+        )
+
+        if solved_slots == ANSWER_COUNT:
 
             print_result(
                 question,
@@ -1053,7 +1237,7 @@ def play_question(question):
         if status == "correct":
 
             player = result["player"]
-            guessed_ids.add(
+            guessed_ids.append(
                 player["player_id"]
             )
             print(
@@ -1137,7 +1321,10 @@ def list_questions(
 
         print(
             f"- {question['theme_id']}: "
-            f"{question['title']}"
+            f"{question['title']} "
+            f"(10.-plass: "
+            f"{question['cutoff_value']} "
+            f"{question['metric']})"
         )
 
 

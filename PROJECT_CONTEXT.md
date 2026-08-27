@@ -69,8 +69,18 @@ Current foundation prototype:
 - terminal-only
 - three lives
 - explicit SQL-backed top-10 themes
-- rejects lists with a tie crossing 10th place
+- filters out thin lists with a configurable minimum value at 10th place
+- accepts any player in a tie group that crosses 10th place
 - random playable question support
+
+Current minimum 10th-place values:
+- appearances: 50
+- starts: 35
+- substitute appearances: 20
+- goals: 10
+- wins: 30
+- appearances against opponent: 5
+- goals against opponent: 3
 
 Currently implemented themes:
 - most Brann appearances
