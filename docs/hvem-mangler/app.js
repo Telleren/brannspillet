@@ -3,6 +3,7 @@ const STARTING_LIVES = 3;
 
 let data = null;
 let selectedPuzzles = [];
+let playerPool = [];
 let usedPuzzleIds = new Set();
 let currentPuzzle = null;
 let score = 0;
@@ -25,6 +26,7 @@ const matchTitle = document.querySelector("#match-title");
 const matchScore = document.querySelector("#match-score");
 const lineup = document.querySelector("#lineup");
 const answerInput = document.querySelector("#answer-input");
+const playerSuggestions = document.querySelector("#player-suggestions");
 const feedback = document.querySelector("#feedback");
 const finalScore = document.querySelector("#final-score");
 const restartButton = document.querySelector("#restart-button");
@@ -48,6 +50,10 @@ function shuffle(items) {
   }
 
   return copy;
+}
+
+function chooseOne(items) {
+  return items[Math.floor(Math.random() * items.length)];
 }
 
 function clampYears() {
@@ -79,6 +85,71 @@ function setScoreboard() {
 
 function namesFor(player) {
   return [player.name, player.fullName].filter(Boolean).map(normalizeText);
+}
+
+function buildPlayerPool(puzzles) {
+  const playersById = new Map();
+
+  for (const puzzle of puzzles) {
+    for (const player of puzzle.lineup) {
+      if (!playersById.has(player.id)) {
+        playersById.set(player.id, {
+          id: player.id,
+          name: player.name,
+          fullName: player.fullName,
+          search: namesFor(player).join(" "),
+        });
+      }
+    }
+  }
+
+  return [...playersById.values()].sort((a, b) =>
+    a.name.localeCompare(b.name, "nb-NO")
+  );
+}
+
+function updateSuggestions() {
+  playerSuggestions.replaceChildren();
+
+  if (!currentPuzzle) {
+    return;
+  }
+
+  const wanted = normalizeText(answerInput.value);
+
+  if (wanted.length < 2) {
+    return;
+  }
+
+  const visiblePlayerIds = new Set(
+    currentPuzzle.lineup
+      .filter((player) => !player.hidden)
+      .map((player) => player.id)
+  );
+
+  const options = playerPool
+    .filter(
+      (player) =>
+        !visiblePlayerIds.has(player.id) &&
+        player.search.includes(wanted)
+    )
+    .sort((a, b) => {
+      const aStarts = normalizeText(a.name).startsWith(wanted) ? 0 : 1;
+      const bStarts = normalizeText(b.name).startsWith(wanted) ? 0 : 1;
+
+      if (aStarts !== bStarts) {
+        return aStarts - bStarts;
+      }
+
+      return a.name.localeCompare(b.name, "nb-NO");
+    })
+    .slice(0, 12);
+
+  for (const player of options) {
+    const option = document.createElement("option");
+    option.value = player.name;
+    playerSuggestions.append(option);
+  }
 }
 
 function isCorrectAnswer(answer, puzzle) {
@@ -160,7 +231,17 @@ function renderLineup(puzzle) {
 }
 
 function renderPuzzle(puzzle) {
-  currentPuzzle = puzzle;
+  const answer = chooseOne(puzzle.hiddenCandidates);
+
+  currentPuzzle = {
+    ...puzzle,
+    answer,
+    lineup: puzzle.lineup.map((player) => ({
+      ...player,
+      hidden: player.id === answer.id,
+    })),
+  };
+
   matchDate.textContent = `${puzzle.date} | ${puzzle.competition}`;
   matchTitle.textContent = `${puzzle.homeTeam}-${puzzle.awayTeam}`;
   matchScore.textContent = puzzle.score;
@@ -168,7 +249,8 @@ function renderPuzzle(puzzle) {
   answerInput.disabled = false;
   clearFeedback();
   setScoreboard();
-  renderLineup(puzzle);
+  updateSuggestions();
+  renderLineup(currentPuzzle);
   answerInput.focus();
 }
 
@@ -215,6 +297,7 @@ function startGame(event) {
 
   score = 0;
   mistakes = 0;
+  playerPool = buildPlayerPool(selectedPuzzles);
   usedPuzzleIds = new Set();
   rangeLabel.textContent = `${start}-${end}`;
   setupView.classList.add("hidden");
@@ -278,6 +361,7 @@ async function init() {
 
 yearMin.addEventListener("input", clampYears);
 yearMax.addEventListener("input", clampYears);
+answerInput.addEventListener("input", updateSuggestions);
 setupForm.addEventListener("submit", startGame);
 answerForm.addEventListener("submit", submitAnswer);
 restartButton.addEventListener("click", startGame);

@@ -20,12 +20,12 @@
         <form class="setup-panel" id="setup-form">
           <div class="range-head">
             <label for="year-min">Årsintervall</label>
-            <output id="year-output">1911-2026</output>
+            <output id="year-output">1963-2026</output>
           </div>
 
           <div class="range-control">
-            <input id="year-min" type="range" min="1911" max="2026" value="1911">
-            <input id="year-max" type="range" min="1911" max="2026" value="2026">
+            <input id="year-min" type="range" min="1963" max="2026" value="1963">
+            <input id="year-max" type="range" min="1963" max="2026" value="2026">
           </div>
 
           <div class="setup-meta">
@@ -43,7 +43,7 @@
             ←
           </button>
           <div>
-            <p class="eyebrow" id="range-label">1911-2026</p>
+            <p class="eyebrow" id="range-label">1963-2026</p>
             <h1>Hvem mangler?</h1>
           </div>
           <div class="score-cluster">
@@ -73,7 +73,8 @@
         <form class="answer-panel" id="answer-form">
           <label for="answer-input">Hvem mangler?</label>
           <div class="answer-row">
-            <input id="answer-input" name="answer" type="text" autocomplete="off" autocapitalize="words">
+            <input id="answer-input" name="answer" type="text" list="player-suggestions" autocomplete="off" autocapitalize="words">
+            <datalist id="player-suggestions"></datalist>
             <button class="primary-button" type="submit">Svar</button>
           </div>
           <p class="feedback" id="feedback"></p>

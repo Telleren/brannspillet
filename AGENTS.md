@@ -58,12 +58,12 @@ Run audit_historical_import.py after changes that affect pre-2000 import behavio
 ## Current application work
 Current prototype: hvem_mangler.py
 - Streak mode with three lives; the third wrong answer ends the game.
-- User chooses a year range from 1911 through 2026 before starting.
+- User chooses a year range from 1963 through 2026 before starting.
 - Candidate matches must have exactly 11 Brann starters in the derived database.
 - Historical pre-2000 candidates come from data/brannspillet_historical_sandbox.db.
 - One Brann starter hidden per lineup.
 - Show a visible placeholder at the hidden starter's natural lineup position.
-- Hidden player is the starter with the fewest Brann appearances in that calendar year, with stable tie-breaks.
+- Hidden player is randomly chosen from the five starters with the fewest Brann appearances in that calendar year.
 - Natural lineup order comes from original squad insertion order.
 - Shirt number priority:
   1. exact match data
@@ -75,4 +75,5 @@ Current static beta: docs/hvem-mangler/
 - GitHub Pages-compatible static version of Hvem mangler.
 - Generated puzzle data lives in docs/hvem-mangler/puzzles.json.
 - Regenerate it with export_hvem_mangler_pages_data.py after changes to eligible data, hidden-player logic, or shirt-number display.
+- Static beta includes a first autocomplete pass based on players from the selected year range, excluding visible starters in the current lineup.
 - The static beta includes answers client-side and is meant for informal beta testing, not anti-cheat production use.

@@ -1562,7 +1562,7 @@ Streak mode.
 The player chooses a year interval before the game starts:
 
 ```text
-1911 through 2026
+1963 through 2026
 ```
 
 The terminal prototype asks for start year and end year. A future web frontend can represent the same selection as a two-handle range slider.
@@ -1586,9 +1586,10 @@ The hidden starter's slot remains visible in the lineup as:
 This preserves the natural tactical position clue, e.g. showing that the missing player was between two defenders or in midfield, without revealing the player.
 
 Hidden-player rule:
-- the hidden player is not random
-- for the selected lineup, hide the starter with the fewest Brann appearances in that specific calendar year
-- ties are resolved stably by normalized player name and player ID
+- the hidden player is partly random
+- for the selected lineup, rank the 11 starters by Brann appearances in that specific calendar year
+- build a hidden-player pool from the five starters with the fewest appearances
+- randomly hide one player from that five-player pool
 - this rule is not shown to the player
 
 Scoring:
@@ -1627,15 +1628,15 @@ This uses a deterministic seed for testing/replay.
 Non-interactive interval:
 
 ```powershell
-python hvem_mangler.py --start-year 1911 --end-year 1999
+python hvem_mangler.py --start-year 1963 --end-year 1999
 ```
 
 Current eligible candidate counts:
 
 ```text
-1911-1999: 1414
+1963-1999: 1010
 2000-2026:  965
-1911-2026: 2379
+1963-2026: 1975
 ```
 
 ## Static GitHub Pages beta
@@ -1661,16 +1662,21 @@ python export_hvem_mangler_pages_data.py
 ```
 
 Current exported puzzle count:
-- 2,379 total eligible puzzles
-- 1,414 historical pre-2000 puzzles
+- 1,975 total eligible puzzles
+- 1,010 historical pre-2000 puzzles
 - 965 modern 2000-onward puzzles
 
 The JSON export preserves:
 - exactly 11 Brann starters per puzzle
 - original squad insertion order
 - visible hidden-player placeholder
-- hidden-player rule based on fewest Brann appearances in that calendar year
+- five-player hidden-candidate pool based on fewest Brann appearances in that calendar year
 - shirt-number priority from the terminal prototype
+
+Static beta autocomplete:
+- suggestions are based on players who appear in the selected year range
+- visible starters in the current lineup are excluded from suggestions
+- this is a first native-browser `datalist` implementation for beta testing
 
 Static beta limitation:
 - answers are included client-side in the downloaded JSON

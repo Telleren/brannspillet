@@ -5,6 +5,7 @@ from pathlib import Path
 from hvem_mangler import (
     BRANN_ID,
     GROUP_ORDER,
+    HIDDEN_POOL_SIZE,
     MAX_YEAR,
     MIN_YEAR,
     close_databases,
@@ -151,7 +152,7 @@ def build_unique_season_shirts(database):
     }
 
 
-def choose_hidden_player(
+def choose_hidden_candidates(
     database,
     match,
     starters
@@ -199,7 +200,12 @@ def choose_hidden_player(
 
     ranked.sort()
 
-    return ranked[0][3]
+    return [
+        item[3]
+        for item in ranked[
+            :HIDDEN_POOL_SIZE
+        ]
+    ]
 
 
 def get_display_shirt_number(
@@ -240,8 +246,7 @@ def build_lineup(
     database,
     enrichments,
     match,
-    starters,
-    hidden
+    starters
 ):
 
     lineup = []
@@ -268,10 +273,6 @@ def build_lineup(
                     if shirt is not None
                     else "?"
                 ),
-                "hidden": (
-                    player["id"]
-                    == hidden["id"]
-                ),
             }
         )
 
@@ -289,7 +290,7 @@ def build_puzzle(
         match["id"]
     )
 
-    hidden = choose_hidden_player(
+    hidden_candidates = choose_hidden_candidates(
         database,
         match,
         starters
@@ -315,15 +316,17 @@ def build_puzzle(
             database,
             enrichments,
             match,
-            starters,
-            hidden
+            starters
         ),
-        "answer": {
-            "id": hidden["id"],
-            "names": player_names(
-                hidden
-            ),
-        },
+        "hiddenCandidates": [
+            {
+                "id": player["id"],
+                "names": player_names(
+                    player
+                ),
+            }
+            for player in hidden_candidates
+        ],
     }
 
 

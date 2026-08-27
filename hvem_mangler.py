@@ -23,9 +23,10 @@ SHIRT_ENRICHMENTS_FILE = Path(
 
 BRANN_ID = "05bb57f9-3430-5a18-b77c-96b578525b9c"
 
-MIN_YEAR = 1911
+MIN_YEAR = 1963
 MAX_YEAR = 2026
 STARTING_LIVES = 3
+HIDDEN_POOL_SIZE = 5
 
 
 # ============================================================
@@ -689,7 +690,8 @@ def count_brann_appearances_in_year(
 def choose_hidden_player(
     database,
     match,
-    starters
+    starters,
+    rng
 ):
 
     year = int(
@@ -736,7 +738,16 @@ def choose_hidden_player(
 
     ranked.sort()
 
-    return ranked[0][3]
+    hidden_pool = [
+        item[3]
+        for item in ranked[
+            :HIDDEN_POOL_SIZE
+        ]
+    ]
+
+    return rng.choice(
+        hidden_pool
+    )
 
 
 def select_round(
@@ -784,7 +795,8 @@ def select_round(
     hidden = choose_hidden_player(
         database,
         match,
-        starters
+        starters,
+        rng
     )
 
     used_matches.add(
@@ -1686,7 +1698,14 @@ def main_streak():
     )
     print()
 
-    year_range = get_year_range(args)
+    try:
+
+        year_range = get_year_range(args)
+
+    except ValueError as error:
+
+        print(error)
+        return
 
     if year_range is None:
         print("Spillet ble avsluttet.")
