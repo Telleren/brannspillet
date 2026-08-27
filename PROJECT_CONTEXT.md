@@ -78,15 +78,24 @@ Current minimum 10th-place values:
 - starts: 35
 - substitute appearances: 20
 - goals: 10
+- foreign-player appearances: 50
+- foreign-player goals: 10
 - wins: 30
 - appearances against opponent: 5
 - goals against opponent: 3
+
+Foreign-player Tenable definition:
+- `players.country_code IS NOT NULL`
+- `players.country_code != 'NO'`
+- unknown nationality is excluded rather than guessed
 
 Currently implemented themes:
 - most Brann appearances
 - most Brann starts
 - most Brann substitute appearances
 - most Brann goals
+- most Brann appearances by foreign players
+- most Brann goals by foreign players
 - most Brann wins appeared in
 - most Brann appearances against a selected opponent
 - most Brann goals against a selected opponent

@@ -28,6 +28,8 @@ MIN_CUTOFF_BY_THEME = {
     "starter": 35,
     "innhopp": 20,
     "maal": 10,
+    "utlendinger-kamper": 50,
+    "utlendinger-maal": 10,
     "seire": 30,
     "kamper-mot": 5,
     "maal-mot": 3,
@@ -66,6 +68,24 @@ THEMES = {
     "maal": {
         "title": "Flest mål for Brann",
         "description": "Finn de 10 spillerne med flest Brann-mål.",
+        "kind": "simple",
+        "metric": "mål",
+    },
+    "utlendinger-kamper": {
+        "title": "Utlendinger med flest kamper for Brann",
+        "description": (
+            "Finn de 10 utenlandske spillerne "
+            "med flest Brann-kamper."
+        ),
+        "kind": "simple",
+        "metric": "kamper",
+    },
+    "utlendinger-maal": {
+        "title": "Utlendinger med flest mål for Brann",
+        "description": (
+            "Finn de 10 utenlandske spillerne "
+            "med flest Brann-mål."
+        ),
         "kind": "simple",
         "metric": "mål",
     },
@@ -472,6 +492,66 @@ def query_simple_theme(
                     'penaltyGoal'
                 )
                 AND e.scorer_id IS NOT NULL
+                AND m.date >= ?
+                AND m.date <= ?
+
+            GROUP BY
+                p.id,
+                p.name,
+                p.full_name
+        """,
+        "utlendinger-kamper": """
+            SELECT
+                p.id AS player_id,
+                p.name,
+                p.full_name,
+                COUNT(*) AS value
+
+            FROM appearances a
+
+            JOIN matches m
+                ON m.id = a.match_id
+
+            JOIN players p
+                ON p.id = a.player_id
+
+            WHERE
+                a.team_id = ?
+                AND a.appeared = 1
+                AND p.country_code IS NOT NULL
+                AND p.country_code != 'NO'
+                AND m.date >= ?
+                AND m.date <= ?
+
+            GROUP BY
+                p.id,
+                p.name,
+                p.full_name
+        """,
+        "utlendinger-maal": """
+            SELECT
+                p.id AS player_id,
+                p.name,
+                p.full_name,
+                COUNT(*) AS value
+
+            FROM events e
+
+            JOIN matches m
+                ON m.id = e.match_id
+
+            JOIN players p
+                ON p.id = e.scorer_id
+
+            WHERE
+                e.team_id = ?
+                AND e.event_type IN (
+                    'goal',
+                    'penaltyGoal'
+                )
+                AND e.scorer_id IS NOT NULL
+                AND p.country_code IS NOT NULL
+                AND p.country_code != 'NO'
                 AND m.date >= ?
                 AND m.date <= ?
 

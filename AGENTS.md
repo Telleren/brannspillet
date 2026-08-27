@@ -81,9 +81,10 @@ Current static beta: docs/hvem-mangler/
 Current Tenable foundation: tenable.py
 - Terminal prototype for top-10 list questions.
 - Default year range is 1963 through 2026, but the script can query 1911 through 2026.
-- Implemented themes: appearances, starts, substitute appearances, goals, wins, appearances against an opponent, goals against an opponent.
+- Implemented themes: appearances, starts, substitute appearances, goals, foreign-player appearances, foreign-player goals, wins, appearances against an opponent, goals against an opponent.
 - A question must have 10 visible answer slots and a configurable minimum value at 10th place.
 - If 10th place is tied, any player in the cutoff tie group can fill the relevant open slot.
-- Current minimum 10th-place values: appearances 50, starts 35, substitute appearances 20, goals 10, wins 30, opponent appearances 5, opponent goals 3.
+- Current minimum 10th-place values: appearances 50, starts 35, substitute appearances 20, goals 10, foreign-player appearances 50, foreign-player goals 10, wins 30, opponent appearances 5, opponent goals 3.
+- Foreign-player themes use known non-Norwegian country_code only; unknown nationality is excluded rather than guessed.
 - Three lives; the third wrong answer ends the question.
 - Coach-based themes are not implemented because the current database has no coach/manager table.
