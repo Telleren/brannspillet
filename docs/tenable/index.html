@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="no">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tenable | Brannspillet</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="menu-view" id="menu-view">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Brannspillet beta</p>
+            <h1>Tenable</h1>
+          </div>
+          <div class="crest-mark" aria-hidden="true">10</div>
+        </header>
+
+        <form class="mode-panel" id="mode-form">
+          <fieldset>
+            <legend>Velg tidsrom</legend>
+
+            <label class="mode-option">
+              <input type="radio" name="period" value="classic" checked>
+              <span>
+                <strong>Classic</strong>
+                <small>1963-2026</small>
+              </span>
+            </label>
+
+            <label class="mode-option">
+              <input type="radio" name="period" value="modern">
+              <span>
+                <strong>Moderne</strong>
+                <small>2000-2026</small>
+              </span>
+            </label>
+          </fieldset>
+
+          <p id="mode-meta">Laster oppgaver...</p>
+          <button class="primary-button" type="submit">Start</button>
+        </form>
+      </section>
+
+      <section class="game-view hidden" id="game-view">
+        <header class="gamebar">
+          <button class="icon-button" type="button" id="back-button" aria-label="Tilbake til hovedmeny">
+            ←
+          </button>
+          <div>
+            <p class="eyebrow" id="period-label">Classic</p>
+            <h1 id="question-title">Tenable</h1>
+          </div>
+          <div class="score-cluster">
+            <div>
+              <span>Riktig</span>
+              <strong id="score-value">0/10</strong>
+            </div>
+            <div>
+              <span>Liv</span>
+              <strong id="lives-value">3</strong>
+            </div>
+          </div>
+        </header>
+
+        <section class="question-strip">
+          <p id="question-description">Finn topp 10.</p>
+        </section>
+
+        <section class="board" id="board"></section>
+
+        <form class="answer-panel" id="answer-form">
+          <label for="answer-input">Svar</label>
+          <div class="answer-row">
+            <input id="answer-input" name="answer" type="text" list="player-suggestions" autocomplete="off" autocapitalize="words">
+            <datalist id="player-suggestions"></datalist>
+            <button class="primary-button" type="submit">Svar</button>
+          </div>
+          <p class="feedback" id="feedback"></p>
+        </form>
+
+        <section class="game-over hidden" id="game-over">
+          <div>
+            <p class="eyebrow" id="game-over-label">Spillet er over</p>
+            <h2 id="final-score">0/10 riktige</h2>
+          </div>
+          <div class="result-actions">
+            <button class="secondary-button" type="button" id="reveal-button">Avslør fasit</button>
+            <button class="primary-button" type="button" id="menu-button">Tilbake</button>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

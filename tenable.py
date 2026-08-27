@@ -31,6 +31,7 @@ MIN_CUTOFF_BY_THEME = {
     "utlendinger-kamper": 50,
     "utlendinger-maal": 10,
     "seire": 30,
+    "brannspillere-mot-brann": 10,
     "kamper-mot": 5,
     "maal-mot": 3,
 }
@@ -94,6 +95,15 @@ THEMES = {
         "description": "Finn de 10 spillerne med flest Brann-seire.",
         "kind": "simple",
         "metric": "seire",
+    },
+    "brannspillere-mot-brann": {
+        "title": "Brannspillere med flest kamper mot Brann",
+        "description": (
+            "Finn de 10 Brann-spillerne med flest "
+            "kamper for motstanderlag mot Brann."
+        ),
+        "kind": "simple",
+        "metric": "kamper",
     },
     "kamper-mot": {
         "title": "Flest kamper mot {opponent}",
@@ -598,11 +608,66 @@ def query_simple_theme(
                 p.name,
                 p.full_name
         """,
+        "brannspillere-mot-brann": """
+            WITH brann_players AS (
+                SELECT DISTINCT
+                    player_id
+
+                FROM appearances
+
+                WHERE
+                    team_id = ?
+                    AND appeared = 1
+            )
+
+            SELECT
+                p.id AS player_id,
+                p.name,
+                p.full_name,
+                COUNT(*) AS value
+
+            FROM appearances a
+
+            JOIN players p
+                ON p.id = a.player_id
+
+            JOIN matches m
+                ON m.id = a.match_id
+
+            JOIN brann_players bp
+                ON bp.player_id = a.player_id
+
+            WHERE
+                a.team_id != ?
+                AND a.appeared = 1
+                AND m.date >= ?
+                AND m.date <= ?
+                AND (
+                    m.home_team_id = ?
+                    OR m.away_team_id = ?
+                )
+
+            GROUP BY
+                p.id,
+                p.name,
+                p.full_name
+        """,
     }
 
     if theme_id == "seire":
 
         params = (
+            BRANN_ID,
+            start_date,
+            end_date,
+            BRANN_ID,
+            BRANN_ID
+        )
+
+    elif theme_id == "brannspillere-mot-brann":
+
+        params = (
+            BRANN_ID,
             BRANN_ID,
             start_date,
             end_date,

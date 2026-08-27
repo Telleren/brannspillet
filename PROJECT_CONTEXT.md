@@ -97,10 +97,47 @@ Currently implemented themes:
 - most Brann appearances by foreign players
 - most Brann goals by foreign players
 - most Brann wins appeared in
+- most appearances against Brann by players who have also played for Brann
 - most Brann appearances against a selected opponent
 - most Brann goals against a selected opponent
 
 Coach/manager themes are not implemented yet because the current SQLite schema does not include coach data.
+
+Current static GitHub Pages beta:
+- `docs/tenable/`
+- generated data: `docs/tenable/questions.json`
+- regeneration script: `export_tenable_pages_data.py`
+
+The static beta offers two period choices:
+- Classic: 1963-2026
+- Moderne: 2000-2026
+
+Those are currently only time filters. After the player chooses one, the beta randomly selects one playable question within that period.
+
+Current exported beta pool:
+- appearances
+- starts
+- substitute appearances
+- goals
+- wins
+- foreign-player appearances
+- foreign-player goals
+- appearances against Brann by players who have also played for Brann
+- appearances against Rosenborg
+- appearances against Lillestrøm
+- appearances against Viking
+- appearances against Vålerenga
+
+The static beta shows 10 visible answer slots and displays the value/count for each slot. If 10th place is tied, every player in the cutoff tie group is accepted behind the scenes, but the UI still only shows 10 places.
+
+Game flow:
+- three lives
+- the third wrong answer ends the question
+- when the player is out of lives, they can choose `Avslør fasit` or return to the main menu
+
+Static beta limitation:
+- answers are included client-side in the downloaded JSON
+- this version is for informal beta testing, not anti-cheat production use
 
 ## 2.4 Fotball Sudoku / Grid
 
