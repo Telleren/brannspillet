@@ -130,6 +130,8 @@ Current exported beta pool:
 
 The static beta shows 10 visible answer slots and displays the value/count for each slot. If 10th place is tied, every player in the cutoff tie group is accepted behind the scenes, but the UI still only shows 10 places.
 
+Exported question descriptions must explicitly include the selected period, e.g. `i perioden 2000-2026.`
+
 Game flow:
 - three lives
 - the third wrong answer ends the question

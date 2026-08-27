@@ -95,5 +95,6 @@ Current Tenable static beta: docs/tenable/
 - Regenerate it with export_tenable_pages_data.py after changes to themes, thresholds, year periods, or answer serialization.
 - The beta offers Classic (1963-2026) and Moderne (2000-2026) as period choices, then randomly selects one playable question inside the chosen period.
 - The exported beta pool currently uses eight general themes plus appearances against Rosenborg, Lillestrøm, Viking, and Vålerenga.
+- Exported question descriptions must explicitly include the selected period, e.g. "i perioden 2000-2026."
 - The static beta shows 10 visible answer slots with values/counts visible, but keeps cutoff-tie eligibility hidden behind the scenes.
 - The static beta includes answers client-side and is meant for informal beta testing, not anti-cheat production use.

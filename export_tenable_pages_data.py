@@ -63,6 +63,16 @@ def serialize_player(player):
     }
 
 
+def add_period_to_description(description, start_year, end_year):
+
+    text = description.strip()
+
+    if text.endswith("."):
+        text = text[:-1]
+
+    return f"{text} i perioden {start_year}-{end_year}."
+
+
 def serialize_question(question):
 
     return {
@@ -71,7 +81,11 @@ def serialize_question(question):
         ),
         "themeId": question["theme_id"],
         "title": question["title"],
-        "description": question["description"],
+        "description": add_period_to_description(
+            question["description"],
+            question["start_year"],
+            question["end_year"]
+        ),
         "metric": question["metric"],
         "startYear": question["start_year"],
         "endYear": question["end_year"],
