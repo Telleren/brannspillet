@@ -96,5 +96,6 @@ Current Tenable static beta: docs/tenable/
 - The beta offers Classic (1963-2026) and Moderne (2000-2026) as period choices, then randomly selects one playable question inside the chosen period.
 - The exported beta pool currently uses eight general themes plus appearances against Rosenborg, Lillestrøm, Viking, and Vålerenga.
 - Exported question descriptions must explicitly include the selected period, e.g. "i perioden 2000-2026."
+- Static beta autocomplete is based on all Brann players with appearances in the selected period, not only correct answers for the active question.
 - The static beta shows 10 visible answer slots with values/counts visible, but keeps cutoff-tie eligibility hidden behind the scenes.
 - The static beta includes answers client-side and is meant for informal beta testing, not anti-cheat production use.

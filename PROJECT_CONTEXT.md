@@ -132,6 +132,11 @@ The static beta shows 10 visible answer slots and displays the value/count for e
 
 Exported question descriptions must explicitly include the selected period, e.g. `i perioden 2000-2026.`
 
+Static beta autocomplete:
+- suggestions are based on all Brann players with appearances in the selected period
+- suggestions must not be limited to correct answers for the active question
+- answer validation still only accepts players in the active question's `eligibleAnswers`
+
 Game flow:
 - three lives
 - the third wrong answer ends the question

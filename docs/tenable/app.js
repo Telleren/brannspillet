@@ -138,7 +138,9 @@ function updateSuggestions() {
     return;
   }
 
-  const options = currentQuestion.eligibleAnswers
+  const suggestionPool = currentPeriod.playerPool || currentQuestion.eligibleAnswers;
+
+  const options = suggestionPool
     .filter(
       (player) =>
         !guessedIds.includes(player.id) &&

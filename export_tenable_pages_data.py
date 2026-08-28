@@ -63,6 +63,15 @@ def serialize_player(player):
     }
 
 
+def serialize_player_option(player):
+
+    return {
+        "id": player["player_id"],
+        "name": player["name"],
+        "fullName": player["full_name"],
+    }
+
+
 def add_period_to_description(description, start_year, end_year):
 
     text = description.strip()
@@ -130,6 +139,57 @@ def build_question_id(question):
     )
 
 
+def query_player_pool(databases, start_year, end_year):
+
+    start_date, end_date = tenable.date_bounds(
+        start_year,
+        end_year
+    )
+
+    players_by_id = {}
+
+    for database in databases:
+
+        rows = database["conn"].execute(
+            """
+            SELECT DISTINCT
+                p.id AS player_id,
+                p.name,
+                p.full_name
+
+            FROM appearances a
+
+            JOIN matches m
+                ON m.id = a.match_id
+
+            JOIN players p
+                ON p.id = a.player_id
+
+            WHERE
+                a.team_id = ?
+                AND a.appeared = 1
+                AND m.date >= ?
+                AND m.date <= ?
+            """,
+            (
+                tenable.BRANN_ID,
+                start_date,
+                end_date
+            )
+        ).fetchall()
+
+        for row in rows:
+            players_by_id[row["player_id"]] = row
+
+    return sorted(
+        players_by_id.values(),
+        key=lambda player: (
+            tenable.normalize_text(player["name"]),
+            player["player_id"]
+        )
+    )
+
+
 def build_period(period):
 
     databases = tenable.connect_databases(
@@ -138,8 +198,15 @@ def build_period(period):
     )
 
     questions = []
+    player_pool = []
 
     try:
+
+        player_pool = query_player_pool(
+            databases,
+            period["start_year"],
+            period["end_year"]
+        )
 
         for theme_id in GENERAL_THEMES:
 
@@ -189,6 +256,12 @@ def build_period(period):
 
     return {
         **period,
+        "playerPool": [
+            serialize_player_option(
+                player
+            )
+            for player in player_pool
+        ],
         "questions": questions,
     }
 
