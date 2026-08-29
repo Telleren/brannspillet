@@ -41,7 +41,9 @@ function chooseOne(items) {
 }
 
 function namesFor(player) {
-  return [player.name, player.fullName].filter(Boolean).map(normalizeText);
+  return [player.name, player.fullName, ...(player.aliases || [])]
+    .filter(Boolean)
+    .map(normalizeText);
 }
 
 function getSlotResults(includeReveal = false) {

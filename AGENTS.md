@@ -91,8 +91,10 @@ Current Tenable foundation: tenable.py
 
 Current Tenable static beta: docs/tenable/
 - GitHub Pages-compatible static version of Tenable.
-- Generated question data lives in docs/tenable/questions.json.
-- Regenerate it with export_tenable_pages_data.py after changes to themes, thresholds, year periods, or answer serialization.
+- Source questions live as one YAML file per question in data/tenable/questions/.
+- Generated Pages data lives in docs/tenable/questions.json.
+- Regenerate Pages data with export_tenable_pages_data.py after changing YAML question files.
+- Regenerate the database-derived YAML seed files with export_tenable_yaml_questions.py --overwrite after intentional Tenable theme/query changes.
 - The beta offers Classic (1963-2026) and Moderne (2000-2026) as period choices, then randomly selects one playable question inside the chosen period.
 - The exported beta pool currently uses eight general themes plus appearances against Rosenborg, Lillestrøm, Viking, and Vålerenga.
 - Exported question descriptions must explicitly include the selected period, e.g. "i perioden 2000-2026."

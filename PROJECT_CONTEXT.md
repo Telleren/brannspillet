@@ -105,8 +105,17 @@ Coach/manager themes are not implemented yet because the current SQLite schema d
 
 Current static GitHub Pages beta:
 - `docs/tenable/`
-- generated data: `docs/tenable/questions.json`
-- regeneration script: `export_tenable_pages_data.py`
+- source questions: `data/tenable/questions/*.yaml`
+- generated Pages data: `docs/tenable/questions.json`
+- Pages data regeneration script: `export_tenable_pages_data.py`
+- database-to-YAML seed script: `export_tenable_yaml_questions.py`
+
+Current intended source model:
+- every publishable Tenable question should live as one YAML file in `data/tenable/questions/`
+- `docs/tenable/questions.json` is generated from those YAML files and should be treated as a static web artifact
+- custom questions can be added, edited, disabled or removed by changing YAML files
+- database-generated questions can be refreshed into YAML with `python export_tenable_yaml_questions.py --overwrite`
+- use `--overwrite` carefully if existing database-generated YAML files have been hand-edited
 
 The static beta offers two period choices:
 - Classic: 1963-2026

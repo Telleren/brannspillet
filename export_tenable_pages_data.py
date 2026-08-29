@@ -1,66 +1,20 @@
 import json
 from datetime import datetime, timezone
-from pathlib import Path
 
 import tenable
+from tenable_pages_config import (
+    OUTPUT_FILE,
+    PERIODS,
+    QUESTION_SOURCE_DIR,
+)
 
+try:
+    import yaml
 
-OUTPUT_FILE = Path("docs/tenable/questions.json")
-
-PERIODS = [
-    {
-        "id": "classic",
-        "label": "Classic",
-        "start_year": 1963,
-        "end_year": 2026,
-    },
-    {
-        "id": "modern",
-        "label": "Moderne",
-        "start_year": 2000,
-        "end_year": 2026,
-    },
-]
-
-GENERAL_THEMES = [
-    "kamper",
-    "starter",
-    "innhopp",
-    "maal",
-    "seire",
-    "utlendinger-kamper",
-    "utlendinger-maal",
-    "brannspillere-mot-brann",
-]
-
-OPPONENT_THEMES = [
-    {
-        "theme_id": "kamper-mot",
-        "opponent": "Rosenborg",
-    },
-    {
-        "theme_id": "kamper-mot",
-        "opponent": "Lillestrøm",
-    },
-    {
-        "theme_id": "kamper-mot",
-        "opponent": "Viking",
-    },
-    {
-        "theme_id": "kamper-mot",
-        "opponent": "Vålerenga",
-    },
-]
-
-
-def serialize_player(player):
-
-    return {
-        "id": player["player_id"],
-        "name": player["name"],
-        "fullName": player["full_name"],
-        "value": player["value"],
-    }
+except ImportError as error:
+    raise SystemExit(
+        "PyYAML mangler. Kjør: python -m pip install -r requirements.txt"
+    ) from error
 
 
 def serialize_player_option(player):
@@ -74,69 +28,253 @@ def serialize_player_option(player):
 
 def add_period_to_description(description, start_year, end_year):
 
+    period_text = f"i perioden {start_year}-{end_year}"
     text = description.strip()
+
+    if period_text in text:
+        return text
 
     if text.endswith("."):
         text = text[:-1]
 
-    return f"{text} i perioden {start_year}-{end_year}."
+    return f"{text} {period_text}."
 
 
-def serialize_question(question):
+def answer_name(answer, source_file):
+
+    name = answer.get("name")
+
+    if not name:
+        raise ValueError(
+            f"Mangler answer.name i {source_file}"
+        )
+
+    return name
+
+
+def answer_id(answer, question_id, fallback_ids, source_file):
+
+    explicit_id = (
+        answer.get("id")
+        or answer.get("player_id")
+    )
+
+    if explicit_id:
+        return explicit_id
+
+    key = tenable.normalize_text(
+        answer_name(
+            answer,
+            source_file
+        )
+    )
+
+    if key not in fallback_ids:
+        fallback_ids[key] = (
+            f"custom:{question_id}:"
+            f"{len(fallback_ids) + 1}"
+        )
+
+    return fallback_ids[key]
+
+
+def serialize_answer(answer, value, question_id, fallback_ids, source_file):
+
+    aliases = answer.get(
+        "aliases",
+        []
+    )
+
+    if aliases is None:
+        aliases = []
+
+    if not isinstance(aliases, list):
+        raise ValueError(
+            f"aliases må være en liste i {source_file}"
+        )
 
     return {
-        "id": build_question_id(
-            question
+        "id": answer_id(
+            answer,
+            question_id,
+            fallback_ids,
+            source_file
         ),
-        "themeId": question["theme_id"],
-        "title": question["title"],
-        "description": add_period_to_description(
-            question["description"],
-            question["start_year"],
-            question["end_year"]
+        "name": answer_name(
+            answer,
+            source_file
         ),
-        "metric": question["metric"],
-        "startYear": question["start_year"],
-        "endYear": question["end_year"],
-        "cutoffValue": question["cutoff_value"],
-        "opponent": question["opponent"],
-        "slots": [
-            {
-                "value": slot["value"],
-                "players": [
-                    serialize_player(
-                        player
-                    )
-                    for player in slot["players"]
-                ],
-            }
-            for slot in question["slots"]
-        ],
-        "eligibleAnswers": [
-            serialize_player(
-                player
-            )
-            for player in question["eligible_answers"]
-        ],
+        "fullName": (
+            answer.get("fullName")
+            or answer.get("full_name")
+        ),
+        "aliases": aliases,
+        "value": value,
     }
 
 
-def build_question_id(question):
+def serialize_question(source, period):
 
-    parts = [
-        question["theme_id"],
-        str(question["start_year"]),
-        str(question["end_year"]),
-    ]
+    source_file = source["_source_file"]
+    question_id = source.get("id")
 
-    if question["opponent"]:
-        parts.append(
-            question["opponent"]["slug"]
+    if not question_id:
+        raise ValueError(
+            f"Mangler id i {source_file}"
         )
 
-    return ":".join(
-        parts
+    slots = source.get("slots")
+
+    if not isinstance(slots, list):
+        raise ValueError(
+            f"slots må være en liste i {source_file}"
+        )
+
+    if len(slots) != tenable.ANSWER_COUNT:
+        raise ValueError(
+            f"{source_file} har {len(slots)} slots. "
+            f"Forventet {tenable.ANSWER_COUNT}."
+        )
+
+    fallback_ids = {}
+    serialized_slots = []
+
+    for slot in slots:
+
+        value = slot.get("value")
+        answers = slot.get("answers")
+
+        if not isinstance(answers, list) or not answers:
+            raise ValueError(
+                f"Slot mangler answers-liste i {source_file}"
+            )
+
+        serialized_slots.append(
+            {
+                "value": value,
+                "players": [
+                    serialize_answer(
+                        answer,
+                        value,
+                        question_id,
+                        fallback_ids,
+                        source_file
+                    )
+                    for answer in answers
+                ],
+            }
+        )
+
+    eligible_by_id = {}
+
+    for slot in serialized_slots:
+
+        for player in slot["players"]:
+            eligible_by_id[player["id"]] = player
+
+    start_year = source.get(
+        "start_year",
+        period["start_year"]
     )
+    end_year = source.get(
+        "end_year",
+        period["end_year"]
+    )
+
+    return {
+        "id": question_id,
+        "themeId": source.get(
+            "theme_id",
+            "custom"
+        ),
+        "title": source["title"],
+        "description": add_period_to_description(
+            source["description"],
+            start_year,
+            end_year
+        ),
+        "metric": source["metric"],
+        "startYear": start_year,
+        "endYear": end_year,
+        "cutoffValue": source.get(
+            "cutoff_value",
+            serialized_slots[-1]["value"]
+        ),
+        "opponent": source.get(
+            "opponent"
+        ),
+        "slots": serialized_slots,
+        "eligibleAnswers": list(
+            eligible_by_id.values()
+        ),
+    }
+
+
+def load_question_file(path):
+
+    with path.open(
+        "r",
+        encoding="utf-8"
+    ) as file:
+
+        data = yaml.safe_load(file)
+
+    if not isinstance(data, dict):
+        raise ValueError(
+            f"{path} må inneholde ett YAML-objekt."
+        )
+
+    data["_source_file"] = str(path)
+
+    return data
+
+
+def load_question_sources():
+
+    if not QUESTION_SOURCE_DIR.exists():
+        raise FileNotFoundError(
+            f"Fant ikke Tenable-mappen: {QUESTION_SOURCE_DIR}. "
+            "Kjør python export_tenable_yaml_questions.py først."
+        )
+
+    sources = []
+
+    for path in sorted(
+        QUESTION_SOURCE_DIR.glob("*.yaml")
+    ):
+
+        source = load_question_file(
+            path
+        )
+
+        if source.get("active", True):
+            sources.append(source)
+
+    if not sources:
+        raise ValueError(
+            f"Fant ingen aktive YAML-oppgaver i {QUESTION_SOURCE_DIR}."
+        )
+
+    return sources
+
+
+def validate_source_periods(sources):
+
+    allowed_periods = {
+        period["id"]
+        for period in PERIODS
+    }
+
+    for source in sources:
+
+        if source.get("period") not in allowed_periods:
+            raise ValueError(
+                f"{source['_source_file']} har ukjent period: "
+                f"{source.get('period')}. Gyldige verdier: "
+                + ", ".join(
+                    sorted(allowed_periods)
+                )
+            )
 
 
 def query_player_pool(databases, start_year, end_year):
@@ -190,15 +328,12 @@ def query_player_pool(databases, start_year, end_year):
     )
 
 
-def build_period(period):
+def build_period(period, sources):
 
     databases = tenable.connect_databases(
         period["start_year"],
         period["end_year"]
     )
-
-    questions = []
-    player_pool = []
 
     try:
 
@@ -208,51 +343,20 @@ def build_period(period):
             period["end_year"]
         )
 
-        for theme_id in GENERAL_THEMES:
-
-            question = tenable.build_question(
-                databases,
-                theme_id,
-                period["start_year"],
-                period["end_year"]
-            )
-
-            if question["playable"]:
-                questions.append(
-                    serialize_question(
-                        question
-                    )
-                )
-
-        for theme in OPPONENT_THEMES:
-
-            opponent = tenable.find_opponent(
-                databases,
-                theme["opponent"],
-                period["start_year"],
-                period["end_year"]
-            )
-
-            question = tenable.build_question(
-                databases,
-                theme["theme_id"],
-                period["start_year"],
-                period["end_year"],
-                opponent
-            )
-
-            if question["playable"]:
-                questions.append(
-                    serialize_question(
-                        question
-                    )
-                )
-
     finally:
 
         tenable.close_databases(
             databases
         )
+
+    questions = [
+        serialize_question(
+            source,
+            period
+        )
+        for source in sources
+        if source.get("period") == period["id"]
+    ]
 
     return {
         **period,
@@ -268,6 +372,11 @@ def build_period(period):
 
 def main():
 
+    sources = load_question_sources()
+    validate_source_periods(
+        sources
+    )
+
     data = {
         "generatedAt": datetime.now(
             timezone.utc
@@ -276,7 +385,8 @@ def main():
         "startingLives": tenable.STARTING_LIVES,
         "periods": [
             build_period(
-                period
+                period,
+                sources
             )
             for period in PERIODS
         ],
