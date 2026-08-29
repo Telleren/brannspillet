@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="no">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tenable-admin | Brannspillet</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #20231f;
+        --muted: #65706a;
+        --paper: #f6f6f1;
+        --panel: #ffffff;
+        --line: #d9ddd3;
+        --red: #b8162c;
+        --deep-red: #78101c;
+        --green: #216b4d;
+        --yellow: #d8a73a;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        color: var(--ink);
+        background:
+          linear-gradient(135deg, rgba(184, 22, 44, 0.13), transparent 36%),
+          linear-gradient(160deg, transparent 48%, rgba(33, 107, 77, 0.13)),
+          var(--paper);
+      }
+
+      button,
+      input,
+      textarea {
+        font: inherit;
+      }
+
+      main {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 24px 0 36px;
+      }
+
+      header {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 20px;
+      }
+
+      .eyebrow {
+        margin: 0 0 6px;
+        color: var(--deep-red);
+        font-size: 0.78rem;
+        font-weight: 900;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        margin-bottom: 0;
+        font-size: clamp(2rem, 2.6rem, 3rem);
+        line-height: 1;
+        letter-spacing: 0;
+      }
+
+      h2 {
+        margin-bottom: 12px;
+        font-size: 1.2rem;
+        letter-spacing: 0;
+      }
+
+      .layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(340px, 0.82fr);
+        gap: 16px;
+        align-items: start;
+      }
+
+      .panel {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 14px 34px rgba(32, 35, 31, 0.08);
+      }
+
+      .form-panel {
+        display: grid;
+        gap: 18px;
+        padding: 18px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      label {
+        display: grid;
+        gap: 6px;
+        color: var(--muted);
+        font-size: 0.82rem;
+        font-weight: 850;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        padding: 10px 12px;
+        color: var(--ink);
+        background: #fff;
+      }
+
+      textarea {
+        min-height: 78px;
+        resize: vertical;
+      }
+
+      .slots {
+        display: grid;
+        gap: 10px;
+      }
+
+      .slot {
+        display: grid;
+        grid-template-columns: 64px 110px minmax(0, 1fr);
+        gap: 10px;
+        align-items: start;
+        padding: 10px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+      }
+
+      .slot-number {
+        display: grid;
+        min-height: 42px;
+        place-items: center;
+        border-radius: 6px;
+        color: #fff;
+        background: #28302b;
+        font-weight: 950;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      button {
+        min-height: 44px;
+        border: 0;
+        border-radius: 6px;
+        padding: 0 16px;
+        cursor: pointer;
+        font-weight: 900;
+      }
+
+      .primary {
+        color: #fff;
+        background: var(--red);
+      }
+
+      .primary:hover,
+      .primary:focus-visible {
+        background: var(--deep-red);
+      }
+
+      .secondary {
+        color: var(--red);
+        background: #fff;
+        border: 1px solid var(--red);
+      }
+
+      .secondary:hover,
+      .secondary:focus-visible {
+        color: #fff;
+        background: var(--red);
+      }
+
+      .preview-panel {
+        position: sticky;
+        top: 16px;
+        display: grid;
+        gap: 12px;
+        padding: 18px;
+      }
+
+      pre {
+        min-height: 420px;
+        max-height: calc(100vh - 260px);
+        margin: 0;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 14px;
+        overflow: auto;
+        background: #111612;
+        color: #f4f4ec;
+        font-size: 0.82rem;
+        line-height: 1.45;
+        white-space: pre;
+      }
+
+      .status {
+        min-height: 24px;
+        margin: 0;
+        color: var(--muted);
+        font-weight: 800;
+      }
+
+      .status.ok {
+        color: var(--green);
+      }
+
+      .status.error {
+        color: var(--red);
+      }
+
+      @media (max-width: 920px) {
+        main {
+          width: min(100% - 20px, 1180px);
+          padding-top: 12px;
+        }
+
+        header,
+        .layout,
+        .grid,
+        .slot {
+          display: grid;
+          grid-template-columns: 1fr;
+        }
+
+        .preview-panel {
+          position: static;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <p class="eyebrow">Brannspillet admin</p>
+          <h1>Ny Tenable-oppgave</h1>
+        </div>
+      </header>
+
+      <section class="layout">
+        <form class="panel form-panel" id="question-form">
+          <section>
+            <h2>Oppgave</h2>
+            <div class="grid">
+              <label>
+                ID
+                <input id="question-id" name="id" type="text" placeholder="min-tenable-oppgave">
+              </label>
+              <label>
+                Filnavn
+                <input id="filename" name="filename" type="text" placeholder="min-tenable-oppgave.yaml">
+              </label>
+              <label>
+                Tittel
+                <input id="title" name="title" type="text" placeholder="Flest mål i Europa">
+              </label>
+              <label>
+                Måleenhet
+                <input id="metric" name="metric" type="text" value="kamper">
+              </label>
+              <label>
+                Startår
+                <input id="start-year" name="startYear" type="number" min="1911" max="2026" value="2000">
+              </label>
+              <label>
+                Sluttår
+                <input id="end-year" name="endYear" type="number" min="1911" max="2026" value="2026">
+              </label>
+            </div>
+            <label>
+              Beskrivelse
+              <textarea id="description" name="description" placeholder="Finn de 10 spillerne med flest Brann-mål i Europa."></textarea>
+            </label>
+          </section>
+
+          <section>
+            <h2>Svarplasser</h2>
+            <div class="slots" id="slots"></div>
+          </section>
+        </form>
+
+        <aside class="panel preview-panel">
+          <h2>YAML</h2>
+          <pre id="yaml-preview"></pre>
+          <div class="actions">
+            <button class="primary" type="button" id="save-button">Lagre</button>
+            <button class="secondary" type="button" id="download-button">Last ned</button>
+            <button class="secondary" type="button" id="copy-button">Kopier</button>
+          </div>
+          <p class="status" id="status"></p>
+        </aside>
+      </section>
+    </main>
+
+    <script>
+      const ANSWER_COUNT = 10;
+
+      const form = document.querySelector("#question-form");
+      const slots = document.querySelector("#slots");
+      const yamlPreview = document.querySelector("#yaml-preview");
+      const status = document.querySelector("#status");
+      const idInput = document.querySelector("#question-id");
+      const filenameInput = document.querySelector("#filename");
+      const titleInput = document.querySelector("#title");
+      const saveButton = document.querySelector("#save-button");
+      const downloadButton = document.querySelector("#download-button");
+      const copyButton = document.querySelector("#copy-button");
+
+      function slugify(value) {
+        return (value || "")
+          .toLocaleLowerCase("nb-NO")
+          .normalize("NFD")
+          .replace(/\p{Diacritic}/gu, "")
+          .replace(/[^a-z0-9]+/g, "-")
+          .replace(/^-+|-+$/g, "");
+      }
+
+      function yamlScalar(value) {
+        const text = String(value ?? "");
+
+        if (/^[A-Za-z0-9_.:/ -]+$/.test(text) && text.trim() === text && text !== "") {
+          return text;
+        }
+
+        return JSON.stringify(text);
+      }
+
+      function parseAnswerLine(line) {
+        const [namePart, aliasPart = ""] = line.split("|");
+        const name = namePart.trim();
+        const aliases = aliasPart
+          .split(",")
+          .map((alias) => alias.trim())
+          .filter(Boolean);
+
+        return { name, aliases };
+      }
+
+      function createSlots() {
+        for (let index = 1; index <= ANSWER_COUNT; index += 1) {
+          const slot = document.createElement("section");
+          slot.className = "slot";
+
+          const number = document.createElement("div");
+          number.className = "slot-number";
+          number.textContent = String(index);
+
+          const valueLabel = document.createElement("label");
+          valueLabel.textContent = "Verdi";
+          const value = document.createElement("input");
+          value.type = "number";
+          value.name = `value-${index}`;
+          value.min = "0";
+          value.value = "";
+          valueLabel.append(value);
+
+          const answersLabel = document.createElement("label");
+          answersLabel.textContent = "Svar";
+          const answers = document.createElement("textarea");
+          answers.name = `answers-${index}`;
+          answers.placeholder = "Spillernavn | alias 1, alias 2";
+          answersLabel.append(answers);
+
+          slot.append(number, valueLabel, answersLabel);
+          slots.append(slot);
+        }
+      }
+
+      function buildYaml() {
+        const data = new FormData(form);
+        const id = data.get("id").trim();
+        const title = data.get("title").trim();
+        const description = data.get("description").trim();
+        const metric = data.get("metric").trim();
+        const startYear = Number(data.get("startYear"));
+        const endYear = Number(data.get("endYear"));
+
+        const lines = [
+          `id: ${yamlScalar(id)}`,
+          "active: true",
+          "source: custom",
+          "theme_id: custom",
+          `title: ${yamlScalar(title)}`,
+          `description: ${yamlScalar(description)}`,
+          `metric: ${yamlScalar(metric)}`,
+          `start_year: ${startYear}`,
+          `end_year: ${endYear}`,
+          "cutoff_value: null",
+          "opponent: null",
+          "slots:",
+        ];
+
+        for (let index = 1; index <= ANSWER_COUNT; index += 1) {
+          const value = data.get(`value-${index}`).trim();
+          const answerLines = data
+            .get(`answers-${index}`)
+            .split(/\r?\n/)
+            .map((line) => line.trim())
+            .filter(Boolean);
+
+          lines.push(`  - value: ${value || 0}`);
+          lines.push("    answers:");
+
+          for (const line of answerLines) {
+            const answer = parseAnswerLine(line);
+
+            if (!answer.name) {
+              continue;
+            }
+
+            lines.push(`      - name: ${yamlScalar(answer.name)}`);
+
+            if (answer.aliases.length > 0) {
+              lines.push("        aliases:");
+
+              for (const alias of answer.aliases) {
+                lines.push(`          - ${yamlScalar(alias)}`);
+              }
+            }
+          }
+        }
+
+        return lines.join("\n") + "\n";
+      }
+
+      function validateForm() {
+        const data = new FormData(form);
+        const errors = [];
+
+        if (!data.get("id").trim()) {
+          errors.push("ID mangler.");
+        }
+
+        if (!data.get("title").trim()) {
+          errors.push("Tittel mangler.");
+        }
+
+        if (!data.get("description").trim()) {
+          errors.push("Beskrivelse mangler.");
+        }
+
+        if (!data.get("metric").trim()) {
+          errors.push("Måleenhet mangler.");
+        }
+
+        for (let index = 1; index <= ANSWER_COUNT; index += 1) {
+          const answers = data
+            .get(`answers-${index}`)
+            .split(/\r?\n/)
+            .map((line) => line.trim())
+            .filter(Boolean);
+
+          if (answers.length === 0) {
+            errors.push(`Plass ${index} mangler svar.`);
+          }
+        }
+
+        return errors;
+      }
+
+      function setStatus(message, kind = "") {
+        status.textContent = message;
+        status.className = kind ? `status ${kind}` : "status";
+      }
+
+      function updatePreview() {
+        const titleSlug = slugify(titleInput.value);
+
+        if (!idInput.value.trim() && titleSlug) {
+          idInput.value = titleSlug;
+        }
+
+        if (!filenameInput.value.trim() && idInput.value.trim()) {
+          filenameInput.value = `${slugify(idInput.value)}.yaml`;
+        }
+
+        yamlPreview.textContent = buildYaml();
+      }
+
+      async function saveFile() {
+        const errors = validateForm();
+
+        if (errors.length > 0) {
+          setStatus(errors[0], "error");
+          return;
+        }
+
+        const yaml = buildYaml();
+        const filename = filenameInput.value.trim() || `${slugify(idInput.value)}.yaml`;
+
+        if ("showSaveFilePicker" in window) {
+          const handle = await window.showSaveFilePicker({
+            suggestedName: filename,
+            types: [
+              {
+                description: "YAML",
+                accept: { "text/yaml": [".yaml", ".yml"] },
+              },
+            ],
+          });
+          const writable = await handle.createWritable();
+          await writable.write(yaml);
+          await writable.close();
+          setStatus("Lagret.", "ok");
+          return;
+        }
+
+        downloadFile();
+        setStatus("Nettleseren støtter ikke direkte lagring. Filen ble lastet ned.", "ok");
+      }
+
+      function downloadFile() {
+        const yaml = buildYaml();
+        const filename = filenameInput.value.trim() || `${slugify(idInput.value)}.yaml`;
+        const blob = new Blob([yaml], { type: "text/yaml;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = filename;
+        link.click();
+        URL.revokeObjectURL(url);
+      }
+
+      async function copyYaml() {
+        await navigator.clipboard.writeText(buildYaml());
+        setStatus("Kopiert.", "ok");
+      }
+
+      createSlots();
+      updatePreview();
+
+      form.addEventListener("input", updatePreview);
+      saveButton.addEventListener("click", () => {
+        saveFile().catch((error) => {
+          setStatus(error.message, "error");
+        });
+      });
+      downloadButton.addEventListener("click", () => {
+        downloadFile();
+        setStatus("Lastet ned.", "ok");
+      });
+      copyButton.addEventListener("click", () => {
+        copyYaml().catch((error) => {
+          setStatus(error.message, "error");
+        });
+      });
+    </script>
+  </body>
+</html>

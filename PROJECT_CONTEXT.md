@@ -116,12 +116,20 @@ Current intended source model:
 - custom questions can be added, edited, disabled or removed by changing YAML files
 - database-generated questions can be refreshed into YAML with `python export_tenable_yaml_questions.py --overwrite`
 - use `--overwrite` carefully if existing database-generated YAML files have been hand-edited
+- local custom-question helper: `tools/tenable_admin.html`
 
-The static beta offers two period choices:
-- Classic: 1963-2026
-- Moderne: 2000-2026
+The static beta has no visible period/category choice before start. It randomly selects one active YAML question from the full exported question pool.
 
-Those are currently only time filters. After the player chooses one, the beta randomly selects one playable question within that period.
+Each YAML question owns its own:
+- `start_year`
+- `end_year`
+- title
+- description
+- slots
+
+The question text should make the period clear where relevant. Exported descriptions automatically add a year phrase when missing:
+- `siden 2000` when `end_year` equals the current max year
+- `i perioden 1998-2010` for bounded historical ranges
 
 Current exported beta pool:
 - appearances
@@ -139,10 +147,10 @@ Current exported beta pool:
 
 The static beta shows 10 visible answer slots and displays the value/count for each slot. If 10th place is tied, every player in the cutoff tie group is accepted behind the scenes, but the UI still only shows 10 places.
 
-Exported question descriptions must explicitly include the selected period, e.g. `i perioden 2000-2026.`
+Exported question descriptions must explicitly include the question period, e.g. `siden 2000.`
 
 Static beta autocomplete:
-- suggestions are based on all Brann players with appearances in the selected period
+- suggestions are based on all Brann players with appearances in the active question's year range
 - suggestions must not be limited to correct answers for the active question
 - answer validation still only accepts players in the active question's `eligibleAnswers`
 

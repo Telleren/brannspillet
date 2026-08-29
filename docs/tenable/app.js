@@ -1,7 +1,6 @@
 const DATA_URL = "./questions.json";
 
 let data = null;
-let currentPeriod = null;
 let currentQuestion = null;
 let guessedIds = [];
 let mistakes = 0;
@@ -140,7 +139,9 @@ function updateSuggestions() {
     return;
   }
 
-  const suggestionPool = currentPeriod.playerPool || currentQuestion.eligibleAnswers;
+  const suggestionPool =
+    (data.playerPools && data.playerPools[currentQuestion.playerPoolId]) ||
+    currentQuestion.eligibleAnswers;
 
   const options = suggestionPool
     .filter(
@@ -207,15 +208,14 @@ function matchAnswer(answer) {
 function startGame(event) {
   event.preventDefault();
 
-  const formData = new FormData(modeForm);
-  const periodId = formData.get("period");
-  currentPeriod = data.periods.find((period) => period.id === periodId);
-  currentQuestion = chooseOne(currentPeriod.questions);
+  currentQuestion = chooseOne(data.questions);
   guessedIds = [];
   mistakes = 0;
   revealed = false;
 
-  periodLabel.textContent = `${currentPeriod.label} (${currentPeriod.start_year}-${currentPeriod.end_year})`;
+  periodLabel.textContent =
+    currentQuestion.yearLabel ||
+    `${currentQuestion.startYear}-${currentQuestion.endYear}`;
   questionTitle.textContent = currentQuestion.title;
   questionDescription.textContent = currentQuestion.description;
   answerInput.value = "";
@@ -309,10 +309,7 @@ function updateModeMeta() {
     return;
   }
 
-  const formData = new FormData(modeForm);
-  const periodId = formData.get("period");
-  const period = data.periods.find((item) => item.id === periodId);
-  modeMeta.textContent = `${period.questions.length} mulige oppgaver`;
+  modeMeta.textContent = `${data.questions.length} mulige oppgaver`;
 }
 
 async function init() {
@@ -322,7 +319,6 @@ async function init() {
 }
 
 modeForm.addEventListener("submit", startGame);
-modeForm.addEventListener("change", updateModeMeta);
 answerForm.addEventListener("submit", submitAnswer);
 answerInput.addEventListener("input", updateSuggestions);
 revealButton.addEventListener("click", revealAnswers);

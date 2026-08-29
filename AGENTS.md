@@ -95,9 +95,10 @@ Current Tenable static beta: docs/tenable/
 - Generated Pages data lives in docs/tenable/questions.json.
 - Regenerate Pages data with export_tenable_pages_data.py after changing YAML question files.
 - Regenerate the database-derived YAML seed files with export_tenable_yaml_questions.py --overwrite after intentional Tenable theme/query changes.
-- The beta offers Classic (1963-2026) and Moderne (2000-2026) as period choices, then randomly selects one playable question inside the chosen period.
-- The exported beta pool currently uses eight general themes plus appearances against Rosenborg, Lillestrøm, Viking, and Vålerenga.
-- Exported question descriptions must explicitly include the selected period, e.g. "i perioden 2000-2026."
-- Static beta autocomplete is based on all Brann players with appearances in the selected period, not only correct answers for the active question.
+- The beta has no visible period/category choice before start; it randomly selects one active YAML question.
+- Each YAML question owns its own start_year and end_year. The question text should make the period clear where relevant.
+- Exported question descriptions automatically add the year phrase when missing, e.g. "siden 2000."
+- Static beta autocomplete is based on all Brann players with appearances in the active question's year range, not only correct answers for that question.
 - The static beta shows 10 visible answer slots with values/counts visible, but keeps cutoff-tie eligibility hidden behind the scenes.
 - The static beta includes answers client-side and is meant for informal beta testing, not anti-cheat production use.
+- Local custom-question helper: tools/tenable_admin.html.

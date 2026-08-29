@@ -41,8 +41,16 @@ def player_to_answer(player):
 
 def question_filename(question, period):
 
+    if question["end_year"] == tenable.MAX_YEAR:
+        range_label = f"since-{question['start_year']}"
+    else:
+        range_label = (
+            f"{question['start_year']}-"
+            f"{question['end_year']}"
+        )
+
     parts = [
-        period["id"],
+        range_label,
         question["theme_id"].replace("_", "-"),
     ]
 
@@ -80,7 +88,6 @@ def question_to_yaml_data(question, period):
         ),
         "active": True,
         "source": "database",
-        "period": period["id"],
         "theme_id": question["theme_id"],
         "title": question["title"],
         "description": question["description"],

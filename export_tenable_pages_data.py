@@ -4,7 +4,6 @@ from datetime import datetime, timezone
 import tenable
 from tenable_pages_config import (
     OUTPUT_FILE,
-    PERIODS,
     QUESTION_SOURCE_DIR,
 )
 
@@ -17,27 +16,30 @@ except ImportError as error:
     ) from error
 
 
-def serialize_player_option(player):
+def year_phrase(start_year, end_year):
 
-    return {
-        "id": player["player_id"],
-        "name": player["name"],
-        "fullName": player["full_name"],
-    }
+    if end_year == tenable.MAX_YEAR:
+        return f"siden {start_year}"
+
+    return f"i perioden {start_year}-{end_year}"
 
 
 def add_period_to_description(description, start_year, end_year):
 
-    period_text = f"i perioden {start_year}-{end_year}"
+    phrase = year_phrase(
+        start_year,
+        end_year
+    )
+
     text = description.strip()
 
-    if period_text in text:
+    if phrase in text:
         return text
 
     if text.endswith("."):
         text = text[:-1]
 
-    return f"{text} {period_text}."
+    return f"{text} {phrase}."
 
 
 def answer_name(answer, source_file):
@@ -113,7 +115,7 @@ def serialize_answer(answer, value, question_id, fallback_ids, source_file):
     }
 
 
-def serialize_question(source, period):
+def serialize_question(source):
 
     source_file = source["_source_file"]
     question_id = source.get("id")
@@ -134,6 +136,19 @@ def serialize_question(source, period):
         raise ValueError(
             f"{source_file} har {len(slots)} slots. "
             f"Forventet {tenable.ANSWER_COUNT}."
+        )
+
+    start_year = source.get("start_year")
+    end_year = source.get("end_year")
+
+    if not isinstance(start_year, int) or not isinstance(end_year, int):
+        raise ValueError(
+            f"{source_file} må ha start_year og end_year som årstall."
+        )
+
+    if start_year > end_year:
+        raise ValueError(
+            f"{source_file} har start_year etter end_year."
         )
 
     fallback_ids = {}
@@ -172,15 +187,6 @@ def serialize_question(source, period):
         for player in slot["players"]:
             eligible_by_id[player["id"]] = player
 
-    start_year = source.get(
-        "start_year",
-        period["start_year"]
-    )
-    end_year = source.get(
-        "end_year",
-        period["end_year"]
-    )
-
     return {
         "id": question_id,
         "themeId": source.get(
@@ -196,6 +202,14 @@ def serialize_question(source, period):
         "metric": source["metric"],
         "startYear": start_year,
         "endYear": end_year,
+        "yearLabel": year_phrase(
+            start_year,
+            end_year
+        ),
+        "playerPoolId": player_pool_id(
+            start_year,
+            end_year
+        ),
         "cutoffValue": source.get(
             "cutoff_value",
             serialized_slots[-1]["value"]
@@ -258,26 +272,26 @@ def load_question_sources():
     return sources
 
 
-def validate_source_periods(sources):
+def player_pool_id(start_year, end_year):
 
-    allowed_periods = {
-        period["id"]
-        for period in PERIODS
+    return f"{start_year}-{end_year}"
+
+
+def serialize_player_option(player):
+
+    return {
+        "id": player["player_id"],
+        "name": player["name"],
+        "fullName": player["full_name"],
     }
 
-    for source in sources:
 
-        if source.get("period") not in allowed_periods:
-            raise ValueError(
-                f"{source['_source_file']} har ukjent period: "
-                f"{source.get('period')}. Gyldige verdier: "
-                + ", ".join(
-                    sorted(allowed_periods)
-                )
-            )
+def query_player_pool(start_year, end_year):
 
-
-def query_player_pool(databases, start_year, end_year):
+    databases = tenable.connect_databases(
+        start_year,
+        end_year
+    )
 
     start_date, end_date = tenable.date_bounds(
         start_year,
@@ -286,38 +300,46 @@ def query_player_pool(databases, start_year, end_year):
 
     players_by_id = {}
 
-    for database in databases:
+    try:
 
-        rows = database["conn"].execute(
-            """
-            SELECT DISTINCT
-                p.id AS player_id,
-                p.name,
-                p.full_name
+        for database in databases:
 
-            FROM appearances a
+            rows = database["conn"].execute(
+                """
+                SELECT DISTINCT
+                    p.id AS player_id,
+                    p.name,
+                    p.full_name
 
-            JOIN matches m
-                ON m.id = a.match_id
+                FROM appearances a
 
-            JOIN players p
-                ON p.id = a.player_id
+                JOIN matches m
+                    ON m.id = a.match_id
 
-            WHERE
-                a.team_id = ?
-                AND a.appeared = 1
-                AND m.date >= ?
-                AND m.date <= ?
-            """,
-            (
-                tenable.BRANN_ID,
-                start_date,
-                end_date
-            )
-        ).fetchall()
+                JOIN players p
+                    ON p.id = a.player_id
 
-        for row in rows:
-            players_by_id[row["player_id"]] = row
+                WHERE
+                    a.team_id = ?
+                    AND a.appeared = 1
+                    AND m.date >= ?
+                    AND m.date <= ?
+                """,
+                (
+                    tenable.BRANN_ID,
+                    start_date,
+                    end_date
+                )
+            ).fetchall()
+
+            for row in rows:
+                players_by_id[row["player_id"]] = row
+
+    finally:
+
+        tenable.close_databases(
+            databases
+        )
 
     return sorted(
         players_by_id.values(),
@@ -328,54 +350,49 @@ def query_player_pool(databases, start_year, end_year):
     )
 
 
-def build_period(period, sources):
+def build_player_pools(questions):
 
-    databases = tenable.connect_databases(
-        period["start_year"],
-        period["end_year"]
+    ranges = sorted(
+        {
+            (
+                question["startYear"],
+                question["endYear"]
+            )
+            for question in questions
+        }
     )
 
-    try:
+    pools = {}
 
-        player_pool = query_player_pool(
-            databases,
-            period["start_year"],
-            period["end_year"]
-        )
+    for start_year, end_year in ranges:
 
-    finally:
-
-        tenable.close_databases(
-            databases
-        )
-
-    questions = [
-        serialize_question(
-            source,
-            period
-        )
-        for source in sources
-        if source.get("period") == period["id"]
-    ]
-
-    return {
-        **period,
-        "playerPool": [
+        pools[
+            player_pool_id(
+                start_year,
+                end_year
+            )
+        ] = [
             serialize_player_option(
                 player
             )
-            for player in player_pool
-        ],
-        "questions": questions,
-    }
+            for player in query_player_pool(
+                start_year,
+                end_year
+            )
+        ]
+
+    return pools
 
 
 def main():
 
     sources = load_question_sources()
-    validate_source_periods(
-        sources
-    )
+    questions = [
+        serialize_question(
+            source
+        )
+        for source in sources
+    ]
 
     data = {
         "generatedAt": datetime.now(
@@ -383,13 +400,10 @@ def main():
         ).isoformat(),
         "answerCount": tenable.ANSWER_COUNT,
         "startingLives": tenable.STARTING_LIVES,
-        "periods": [
-            build_period(
-                period,
-                sources
-            )
-            for period in PERIODS
-        ],
+        "playerPools": build_player_pools(
+            questions
+        ),
+        "questions": questions,
     }
 
     OUTPUT_FILE.parent.mkdir(
@@ -409,22 +423,10 @@ def main():
             indent=2
         )
 
-    total = sum(
-        len(period["questions"])
-        for period in data["periods"]
-    )
-
     print(
-        f"Exported {total} Tenable questions "
+        f"Exported {len(questions)} Tenable questions "
         f"to {OUTPUT_FILE}"
     )
-
-    for period in data["periods"]:
-
-        print(
-            f"{period['label']}: "
-            f"{len(period['questions'])} questions"
-        )
 
 
 if __name__ == "__main__":
