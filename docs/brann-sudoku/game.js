@@ -166,7 +166,14 @@ function oppositeSlotIds(slotId) {
   return [0, 1, 2].map((index) => `${prefix}-${index}`);
 }
 
-function ruleFitsSlot(slotId, rule, assignments, minimum, maximum) {
+function ruleFitsSlot(
+  slotId,
+  rule,
+  assignments,
+  minimum,
+  maximum,
+  allowOverlappingAnswers
+) {
   const fitsCounts = oppositeSlotIds(slotId).every((oppositeSlotId) => {
     const opposite = assignments[oppositeSlotId];
     if (!opposite) return true;
@@ -180,13 +187,20 @@ function ruleFitsSlot(slotId, rule, assignments, minimum, maximum) {
 
   if (!fitsCounts) return false;
 
+  if (allowOverlappingAnswers) return true;
+
   return cellPlayerSetsAreDisjoint({
     ...assignments,
     [slotId]: rule,
   });
 }
 
-function validateAssignments(assignments, minimum, maximum) {
+function validateAssignments(
+  assignments,
+  minimum,
+  maximum,
+  allowOverlappingAnswers
+) {
   for (let rowIndex = 0; rowIndex < 3; rowIndex += 1) {
     for (let colIndex = 0; colIndex < 3; colIndex += 1) {
       const row = assignments[`row-${rowIndex}`];
@@ -198,7 +212,10 @@ function validateAssignments(assignments, minimum, maximum) {
     }
   }
 
-  return cellPlayerSetsAreDisjoint(assignments);
+  return (
+    allowOverlappingAnswers
+    || cellPlayerSetsAreDisjoint(assignments)
+  );
 }
 
 function randomizableCriteria(minimum) {
@@ -211,7 +228,7 @@ function randomizableCriteria(minimum) {
     ));
 }
 
-function findRandomBoard(minimum, maximum) {
+function findRandomBoard(minimum, maximum, allowOverlappingAnswers) {
   const candidates = randomizableCriteria(minimum);
   const maxAttempts = 20000;
 
@@ -229,7 +246,8 @@ function findRandomBoard(minimum, maximum) {
           rule,
           assignments,
           minimum,
-          maximum
+          maximum,
+          allowOverlappingAnswers
         ));
 
       if (!matching.length) {
@@ -241,7 +259,15 @@ function findRandomBoard(minimum, maximum) {
       used.add(matching[0].id);
     }
 
-    if (!failed && validateAssignments(assignments, minimum, maximum)) {
+    if (
+      !failed
+      && validateAssignments(
+        assignments,
+        minimum,
+        maximum,
+        allowOverlappingAnswers
+      )
+    ) {
       return assignments;
     }
   }
@@ -534,14 +560,23 @@ function startRound() {
 
   const minimum = Math.max(1, Number($("#minimumCount").value || 2));
   const maximum = Math.max(minimum, Number($("#maximumCount").value || 6));
+  const allowOverlappingAnswers = $("#allowOverlappingAnswers").checked;
   $("#minimumCount").value = String(minimum);
   $("#maximumCount").value = String(maximum);
   renderStartStatus("Genererer brett...");
 
-  const assignments = findRandomBoard(minimum, maximum);
+  const assignments = findRandomBoard(
+    minimum,
+    maximum,
+    allowOverlappingAnswers
+  );
 
   if (!assignments) {
-    renderStartStatus(`Fant ikke brett med ${minimum}-${maximum} mulige svar per celle uten overlappende spillere.`);
+    renderStartStatus(
+      allowOverlappingAnswers
+        ? `Fant ikke brett med ${minimum}-${maximum} mulige svar per celle.`
+        : `Fant ikke brett med ${minimum}-${maximum} mulige svar per celle uten overlappende spillere.`
+    );
     return;
   }
 
