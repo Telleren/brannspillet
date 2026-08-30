@@ -1,0 +1,80 @@
+id: trener-maal:rune-skarsfjord:2010-05-24:2013-11-03
+active: true
+source: database_with_manual_coach_period
+theme_id: trener-maal
+title: Flest mål under Rune Skarsfjord
+description: Finn de 10 spillerne med flest Brann-mål under Rune Skarsfjord.
+metric: mål
+start_year: 2010
+end_year: 2013
+coach:
+  id: rune-skarsfjord
+  name: Rune Skarsfjord
+  from_date: '2010-05-24'
+  to_date: '2013-11-03'
+  periods:
+    - id: 2010-2013
+      from_match: 2010-05-24_honefoss-brann.json
+      to_match: 2013-11-03_ulf-brann.json
+      from_date: '2010-05-24'
+      to_date: '2013-11-03'
+      current: false
+cutoff_value: 12
+opponent: null
+slots:
+  - value: 33
+    answers:
+      - player_id: b946d0aa-d3b3-5858-ba74-2ede3557e676
+        name: Kim Ojo
+        full_name: null
+  - value: 20
+    answers:
+      - player_id: 78f3154a-f1ee-5f8a-b869-8fedc39152de
+        name: Erik Huseklepp
+        full_name: Erik André Huseklepp
+  - value: 17
+    answers:
+      - player_id: 82a32cef-3c7a-5a5e-9ce5-ab8cc79e8092
+        name: Amin Askar
+        full_name: Amin Soleiman Askar
+  - value: 15
+    answers:
+      - player_id: 2866c99f-fd69-55f6-99fa-ff7d9bf49cc7
+        name: Bård Finne
+        full_name: null
+  - value: 15
+    answers:
+      - player_id: 7b8b2e31-3845-572a-b2ab-48fc58f639fb
+        name: Erik Mjelde
+        full_name: Erik Nævdal Mjelde
+  - value: 13
+    answers:
+      - player_id: a150dd46-db3b-5670-829c-4aa5cc16bb6d
+        name: Bentley
+        full_name: Chukwuma Akabueze
+  - value: 13
+    answers:
+      - player_id: c118ef7f-1987-551e-89b1-df42005dbe9b
+        name: Diego Guastavino
+        full_name: Diego Nicolás Guastavino Bentancor
+  - value: 13
+    answers:
+      - player_id: b27b23d3-4c5b-564f-ba3d-8a40b2411bd0
+        name: Martin Pusic
+        full_name: null
+  - value: 12
+    answers:
+      - player_id: aedba66e-7795-5a07-9c6d-95f36013d91b
+        name: Birkir Sævarsson
+        full_name: Birkir Már Sævarsson
+      - player_id: c4930567-ed6b-50fc-8993-0df22954633b
+        name: Rodolph Austin
+        full_name: Rodolph William Austin
+  - value: 12
+    answers:
+      - player_id: aedba66e-7795-5a07-9c6d-95f36013d91b
+        name: Birkir Sævarsson
+        full_name: Birkir Már Sævarsson
+      - player_id: c4930567-ed6b-50fc-8993-0df22954633b
+        name: Rodolph Austin
+        full_name: Rodolph William Austin

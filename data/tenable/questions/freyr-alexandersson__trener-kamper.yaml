@@ -1,0 +1,74 @@
+id: trener-kamper:freyr-alexandersson:2025-03-29:2026-05-29
+active: true
+source: database_with_manual_coach_period
+theme_id: trener-kamper
+title: Flest kamper under Freyr Alexandersson
+description: Finn de 10 spillerne med flest Brann-kamper under Freyr Alexandersson.
+metric: kamper
+start_year: 2025
+end_year: 2026
+coach:
+  id: freyr-alexandersson
+  name: Freyr Alexandersson
+  from_date: '2025-03-29'
+  to_date: '2026-05-29'
+  periods:
+    - id: 2025-2026
+      from_match: 2025-03-29_fredrikstad-brann.json
+      to_match: 2026-05-29_brann-sarpsborg.json
+      from_date: '2025-03-29'
+      to_date: '2026-05-29'
+      current: false
+cutoff_value: 44
+opponent: null
+slots:
+  - value: 60
+    answers:
+      - player_id: 2866c99f-fd69-55f6-99fa-ff7d9bf49cc7
+        name: Bård Finne
+        full_name: null
+  - value: 59
+    answers:
+      - player_id: ba5045e6-a1c8-5779-bf57-efe98208b4ba
+        name: Thore Pedersen
+        full_name: Thore Baardsen Pedersen
+  - value: 58
+    answers:
+      - player_id: a5483a6c-1dae-44e8-90ae-95b69dfad78c
+        name: Denzel De Roeve
+        full_name: null
+  - value: 56
+    answers:
+      - player_id: 9be11c0e-b06a-5866-bd95-175d4db068eb
+        name: Ulrik Mathisen
+        full_name: null
+  - value: 55
+    answers:
+      - player_id: 589567d5-cadd-5098-b538-779c5a3bf9d8
+        name: Mathias Dyngeland
+        full_name: Mathias Lønne Dyngeland
+  - value: 52
+    answers:
+      - player_id: c93e6e01-7602-5c81-848d-f7939fb918d2
+        name: Felix Horn Myhre
+        full_name: null
+  - value: 51
+    answers:
+      - player_id: cdc7c659-7bf9-5a4b-a0a2-24df0a7822f9
+        name: Joachim Soltvedt
+        full_name: null
+  - value: 46
+    answers:
+      - player_id: 119750ba-493c-4e62-b3a3-5c7c769903aa
+        name: Emil Kornvig
+        full_name: null
+  - value: 45
+    answers:
+      - player_id: 06107442-5459-5187-9784-473bebeec880
+        name: Fredrik Pallesen Knudsen
+        full_name: Fredrik Pallesen Knudsen
+  - value: 44
+    answers:
+      - player_id: 3ba042c4-e258-534d-956f-6af0673f7993
+        name: Markus Haaland
+        full_name: null

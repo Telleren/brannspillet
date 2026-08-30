@@ -1,0 +1,74 @@
+id: trener-kamper:rune-skarsfjord:2010-05-24:2013-11-03
+active: true
+source: database_with_manual_coach_period
+theme_id: trener-kamper
+title: Flest kamper under Rune Skarsfjord
+description: Finn de 10 spillerne med flest Brann-kamper under Rune Skarsfjord.
+metric: kamper
+start_year: 2010
+end_year: 2013
+coach:
+  id: rune-skarsfjord
+  name: Rune Skarsfjord
+  from_date: '2010-05-24'
+  to_date: '2013-11-03'
+  periods:
+    - id: 2010-2013
+      from_match: 2010-05-24_honefoss-brann.json
+      to_match: 2013-11-03_ulf-brann.json
+      from_date: '2010-05-24'
+      to_date: '2013-11-03'
+      current: false
+cutoff_value: 62
+opponent: null
+slots:
+  - value: 115
+    answers:
+      - player_id: aedba66e-7795-5a07-9c6d-95f36013d91b
+        name: Birkir Sævarsson
+        full_name: Birkir Már Sævarsson
+  - value: 91
+    answers:
+      - player_id: 5ebd1a53-f259-5771-8f4b-192aa6f6dddb
+        name: Zsolt Korcsmár
+        full_name: null
+  - value: 84
+    answers:
+      - player_id: 550adf62-a6ec-52e1-ae2d-f76c37d768f2
+        name: Fredrik Haugen
+        full_name: null
+  - value: 84
+    answers:
+      - player_id: 7475f1d6-8404-53e7-9462-b6611f2e144e
+        name: Hassan El Fakiri
+        full_name: null
+  - value: 84
+    answers:
+      - player_id: 3ef89ce2-f5f1-5dd6-9db7-ef27c539f261
+        name: Piotr Leciejewski
+        full_name: null
+  - value: 83
+    answers:
+      - player_id: 7b8b2e31-3845-572a-b2ab-48fc58f639fb
+        name: Erik Mjelde
+        full_name: Erik Nævdal Mjelde
+  - value: 69
+    answers:
+      - player_id: b946d0aa-d3b3-5858-ba74-2ede3557e676
+        name: Kim Ojo
+        full_name: null
+  - value: 63
+    answers:
+      - player_id: a150dd46-db3b-5670-829c-4aa5cc16bb6d
+        name: Bentley
+        full_name: Chukwuma Akabueze
+  - value: 63
+    answers:
+      - player_id: 78f3154a-f1ee-5f8a-b869-8fedc39152de
+        name: Erik Huseklepp
+        full_name: Erik André Huseklepp
+  - value: 62
+    answers:
+      - player_id: c4930567-ed6b-50fc-8993-0df22954633b
+        name: Rodolph Austin
+        full_name: Rodolph William Austin

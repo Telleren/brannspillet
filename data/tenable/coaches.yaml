@@ -1,0 +1,133 @@
+version: 2
+description: >
+  Manual Brann coach periods keyed by source_filename match bounds.
+  Raw Branntall files are not changed. A period with to_match: null is
+  treated as ongoing through the latest match in the available dataset.
+
+coaches:
+  - id: teitur-thordarson
+    name: Teitur Thórdarson
+    tenable_questions: false
+    periods:
+      - id: 1988-1990
+        from_match: 1988-05-01_brann-vif.json
+        to_match: 1990-10-07_rbk-brann.json
+      - id: 2000-2002
+        from_match: 2000-04-09_brann-viking.json
+        to_match: 2002-11-06_brann-sandefjord.json
+
+  - id: karl-gunnar-bjorklund
+    name: Karl Gunnar "Kalle" Björklund
+    tenable_questions: false
+    periods:
+      - id: 1991-1992
+        from_match: 1991-04-28_brann-lsk.json
+        to_match: 1992-10-18_mjondalen-brann.json
+
+  - id: hallvar-thoresen
+    name: Hallvar Thoresen
+    tenable_questions: false
+    periods:
+      - id: 1993-1995
+        from_match: 1993-05-02_brann-hamkam.json
+        to_match: 1995-06-25_brann-start.json
+
+  - id: kjell-tennfjord
+    name: Kjell Tennfjord
+    tenable_questions: false
+    periods:
+      - id: 1995-1998
+        from_match: 1995-07-02_glimt-brann.json
+        to_match: 1998-07-05_sogndal-brann.json
+
+  - id: harald-aabrekk
+    name: Harald Aabrekk
+    tenable_questions: false
+    periods:
+      - id: 1998-1999
+        from_match: 1998-07-09_brann-stabaek.json
+        to_match: 1999-10-30_brann-rbk.json
+
+  - id: mons-ivar-mjelde
+    name: Mons Ivar Mjelde
+    tenable_questions: true
+    periods:
+      - id: 2003-2008
+        from_match: 2003-04-14_lyn-brann.json
+        to_match: 2008-11-02_vif-brann.json
+
+  - id: steinar-nilsen
+    name: Steinar Nilsen
+    tenable_questions: false
+    periods:
+      - id: 2009-2010
+        from_match: 2009-03-16_sandefjord-brann.json
+        to_match: 2010-05-19_fyllingen-brann.json
+
+  - id: rune-skarsfjord
+    name: Rune Skarsfjord
+    tenable_questions: true
+    periods:
+      - id: 2010-2013
+        from_match: 2010-05-24_honefoss-brann.json
+        to_match: 2013-11-03_ulf-brann.json
+
+  - id: kenneth-mikkelsen
+    name: Kenneth Mikkelsen
+    tenable_questions: false
+    periods:
+      - id: 2013
+        from_match: 2013-11-10_brann-tromso.json
+        to_match: 2013-11-10_brann-tromso.json
+
+  - id: rikard-norling
+    name: Rikard Norling
+    tenable_questions: false
+    periods:
+      - id: 2014-2015
+        from_match: 2014-03-30_sarpsborg-brann.json
+        to_match: 2015-05-26_levanger-brann.json
+
+  - id: lars-arne-nilsen
+    name: Lars Arne Nilsen
+    tenable_questions: true
+    periods:
+      - id: 2015-2020
+        from_match: 2015-06-01_brann-follo.json
+        to_match: 2020-08-01_brann-vif.json
+
+  - id: robert-hauge
+    name: Robert Hauge
+    tenable_questions: false
+    periods:
+      - id: 2020
+        from_match: 2020-08-10_molde-brann.json
+        to_match: 2020-08-10_molde-brann.json
+
+  - id: kare-ingebrigtsen
+    name: Kåre Ingebrigtsen
+    tenable_questions: false
+    periods:
+      - id: 2020-2021
+        from_match: 2020-08-16_brann-mjondalen.json
+        to_match: 2021-07-18_brann-mjondalen.json
+
+  - id: eirik-horneland
+    name: Eirik Horneland
+    tenable_questions: false
+    periods:
+      - id: 2021-2024
+        from_match: 2021-07-24_bjarg-brann.json
+        to_match: 2024-12-01_brann-viking.json
+      - id: 2026-current
+        from_match: 2026-07-12_brann-start.json
+        to_match: null
+        current: true
+
+  - id: freyr-alexandersson
+    name: Freyr Alexandersson
+    tenable_questions: true
+    periods:
+      - id: 2025-2026
+        from_match: 2025-03-29_fredrikstad-brann.json
+        to_match: 2026-05-29_brann-sarpsborg.json

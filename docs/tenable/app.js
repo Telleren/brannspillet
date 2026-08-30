@@ -91,6 +91,10 @@ function setScoreboard() {
 }
 
 function displayMetric(value, metric) {
+  if (!metric) {
+    return String(value);
+  }
+
   return `${value} ${metric}`;
 }
 
@@ -140,8 +144,12 @@ function updateSuggestions() {
   }
 
   const suggestionPool =
-    (data.playerPools && data.playerPools[currentQuestion.playerPoolId]) ||
-    currentQuestion.eligibleAnswers;
+    currentQuestion.suggestionPool === "answers"
+      ? currentQuestion.eligibleAnswers
+      : currentQuestion.suggestionPool === "custom"
+      ? currentQuestion.suggestionOptions || currentQuestion.eligibleAnswers
+      : (data.playerPools && data.playerPools[currentQuestion.playerPoolId]) ||
+        currentQuestion.eligibleAnswers;
 
   const options = suggestionPool
     .filter(

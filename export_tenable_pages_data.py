@@ -1,5 +1,5 @@
 import json
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 
 import tenable
 from tenable_pages_config import (
@@ -115,6 +115,14 @@ def serialize_answer(answer, value, question_id, fallback_ids, source_file):
     }
 
 
+def serialize_value(value):
+
+    if isinstance(value, (date, datetime)):
+        return value.isoformat()
+
+    return value
+
+
 def serialize_question(source):
 
     source_file = source["_source_file"]
@@ -151,12 +159,25 @@ def serialize_question(source):
             f"{source_file} har start_year etter end_year."
         )
 
+    suggestion_pool = source.get(
+        "suggestion_pool",
+        "players"
+    )
+
+    if suggestion_pool not in ("players", "answers", "custom"):
+        raise ValueError(
+            f"{source_file} har ukjent suggestion_pool: "
+            f"{suggestion_pool}"
+        )
+
     fallback_ids = {}
     serialized_slots = []
 
     for slot in slots:
 
-        value = slot.get("value")
+        value = serialize_value(
+            slot.get("value")
+        )
         answers = slot.get("answers")
 
         if not isinstance(answers, list) or not answers:
@@ -187,6 +208,37 @@ def serialize_question(source):
         for player in slot["players"]:
             eligible_by_id[player["id"]] = player
 
+    cutoff_value = source.get(
+        "cutoff_value",
+        serialized_slots[-1]["value"]
+    )
+
+    suggestion_options = None
+
+    if suggestion_pool == "custom":
+
+        source_options = source.get(
+            "suggestion_options"
+        )
+
+        if not isinstance(source_options, list) or not source_options:
+            raise ValueError(
+                f"{source_file} bruker suggestion_pool: custom, "
+                "men mangler suggestion_options-liste."
+            )
+
+        suggestion_fallback_ids = {}
+        suggestion_options = [
+            serialize_answer(
+                option,
+                None,
+                question_id,
+                suggestion_fallback_ids,
+                source_file
+            )
+            for option in source_options
+        ]
+
     return {
         "id": question_id,
         "themeId": source.get(
@@ -206,13 +258,17 @@ def serialize_question(source):
             start_year,
             end_year
         ),
-        "playerPoolId": player_pool_id(
-            start_year,
-            end_year
+        "suggestionPool": suggestion_pool,
+        "playerPoolId": (
+            player_pool_id(
+                start_year,
+                end_year
+            )
+            if suggestion_pool == "players"
+            else None
         ),
-        "cutoffValue": source.get(
-            "cutoff_value",
-            serialized_slots[-1]["value"]
+        "cutoffValue": serialize_value(
+            cutoff_value
         ),
         "opponent": source.get(
             "opponent"
@@ -221,6 +277,7 @@ def serialize_question(source):
         "eligibleAnswers": list(
             eligible_by_id.values()
         ),
+        "suggestionOptions": suggestion_options,
     }
 
 
@@ -359,6 +416,10 @@ def build_player_pools(questions):
                 question["endYear"]
             )
             for question in questions
+            if question.get(
+                "suggestionPool",
+                "players"
+            ) == "players"
         }
     )
 

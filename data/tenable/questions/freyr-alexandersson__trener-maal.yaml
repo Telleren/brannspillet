@@ -1,0 +1,101 @@
+id: trener-maal:freyr-alexandersson:2025-03-29:2026-05-29
+active: true
+source: database_with_manual_coach_period
+theme_id: trener-maal
+title: Flest mål under Freyr Alexandersson
+description: Finn de 10 spillerne med flest Brann-mål under Freyr Alexandersson.
+metric: mål
+start_year: 2025
+end_year: 2026
+coach:
+  id: freyr-alexandersson
+  name: Freyr Alexandersson
+  from_date: '2025-03-29'
+  to_date: '2026-05-29'
+  periods:
+    - id: 2025-2026
+      from_match: 2025-03-29_fredrikstad-brann.json
+      to_match: 2026-05-29_brann-sarpsborg.json
+      from_date: '2025-03-29'
+      to_date: '2026-05-29'
+      current: false
+cutoff_value: 5
+opponent: null
+slots:
+  - value: 13
+    answers:
+      - player_id: 2866c99f-fd69-55f6-99fa-ff7d9bf49cc7
+        name: Bård Finne
+        full_name: null
+  - value: 12
+    answers:
+      - player_id: 119750ba-493c-4e62-b3a3-5c7c769903aa
+        name: Emil Kornvig
+        full_name: null
+  - value: 10
+    answers:
+      - player_id: ee29e604-fdb4-49bc-afc3-fb90c066104b
+        name: Sævar Atli Magnusson
+        full_name: null
+  - value: 8
+    answers:
+      - player_id: c93e6e01-7602-5c81-848d-f7939fb918d2
+        name: Felix Horn Myhre
+        full_name: null
+  - value: 8
+    answers:
+      - player_id: cdc7c659-7bf9-5a4b-a0a2-24df0a7822f9
+        name: Joachim Soltvedt
+        full_name: null
+  - value: 8
+    answers:
+      - player_id: a9f6d7ec-efcc-5cf1-89a7-3a7df02b5939
+        name: Noah Jean Holm
+        full_name: Noah Emmanuel Jean Holm
+  - value: 7
+    answers:
+      - player_id: 67b4ffd9-69e1-5634-af16-e30cc3a6e441
+        name: Aune Heggebø
+        full_name: Aune Selland Heggebø
+  - value: 5
+    answers:
+      - player_id: 2c07f93e-17c2-45da-91c7-eca54a56e5fb
+        name: Eggert Aron Gudmundsson
+        full_name: null
+      - player_id: 408fa91a-4c65-419d-a720-5f78e14bbc01
+        name: Kristall Máni Ingason
+        full_name: null
+      - player_id: b8dddc75-d422-4a0a-afba-0967b3d16d7d
+        name: Mads Kristian Hansen
+        full_name: Mads Kristian Hansen
+      - player_id: 52ff1704-baeb-56ac-8817-ddee5a0c5bab
+        name: Niklas Castro
+        full_name: Niklas Fernando Nygård Castro
+  - value: 5
+    answers:
+      - player_id: 2c07f93e-17c2-45da-91c7-eca54a56e5fb
+        name: Eggert Aron Gudmundsson
+        full_name: null
+      - player_id: 408fa91a-4c65-419d-a720-5f78e14bbc01
+        name: Kristall Máni Ingason
+        full_name: null
+      - player_id: b8dddc75-d422-4a0a-afba-0967b3d16d7d
+        name: Mads Kristian Hansen
+        full_name: Mads Kristian Hansen
+      - player_id: 52ff1704-baeb-56ac-8817-ddee5a0c5bab
+        name: Niklas Castro
+        full_name: Niklas Fernando Nygård Castro
+  - value: 5
+    answers:
+      - player_id: 2c07f93e-17c2-45da-91c7-eca54a56e5fb
+        name: Eggert Aron Gudmundsson
+        full_name: null
+      - player_id: 408fa91a-4c65-419d-a720-5f78e14bbc01
+        name: Kristall Máni Ingason
+        full_name: null
+      - player_id: b8dddc75-d422-4a0a-afba-0967b3d16d7d
+        name: Mads Kristian Hansen
+        full_name: Mads Kristian Hansen
+      - player_id: 52ff1704-baeb-56ac-8817-ddee5a0c5bab
+        name: Niklas Castro
+        full_name: Niklas Fernando Nygård Castro

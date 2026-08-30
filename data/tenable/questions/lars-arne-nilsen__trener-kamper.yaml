@@ -1,0 +1,77 @@
+id: trener-kamper:lars-arne-nilsen:2015-06-01:2020-08-01
+active: true
+source: database_with_manual_coach_period
+theme_id: trener-kamper
+title: Flest kamper under Lars Arne Nilsen
+description: Finn de 10 spillerne med flest Brann-kamper under Lars Arne Nilsen.
+metric: kamper
+start_year: 2015
+end_year: 2020
+coach:
+  id: lars-arne-nilsen
+  name: Lars Arne Nilsen
+  from_date: '2015-06-01'
+  to_date: '2020-08-01'
+  periods:
+    - id: 2015-2020
+      from_match: 2015-06-01_brann-follo.json
+      to_match: 2020-08-01_brann-vif.json
+      from_date: '2015-06-01'
+      to_date: '2020-08-01'
+      current: false
+cutoff_value: 73
+opponent: null
+slots:
+  - value: 145
+    answers:
+      - player_id: 1bf96b85-bd66-5786-9a57-b7322c490f4d
+        name: Bismar Acosta
+        full_name: Bismar Gilberto Acosta Evans
+  - value: 136
+    answers:
+      - player_id: 550adf62-a6ec-52e1-ae2d-f76c37d768f2
+        name: Fredrik Haugen
+        full_name: null
+  - value: 135
+    answers:
+      - player_id: 2f4e78d7-75c5-55e0-8bf7-9b198da8adbb
+        name: Kristoffer Barmen
+        full_name: Kristoffer Ramos Barmen
+  - value: 126
+    answers:
+      - player_id: 22318baf-0826-5332-b876-46fbba0ca4dc
+        name: Ruben Kristiansen
+        full_name: Ruben Kristiansen
+  - value: 103
+    answers:
+      - player_id: e496d013-003d-50de-ab5a-007a70ce1ff6
+        name: Azar Karadas
+        full_name: null
+  - value: 103
+    answers:
+      - player_id: f6f6e245-4c20-50ca-9435-85e04f587357
+        name: Gilli Rólantsson
+        full_name: Gilli Rólantsson Sørensen
+  - value: 90
+    answers:
+      - player_id: 017dd06e-c6ea-567e-bd8c-fc6daa1267fb
+        name: Sivert Heltne Nilsen
+        full_name: Sivert Heltne Nilsen
+  - value: 88
+    answers:
+      - player_id: 14984492-767e-5c83-afe7-b2afe5c32720
+        name: Vito Wormgoor
+        full_name: null
+  - value: 85
+    answers:
+      - player_id: 2d3bdca4-119d-58c9-b754-b5396835977b
+        name: Amin Nouri
+        full_name: Amin Mimoun Nouri
+  - value: 73
+    answers:
+      - player_id: e520a6af-8c6e-5d65-80ee-5351ac1b69a7
+        name: Gilbert Koomson
+        full_name: null
+      - player_id: faead38a-391f-5347-ad2a-ae314ac794cd
+        name: Steffen Lie Skålevik
+        full_name: null

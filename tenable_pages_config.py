@@ -21,30 +21,10 @@ PERIODS = [
 
 GENERAL_THEMES = [
     "kamper",
-    "starter",
-    "innhopp",
     "maal",
-    "seire",
     "utlendinger-kamper",
     "utlendinger-maal",
     "brannspillere-mot-brann",
 ]
 
-OPPONENT_THEMES = [
-    {
-        "theme_id": "kamper-mot",
-        "opponent": "Rosenborg",
-    },
-    {
-        "theme_id": "kamper-mot",
-        "opponent": "Lillestrøm",
-    },
-    {
-        "theme_id": "kamper-mot",
-        "opponent": "Viking",
-    },
-    {
-        "theme_id": "kamper-mot",
-        "opponent": "Vålerenga",
-    },
-]
+OPPONENT_THEMES = []

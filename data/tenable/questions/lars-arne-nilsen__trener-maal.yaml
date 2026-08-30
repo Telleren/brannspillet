@@ -1,0 +1,80 @@
+id: trener-maal:lars-arne-nilsen:2015-06-01:2020-08-01
+active: true
+source: database_with_manual_coach_period
+theme_id: trener-maal
+title: Flest mål under Lars Arne Nilsen
+description: Finn de 10 spillerne med flest Brann-mål under Lars Arne Nilsen.
+metric: mål
+start_year: 2015
+end_year: 2020
+coach:
+  id: lars-arne-nilsen
+  name: Lars Arne Nilsen
+  from_date: '2015-06-01'
+  to_date: '2020-08-01'
+  periods:
+    - id: 2015-2020
+      from_match: 2015-06-01_brann-follo.json
+      to_match: 2020-08-01_brann-vif.json
+      from_date: '2015-06-01'
+      to_date: '2020-08-01'
+      current: false
+cutoff_value: 9
+opponent: null
+slots:
+  - value: 22
+    answers:
+      - player_id: 2f4e78d7-75c5-55e0-8bf7-9b198da8adbb
+        name: Kristoffer Barmen
+        full_name: Kristoffer Ramos Barmen
+  - value: 20
+    answers:
+      - player_id: faead38a-391f-5347-ad2a-ae314ac794cd
+        name: Steffen Lie Skålevik
+        full_name: null
+  - value: 19
+    answers:
+      - player_id: 550adf62-a6ec-52e1-ae2d-f76c37d768f2
+        name: Fredrik Haugen
+        full_name: null
+  - value: 15
+    answers:
+      - player_id: b078cd75-f836-5f7e-819a-493af08bc12f
+        name: Daouda Bamba
+        full_name: Daouda Karamoko Bamba
+  - value: 14
+    answers:
+      - player_id: dc5e0e6d-2759-5af2-aec2-0e5aa9e5346c
+        name: Deyver Vega
+        full_name: Deyver Antonio Vega Álvarez
+  - value: 12
+    answers:
+      - player_id: e496d013-003d-50de-ab5a-007a70ce1ff6
+        name: Azar Karadas
+        full_name: null
+  - value: 12
+    answers:
+      - player_id: c6749898-6189-563c-89bc-ca4f3257dd8a
+        name: Jakob Orlov
+        full_name: Jakob Erik Orlov
+  - value: 11
+    answers:
+      - player_id: e520a6af-8c6e-5d65-80ee-5351ac1b69a7
+        name: Gilbert Koomson
+        full_name: null
+  - value: 11
+    answers:
+      - player_id: 14984492-767e-5c83-afe7-b2afe5c32720
+        name: Vito Wormgoor
+        full_name: null
+  - value: 9
+    answers:
+      - player_id: 78f3154a-f1ee-5f8a-b869-8fedc39152de
+        name: Erik Huseklepp
+        full_name: Erik André Huseklepp
+      - player_id: f6f6e245-4c20-50ca-9435-85e04f587357
+        name: Gilli Rólantsson
+        full_name: Gilli Rólantsson Sørensen
+      - player_id: c2562e68-65c5-59af-89d3-d49faeabbb11
+        name: Peter Orry Larsen
+        full_name: null

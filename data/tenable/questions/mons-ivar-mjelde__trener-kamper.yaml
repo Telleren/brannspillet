@@ -1,0 +1,74 @@
+id: trener-kamper:mons-ivar-mjelde:2003-04-14:2008-11-02
+active: true
+source: database_with_manual_coach_period
+theme_id: trener-kamper
+title: Flest kamper under Mons Ivar Mjelde
+description: Finn de 10 spillerne med flest Brann-kamper under Mons Ivar Mjelde.
+metric: kamper
+start_year: 2003
+end_year: 2008
+coach:
+  id: mons-ivar-mjelde
+  name: Mons Ivar Mjelde
+  from_date: '2003-04-14'
+  to_date: '2008-11-02'
+  periods:
+    - id: 2003-2008
+      from_match: 2003-04-14_lyn-brann.json
+      to_match: 2008-11-02_vif-brann.json
+      from_date: '2003-04-14'
+      to_date: '2008-11-02'
+      current: false
+cutoff_value: 101
+opponent: null
+slots:
+  - value: 190
+    answers:
+      - player_id: 514e9489-e37c-542d-aef9-c342394b4ed6
+        name: Erlend Hanstveit
+        full_name: null
+  - value: 173
+    answers:
+      - player_id: 83130615-4862-572c-9b4d-6f4b60ffc4aa
+        name: Håkon Opdal
+        full_name: Håkon Eikemo Opdal
+  - value: 169
+    answers:
+      - player_id: cdfa57ce-9b0d-5485-b988-152fec15fd75
+        name: Ólafur Örn Bjarnason
+        full_name: Ólafur Örn Bjarnason
+  - value: 169
+    answers:
+      - player_id: 7568835c-1b89-5ffa-89af-b4c8a657e942
+        name: Robbie Winters
+        full_name: null
+  - value: 132
+    answers:
+      - player_id: e7b40127-d8e9-5858-8e2e-24b74e15dcf3
+        name: Kristján Örn Sigurdsson
+        full_name: Kristján Örn Sigurðsson
+  - value: 127
+    answers:
+      - player_id: 0a125b04-5cea-51ee-9e4b-702bda678bfb
+        name: Helge Haugen
+        full_name: null
+  - value: 114
+    answers:
+      - player_id: bf636d82-f5b4-5c63-9352-609b82dee4e8
+        name: Martin Knudsen
+        full_name: null
+  - value: 110
+    answers:
+      - player_id: c8703a99-9114-52c6-9d4c-b32f58cad728
+        name: Cato Guntveit
+        full_name: Cato Falck Guntveit
+  - value: 102
+    answers:
+      - player_id: 78f3154a-f1ee-5f8a-b869-8fedc39152de
+        name: Erik Huseklepp
+        full_name: Erik André Huseklepp
+  - value: 101
+    answers:
+      - player_id: 9c333908-c7db-511a-9155-efc715879d02
+        name: Petter Vaagan Moen
+        full_name: null

@@ -1,0 +1,61 @@
+id: stadioner-uten-egne:1911:2026
+active: true
+source: database_with_corrections
+theme_id: stadioner-uten-egne
+title: Stadioner Brann har spilt flest kamper på
+description: Finn de 10 stadionene Brann har spilt flest kamper på, uten Brann Stadion og Møhlenpris idrettsplass.
+metric: kamper
+suggestion_pool: answers
+start_year: 1911
+end_year: 2026
+cutoff_value: 32
+opponent: null
+slots:
+  - value: 73
+    answers:
+      - id: ground:f74593ee-57b6-530e-a6e4-e7f9671cb8f3
+        name: Ullevaal Stadion
+  - value: 66
+    answers:
+      - id: ground:9b762474-28df-568e-a3f7-ab0d53ee252e
+        name: Lerkendal Stadion
+        aliases:
+          - Lerkendal
+  - value: 64
+    answers:
+      - id: ground:dd51f1dd-3218-5f18-93e9-46a8d3c5ef80
+        name: Stavanger stadion
+  - value: 50
+    answers:
+      - id: ground:eb62cb45-de81-543e-9051-9374bf49a170
+        name: Åråsen stadion
+        aliases:
+          - Åråsen
+  - value: 44
+    answers:
+      - id: ground:fc8ed23e-fe07-584b-8905-41abb847d57a
+        name: Bislett stadion
+  - value: 37
+    answers:
+      - id: ground:747e565c-48c1-5939-a19e-5cfd67265d76
+        name: Marienlyst stadion
+  - value: 34
+    answers:
+      - id: ground:3632d279-eecd-50d8-ad8e-1ed29d311255
+        name: Alfheim stadion
+  - value: 34
+    answers:
+      - id: ground:fa3fad69-5bd0-58b4-804a-497a230738d1
+        name: Haugesund Sparebank Arena
+        aliases:
+          - Haugesund Stadion
+  - value: 33
+    answers:
+      - id: ground:8b06528c-80f2-5c81-b3e4-25bed0e6cb2a
+        name: Fredrikstad Stadion
+  - value: 32
+    answers:
+      - id: ground:2da3e8e8-7668-53c6-95de-6970f6306455
+        name: Aspmyra stadion
+        aliases:
+          - Aspmyra
