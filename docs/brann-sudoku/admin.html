@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="no">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Brann-Sudoku admin</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Brannspillet admin</p>
+          <h1>Brann-Sudoku</h1>
+        </div>
+        <div class="status-strip" id="dataStatus">Laster grid-data...</div>
+      </header>
+
+      <section class="workspace">
+        <aside class="builder-panel" aria-label="Kriteriebygger">
+          <div class="panel-heading">
+            <h2>Kategorier</h2>
+            <div class="toolbar">
+              <label>
+                Datasett
+                <select id="datasetMode">
+                  <option value="all">Full historikk</option>
+                  <option value="modern">Moderne (2000-)</option>
+                </select>
+              </label>
+              <label>
+                Min. celle
+                <input id="minimumCount" type="number" min="1" value="5">
+              </label>
+              <label>
+                Maks celle
+                <input id="maximumCount" type="number" min="1" value="20">
+              </label>
+              <button id="generateRandomBoard" type="button">Generer tilfeldig brett</button>
+              <button id="clearBoard" type="button">Nullstill</button>
+            </div>
+          </div>
+
+          <div class="axis-group">
+            <h3>Rader</h3>
+            <div id="rowEditors" class="editor-list"></div>
+          </div>
+
+          <div class="axis-group">
+            <h3>Kolonner</h3>
+            <div id="columnEditors" class="editor-list"></div>
+          </div>
+
+          <div class="support-panel">
+            <h3>Status for ønskelisten</h3>
+            <div id="coverageSummary" class="coverage-summary"></div>
+          </div>
+        </aside>
+
+        <section class="board-panel" aria-label="Brann-Sudoku-brett">
+          <div class="board-header">
+            <div>
+              <h2>Testbrett</h2>
+              <p id="boardSummary">Velg tre radkriterier og tre kolonnekriterier.</p>
+            </div>
+            <button id="copyBoard" type="button">Kopier brett</button>
+          </div>
+
+          <div class="grid-wrap">
+            <table class="sudoku-grid" id="sudokuGrid"></table>
+          </div>
+
+          <section class="cell-details">
+            <h2>Valgt celle</h2>
+            <div id="cellDetails" class="empty-state">Klikk på en celle for å se mulige svar.</div>
+          </section>
+        </section>
+      </section>
+    </main>
+
+    <datalist id="fixedCriteriaList"></datalist>
+    <datalist id="entityList"></datalist>
+    <datalist id="playerList"></datalist>
+
+    <script src="app.js"></script>
+  </body>
+</html>

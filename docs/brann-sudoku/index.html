@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="no">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Brann-sudoku</title>
+    <link rel="stylesheet" href="game.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="start-screen" id="startScreen">
+        <p class="eyebrow">Brannspillet beta</p>
+        <h1>Brann-sudoku</h1>
+
+        <div class="start-controls">
+          <label>
+            Min. celle
+            <input id="minimumCount" type="number" min="1" max="99" value="2">
+          </label>
+          <label>
+            Maks celle
+            <input id="maximumCount" type="number" min="1" max="99" value="6">
+          </label>
+          <button id="generateBoard" class="primary-button" type="button">Generer tilfeldig brett</button>
+        </div>
+
+        <p class="status-line" id="dataStatus">Laster moderne Brann-data...</p>
+      </section>
+
+      <section class="game-screen" id="gameScreen" hidden>
+        <header class="game-header">
+          <div>
+            <p class="eyebrow">Brann-sudoku</p>
+            <h1>Brann-sudoku</h1>
+          </div>
+          <div class="score-card">
+            <span>Score</span>
+            <strong id="scoreValue">0</strong>
+          </div>
+        </header>
+
+        <section class="search-area" aria-label="Spillersøk">
+          <label>
+            Spillernavn
+            <input id="playerSearch" type="search" autocomplete="off" spellcheck="false">
+          </label>
+          <div class="suggestions" id="suggestions"></div>
+        </section>
+
+        <div class="grid-wrap">
+          <table class="sudoku-grid" id="sudokuGrid"></table>
+        </div>
+
+        <p class="feedback" id="feedback" aria-live="polite"></p>
+
+        <section class="round-footer">
+          <div class="wrong-panel">
+            <h2>Feile svar</h2>
+            <ul id="wrongGuesses"></ul>
+          </div>
+
+          <div class="action-panel">
+            <p id="roundSummary"></p>
+            <button id="giveUpButton" type="button">Gi opp</button>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="game.js"></script>
+  </body>
+</html>
