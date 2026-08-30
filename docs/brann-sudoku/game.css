@@ -100,7 +100,26 @@ h2 {
   flex-wrap: wrap;
   align-items: end;
   gap: 12px;
-  width: min(100%, 720px);
+  width: min(100%, 840px);
+}
+
+.year-control {
+  min-width: min(100%, 260px);
+}
+
+.year-control span {
+  color: var(--ink);
+  font-size: 0.9rem;
+}
+
+.year-control strong {
+  color: var(--red);
+}
+
+input[type="range"] {
+  min-height: 28px;
+  padding: 0;
+  accent-color: var(--red);
 }
 
 .toggle-control {

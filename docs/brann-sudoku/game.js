@@ -1,10 +1,14 @@
-const CRITERIA_URL = "../shared/grid-criteria-index-modern.json";
-const FACTS_URL = "../shared/player-facts-modern.json";
+const DEFAULT_START_YEAR = 2000;
+const MIN_START_YEAR = 1990;
+const MAX_START_YEAR = 2010;
+const END_YEAR = 2026;
 const MAX_CELL_SCORE = 1000;
 
 const state = {
   criteriaIndex: null,
   playerFacts: null,
+  loadedStartYear: null,
+  dataCache: new Map(),
   players: [],
   board: null,
   wrongGuesses: new Map(),
@@ -367,6 +371,44 @@ function showStart() {
   $("#startScreen").hidden = false;
 }
 
+function clampStartYear(value) {
+  return Math.min(
+    MAX_START_YEAR,
+    Math.max(
+      MIN_START_YEAR,
+      Number(value || DEFAULT_START_YEAR)
+    )
+  );
+}
+
+function selectedStartYear() {
+  return clampStartYear($("#startYear").value);
+}
+
+function criteriaUrlForStartYear(startYear) {
+  return `../shared/grid-ranges/grid-criteria-index-since-${startYear}.json`;
+}
+
+function factsUrlForStartYear(startYear) {
+  return `../shared/grid-ranges/player-facts-since-${startYear}.json`;
+}
+
+function updateStartYearDisplay() {
+  const startYear = selectedStartYear();
+  $("#startYear").value = String(startYear);
+  $("#startYearValue").textContent = String(startYear);
+
+  if (state.loadedStartYear === startYear && state.players.length) {
+    renderStartStatus(
+      `${state.players.length} Brann-spillere fra ${startYear} til ${END_YEAR} klare.`
+    );
+  } else if (state.loadedStartYear !== null) {
+    renderStartStatus(
+      `Klar til å laste Brann-data fra ${startYear} til ${END_YEAR}.`
+    );
+  }
+}
+
 function setFeedback(message, kind = "") {
   const feedback = $("#feedback");
   feedback.textContent = message;
@@ -555,8 +597,16 @@ function finishRound(message = "Runden er avsluttet.") {
   renderRound();
 }
 
-function startRound() {
-  if (!state.criteriaIndex || !state.playerFacts) return;
+async function startRound() {
+  const startYear = selectedStartYear();
+
+  $("#generateBoard").disabled = true;
+  await loadData(startYear);
+
+  if (!state.criteriaIndex || !state.playerFacts) {
+    $("#generateBoard").disabled = false;
+    return;
+  }
 
   const minimum = Math.max(1, Number($("#minimumCount").value || 2));
   const maximum = Math.max(minimum, Number($("#maximumCount").value || 6));
@@ -577,6 +627,7 @@ function startRound() {
         ? `Fant ikke brett med ${minimum}-${maximum} mulige svar per celle.`
         : `Fant ikke brett med ${minimum}-${maximum} mulige svar per celle uten overlappende spillere.`
     );
+    $("#generateBoard").disabled = false;
     return;
   }
 
@@ -588,6 +639,7 @@ function startRound() {
   setFeedback("");
   showGame();
   renderRound();
+  $("#generateBoard").disabled = false;
   $("#playerSearch").focus();
 }
 
@@ -601,34 +653,78 @@ function giveUpOrNewRound() {
   finishRound("Du ga opp.");
 }
 
-async function loadData() {
+function applyLoadedData(startYear, criteriaIndex, playerFacts) {
+  state.criteriaIndex = criteriaIndex;
+  state.playerFacts = playerFacts;
+  state.loadedStartYear = startYear;
+  state.players = Object.values(playerFacts.players)
+    .map((player) => ({
+      id: player.id,
+      name: player.name,
+      searchText: player.searchText,
+      appearances: player.stats?.appearances || 0,
+    }))
+    .sort((a, b) => (
+      a.searchText.localeCompare(b.searchText, "nb")
+      || a.id.localeCompare(b.id)
+    ));
+}
+
+async function loadData(startYear = DEFAULT_START_YEAR) {
+  const safeStartYear = clampStartYear(startYear);
+
+  if (state.loadedStartYear === safeStartYear) {
+    return;
+  }
+
+  if (state.dataCache.has(safeStartYear)) {
+    const cached = state.dataCache.get(safeStartYear);
+    applyLoadedData(
+      safeStartYear,
+      cached.criteriaIndex,
+      cached.playerFacts
+    );
+    renderStartStatus(
+      `${state.players.length} Brann-spillere fra ${safeStartYear} til ${END_YEAR} klare.`
+    );
+    return;
+  }
+
   try {
+    $("#generateBoard").disabled = true;
+    renderStartStatus(
+      `Laster Brann-data fra ${safeStartYear} til ${END_YEAR}...`
+    );
+
+    const criteriaUrl = criteriaUrlForStartYear(safeStartYear);
+    const factsUrl = factsUrlForStartYear(safeStartYear);
     const [criteriaIndex, playerFacts] = await Promise.all([
-      fetch(CRITERIA_URL).then((response) => {
-        if (!response.ok) throw new Error(`${CRITERIA_URL}: ${response.status}`);
+      fetch(criteriaUrl).then((response) => {
+        if (!response.ok) throw new Error(`${criteriaUrl}: ${response.status}`);
         return response.json();
       }),
-      fetch(FACTS_URL).then((response) => {
-        if (!response.ok) throw new Error(`${FACTS_URL}: ${response.status}`);
+      fetch(factsUrl).then((response) => {
+        if (!response.ok) throw new Error(`${factsUrl}: ${response.status}`);
         return response.json();
       }),
     ]);
 
-    state.criteriaIndex = criteriaIndex;
-    state.playerFacts = playerFacts;
-    state.players = Object.values(playerFacts.players)
-      .map((player) => ({
-        id: player.id,
-        name: player.name,
-        searchText: player.searchText,
-        appearances: player.stats?.appearances || 0,
-      }))
-      .sort((a, b) => (
-        a.searchText.localeCompare(b.searchText, "nb")
-        || a.id.localeCompare(b.id)
-      ));
+    state.dataCache.set(
+      safeStartYear,
+      {
+        criteriaIndex,
+        playerFacts,
+      }
+    );
+    applyLoadedData(
+      safeStartYear,
+      criteriaIndex,
+      playerFacts
+    );
 
-    renderStartStatus(`${state.players.length} Brann-spillere siden 2000 klare.`);
+    renderStartStatus(
+      `${state.players.length} Brann-spillere fra ${safeStartYear} til ${END_YEAR} klare.`
+    );
     $("#generateBoard").disabled = false;
   } catch (error) {
     renderStartStatus(`Kunne ikke laste data: ${error.message}`);
@@ -638,6 +734,7 @@ async function loadData() {
 
 $("#generateBoard").addEventListener("click", startRound);
 $("#giveUpButton").addEventListener("click", giveUpOrNewRound);
+$("#startYear").addEventListener("input", updateStartYearDisplay);
 $("#playerSearch").addEventListener("input", renderSuggestions);
 $("#playerSearch").addEventListener("keydown", (event) => {
   if (event.key !== "Enter") return;
@@ -646,4 +743,5 @@ $("#playerSearch").addEventListener("keydown", (event) => {
 });
 
 $("#generateBoard").disabled = true;
-loadData();
+updateStartYearDisplay();
+loadData(DEFAULT_START_YEAR);
