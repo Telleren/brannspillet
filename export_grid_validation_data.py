@@ -1441,15 +1441,22 @@ def add_match_context_sets(player, match, opponent_id):
         )
 
 
-def add_event_context_sets(player, match, opponent_id, prefix):
+def add_event_context_sets(
+    player,
+    match,
+    opponent_id,
+    prefix,
+    include_opponent=True
+):
 
     ground_id = match["ground_id"]
     competition_id = match["competition_id"]
     competition_family = match["competition_count_as"]
 
-    player["sets"][f"{prefix}Opponents"].add(
-        opponent_id
-    )
+    if include_opponent:
+        player["sets"][f"{prefix}Opponents"].add(
+            opponent_id
+        )
 
     if ground_id:
         player["sets"][f"{prefix}Grounds"].add(
@@ -1635,15 +1642,21 @@ def build_facts_and_indexes(start_year=None, end_year=None):
         event_type = event["event_type"]
 
         if event_type in ("goal", "penaltyGoal"):
+            include_opponent_goal = (
+                match["competition_count_as"] != "cup"
+            )
             player["stats"]["goals"] += 1
             goals_by_match_player[event["match_id"]][player_id] += 1
             add_event_context_sets(
                 player,
                 match,
                 opponent_id,
-                "scoredAgainst"
+                "scoredAgainst",
+                include_opponent=include_opponent_goal
             )
-            metrics["goalsByOpponent"][opponent_id][player_id] += 1
+
+            if include_opponent_goal:
+                metrics["goalsByOpponent"][opponent_id][player_id] += 1
 
             if (
                 match["competition_id"]
