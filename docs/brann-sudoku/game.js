@@ -110,6 +110,36 @@ function intersectionFitsRange(a, b, minimum, maximum) {
   return count >= minimum && count <= maximum;
 }
 
+function cellPlayerSets(assignments) {
+  const result = [];
+
+  for (let rowIndex = 0; rowIndex < 3; rowIndex += 1) {
+    for (let colIndex = 0; colIndex < 3; colIndex += 1) {
+      const row = assignments[`row-${rowIndex}`];
+      const column = assignments[`col-${colIndex}`];
+
+      if (row && column) {
+        result.push(intersectSets(row.players, column.players));
+      }
+    }
+  }
+
+  return result;
+}
+
+function cellPlayerSetsAreDisjoint(assignments) {
+  const seenPlayerIds = new Set();
+
+  for (const playerSet of cellPlayerSets(assignments)) {
+    for (const playerId of playerSet) {
+      if (seenPlayerIds.has(playerId)) return false;
+      seenPlayerIds.add(playerId);
+    }
+  }
+
+  return true;
+}
+
 function shuffle(values) {
   const copy = [...values];
 
@@ -137,7 +167,7 @@ function oppositeSlotIds(slotId) {
 }
 
 function ruleFitsSlot(slotId, rule, assignments, minimum, maximum) {
-  return oppositeSlotIds(slotId).every((oppositeSlotId) => {
+  const fitsCounts = oppositeSlotIds(slotId).every((oppositeSlotId) => {
     const opposite = assignments[oppositeSlotId];
     if (!opposite) return true;
     return intersectionFitsRange(
@@ -146,6 +176,13 @@ function ruleFitsSlot(slotId, rule, assignments, minimum, maximum) {
       minimum,
       maximum
     );
+  });
+
+  if (!fitsCounts) return false;
+
+  return cellPlayerSetsAreDisjoint({
+    ...assignments,
+    [slotId]: rule,
   });
 }
 
@@ -161,7 +198,7 @@ function validateAssignments(assignments, minimum, maximum) {
     }
   }
 
-  return true;
+  return cellPlayerSetsAreDisjoint(assignments);
 }
 
 function randomizableCriteria(minimum) {
@@ -176,7 +213,7 @@ function randomizableCriteria(minimum) {
 
 function findRandomBoard(minimum, maximum) {
   const candidates = randomizableCriteria(minimum);
-  const maxAttempts = 7000;
+  const maxAttempts = 20000;
 
   for (let attempt = 0; attempt < maxAttempts; attempt += 1) {
     const assignments = {};
@@ -504,7 +541,7 @@ function startRound() {
   const assignments = findRandomBoard(minimum, maximum);
 
   if (!assignments) {
-    renderStartStatus(`Fant ikke brett med ${minimum}-${maximum} mulige svar per celle.`);
+    renderStartStatus(`Fant ikke brett med ${minimum}-${maximum} mulige svar per celle uten overlappende spillere.`);
     return;
   }
 

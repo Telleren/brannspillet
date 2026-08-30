@@ -492,6 +492,36 @@ function intersectionFitsRange(a, b, minimum, maximum) {
   return count >= minimum && count <= maximum;
 }
 
+function cellPlayerSets(assignments) {
+  const result = [];
+
+  for (let rowIndex = 0; rowIndex < 3; rowIndex += 1) {
+    for (let colIndex = 0; colIndex < 3; colIndex += 1) {
+      const rowRule = assignments[`row-${rowIndex}`];
+      const colRule = assignments[`col-${colIndex}`];
+
+      if (rowRule?.ok && colRule?.ok) {
+        result.push(intersectSets(rowRule.players, colRule.players));
+      }
+    }
+  }
+
+  return result;
+}
+
+function cellPlayerSetsAreDisjoint(assignments) {
+  const seenPlayerIds = new Set();
+
+  for (const playerSet of cellPlayerSets(assignments)) {
+    for (const playerId of playerSet) {
+      if (seenPlayerIds.has(playerId)) return false;
+      seenPlayerIds.add(playerId);
+    }
+  }
+
+  return true;
+}
+
 function shuffle(values) {
   const copy = [...values];
 
@@ -529,7 +559,7 @@ function oppositeSlotIds(slot) {
 }
 
 function ruleFitsSlot(slot, rule, assignments, minimum, maximum) {
-  return oppositeSlotIds(slot).every((oppositeSlotId) => {
+  const fitsCounts = oppositeSlotIds(slot).every((oppositeSlotId) => {
     const oppositeRule = assignments[oppositeSlotId];
     if (!oppositeRule?.ok) return true;
     return intersectionFitsRange(
@@ -538,6 +568,13 @@ function ruleFitsSlot(slot, rule, assignments, minimum, maximum) {
       minimum,
       maximum
     );
+  });
+
+  if (!fitsCounts) return false;
+
+  return cellPlayerSetsAreDisjoint({
+    ...assignments,
+    [slot.id]: rule,
   });
 }
 
@@ -558,7 +595,7 @@ function validateAssignments(assignments, minimum, maximum) {
     }
   }
 
-  return true;
+  return cellPlayerSetsAreDisjoint(assignments);
 }
 
 function unlockedSlotsOrdered(assignments) {
@@ -575,7 +612,7 @@ function unlockedSlotsOrdered(assignments) {
 
 function findRandomBoard(minimum, maximum, lockedRules = {}) {
   const candidates = randomizableCriteria(minimum);
-  const maxAttempts = 3000;
+  const maxAttempts = 20000;
 
   if (!validateAssignments(lockedRules, minimum, maximum)) return null;
 
