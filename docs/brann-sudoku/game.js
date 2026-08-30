@@ -541,10 +541,7 @@ function renderSuggestions() {
   for (const player of matches) {
     const button = el("button", "suggestion", "");
     button.type = "button";
-    button.innerHTML = `
-      <strong>${escapeHtml(player.name)}</strong>
-      <span>${player.appearances} kamper</span>
-    `;
+    button.append(el("strong", "", player.name));
     button.addEventListener("click", () => handleGuess(player.id));
     target.append(button);
   }
@@ -662,7 +659,6 @@ function applyLoadedData(startYear, criteriaIndex, playerFacts) {
       id: player.id,
       name: player.name,
       searchText: player.searchText,
-      appearances: player.stats?.appearances || 0,
     }))
     .sort((a, b) => (
       a.searchText.localeCompare(b.searchText, "nb")

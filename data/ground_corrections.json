@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "description": "Explicit corrections for wrong ground/stadium values in raw source data. Raw Branntall files are never edited.",
+  "corrections": [
+    {
+      "id": "2001-06-17-viking-brann-ground",
+      "source_filename": "2001-06-17_viking-brann.json",
+      "match_date": "2001-06-17",
+      "match_id": "128304df-776d-40a1-98a1-cb68c939ab5b",
+      "raw_ground_id": "ede01dc4-c8df-5cb5-9de6-87cd1bd6bba6",
+      "raw_ground_name": "SR-Bank Arena",
+      "corrected_ground_id": "dd51f1dd-3218-5f18-93e9-46a8d3c5ef80",
+      "corrected_ground_name": "Stavanger stadion",
+      "source_label": "User-verified historical correction",
+      "source_reference": "Reported by project owner during stadium-count review",
+      "reason": "Branntall raw data lists this Viking-Brann match at SR-Bank Arena. The project owner verifies that SR-Bank Arena, now Lyse Arena, opened on 2004-05-01, so Viking's 2001 home match against Brann should be Stavanger stadion."
+    },
+    {
+      "id": "2002-06-02-viking-brann-ground",
+      "source_filename": "2002-06-02_viking-brann.json",
+      "match_date": "2002-06-02",
+      "match_id": "a778957b-fc5d-44c8-a507-d906f48d2bcd",
+      "raw_ground_id": "ede01dc4-c8df-5cb5-9de6-87cd1bd6bba6",
+      "raw_ground_name": "SR-Bank Arena",
+      "corrected_ground_id": "dd51f1dd-3218-5f18-93e9-46a8d3c5ef80",
+      "corrected_ground_name": "Stavanger stadion",
+      "source_label": "User-verified historical correction",
+      "source_reference": "Reported by project owner during stadium-count review",
+      "reason": "Branntall raw data lists this Viking-Brann match at SR-Bank Arena. The project owner verifies that SR-Bank Arena, now Lyse Arena, opened on 2004-05-01, so Viking's 2002 home match against Brann should be Stavanger stadion."
+    },
+    {
+      "id": "2003-08-16-viking-brann-ground",
+      "source_filename": "2003-08-16_viking-brann.json",
+      "match_date": "2003-08-16",
+      "match_id": "8e15511b-4e70-4130-b4dc-2e3b26263f86",
+      "raw_ground_id": "ede01dc4-c8df-5cb5-9de6-87cd1bd6bba6",
+      "raw_ground_name": "SR-Bank Arena",
+      "corrected_ground_id": "dd51f1dd-3218-5f18-93e9-46a8d3c5ef80",
+      "corrected_ground_name": "Stavanger stadion",
+      "source_label": "User-verified historical correction",
+      "source_reference": "Reported by project owner during stadium-count review",
+      "reason": "Branntall raw data lists this Viking-Brann match at SR-Bank Arena. The project owner verifies that SR-Bank Arena, now Lyse Arena, opened on 2004-05-01, so Viking's 2003 home match against Brann should be Stavanger stadion."
+    }
+  ]
+}
