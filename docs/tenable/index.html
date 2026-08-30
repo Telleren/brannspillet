@@ -53,10 +53,10 @@
         <form class="answer-panel" id="answer-form">
           <label for="answer-input">Svar</label>
           <div class="answer-row">
-            <input id="answer-input" name="answer" type="text" list="player-suggestions" autocomplete="off" autocapitalize="words">
-            <datalist id="player-suggestions"></datalist>
-            <button class="primary-button" type="submit">Svar</button>
+            <input id="answer-input" name="answer" type="search" autocomplete="off" autocapitalize="words" spellcheck="false">
+            <button class="primary-button" id="answer-button" type="submit" disabled>Svar</button>
           </div>
+          <div class="suggestions" id="player-suggestions"></div>
           <p class="feedback" id="feedback"></p>
         </form>
 

@@ -5,6 +5,7 @@ let currentQuestion = null;
 let guessedIds = [];
 let mistakes = 0;
 let revealed = false;
+let selectedAnswer = null;
 
 const menuView = document.querySelector("#menu-view");
 const gameView = document.querySelector("#game-view");
@@ -18,6 +19,7 @@ const livesValue = document.querySelector("#lives-value");
 const board = document.querySelector("#board");
 const answerForm = document.querySelector("#answer-form");
 const answerInput = document.querySelector("#answer-input");
+const answerButton = document.querySelector("#answer-button");
 const playerSuggestions = document.querySelector("#player-suggestions");
 const feedback = document.querySelector("#feedback");
 const gameOver = document.querySelector("#game-over");
@@ -98,6 +100,12 @@ function displayMetric(value, metric) {
   return `${value} ${metric}`;
 }
 
+function setSelectedAnswer(answer) {
+  selectedAnswer = answer;
+  answerButton.disabled = !selectedAnswer;
+  answerInput.classList.toggle("is-selected", Boolean(selectedAnswer));
+}
+
 function renderBoard() {
   board.replaceChildren();
 
@@ -130,32 +138,51 @@ function renderBoard() {
   });
 }
 
-function updateSuggestions() {
-  playerSuggestions.replaceChildren();
-
+function suggestionPool() {
   if (!currentQuestion) {
-    return;
+    return [];
   }
 
-  const wanted = normalizeText(answerInput.value);
+  if (currentQuestion.suggestionPool === "answers") {
+    return currentQuestion.eligibleAnswers;
+  }
+
+  if (currentQuestion.suggestionPool === "custom") {
+    return currentQuestion.suggestionOptions || currentQuestion.eligibleAnswers;
+  }
+
+  return (
+    (data.playerPools && data.playerPools[currentQuestion.playerPoolId]) ||
+    currentQuestion.eligibleAnswers
+  );
+}
+
+function suggestionSubtitle(option) {
+  const details = [];
+
+  if (option.fullName && option.fullName !== option.name) {
+    details.push(option.fullName);
+  }
+
+  if (option.aliases && option.aliases.length) {
+    details.push(option.aliases.join(", "));
+  }
+
+  return details.join(" · ");
+}
+
+function matchingSuggestions(query) {
+  const wanted = normalizeText(query);
 
   if (wanted.length < 2) {
-    return;
+    return [];
   }
 
-  const suggestionPool =
-    currentQuestion.suggestionPool === "answers"
-      ? currentQuestion.eligibleAnswers
-      : currentQuestion.suggestionPool === "custom"
-      ? currentQuestion.suggestionOptions || currentQuestion.eligibleAnswers
-      : (data.playerPools && data.playerPools[currentQuestion.playerPoolId]) ||
-        currentQuestion.eligibleAnswers;
-
-  const options = suggestionPool
+  return suggestionPool()
     .filter(
-      (player) =>
-        !guessedIds.includes(player.id) &&
-        namesFor(player).join(" ").includes(wanted)
+      (option) =>
+        !guessedIds.includes(option.id) &&
+        namesFor(option).join(" ").includes(wanted)
     )
     .sort((a, b) => {
       const aStarts = normalizeText(a.name).startsWith(wanted) ? 0 : 1;
@@ -168,49 +195,60 @@ function updateSuggestions() {
       return a.name.localeCompare(b.name, "nb-NO");
     })
     .slice(0, 12);
+}
 
-  for (const player of options) {
-    const option = document.createElement("option");
-    option.value = player.name;
-    playerSuggestions.append(option);
+function renderSuggestions() {
+  playerSuggestions.replaceChildren();
+
+  if (!currentQuestion) {
+    return;
+  }
+
+  const options = matchingSuggestions(answerInput.value);
+
+  for (const option of options) {
+    const button = document.createElement("button");
+    const subtitle = suggestionSubtitle(option);
+    const name = document.createElement("strong");
+    button.className = "suggestion";
+    button.type = "button";
+    name.textContent = option.name;
+    button.append(name);
+
+    if (subtitle) {
+      const details = document.createElement("span");
+      details.textContent = subtitle;
+      button.append(details);
+    }
+
+    button.addEventListener("click", () => {
+      setSelectedAnswer(option);
+      answerInput.value = option.name;
+      playerSuggestions.replaceChildren();
+      answerInput.focus();
+    });
+    playerSuggestions.append(button);
   }
 }
 
-function matchAnswer(answer) {
-  const wanted = normalizeText(answer);
-
-  if (!wanted) {
+function matchSelectedAnswer() {
+  if (!selectedAnswer) {
     return { status: "empty" };
   }
 
-  let matches = [];
-
-  for (const player of currentQuestion.eligibleAnswers) {
-    const names = namesFor(player);
-
-    if (names.includes(wanted)) {
-      matches = [player];
-      break;
-    }
-
-    if (wanted.length >= 3 && names.some((name) => name.includes(wanted))) {
-      matches.push(player);
-    }
+  if (guessedIds.includes(selectedAnswer.id)) {
+    return { status: "duplicate", player: selectedAnswer };
   }
 
-  const unique = new Map(matches.map((player) => [player.id, player]));
+  const match = currentQuestion.eligibleAnswers.find(
+    (answer) => answer.id === selectedAnswer.id
+  );
 
-  if (unique.size !== 1) {
-    return { status: "wrong" };
+  if (!match) {
+    return { status: "wrong", player: selectedAnswer };
   }
 
-  const player = [...unique.values()][0];
-
-  if (guessedIds.includes(player.id)) {
-    return { status: "duplicate", player };
-  }
-
-  return { status: "correct", player };
+  return { status: "correct", player: match };
 }
 
 function startGame(event) {
@@ -220,6 +258,7 @@ function startGame(event) {
   guessedIds = [];
   mistakes = 0;
   revealed = false;
+  setSelectedAnswer(null);
 
   periodLabel.textContent =
     currentQuestion.yearLabel ||
@@ -234,7 +273,7 @@ function startGame(event) {
   setFeedback("");
   setScoreboard();
   renderBoard();
-  updateSuggestions();
+  renderSuggestions();
 
   menuView.classList.add("hidden");
   gameView.classList.remove("hidden");
@@ -248,9 +287,10 @@ function submitAnswer(event) {
     return;
   }
 
-  const result = matchAnswer(answerInput.value);
+  const result = matchSelectedAnswer();
   answerInput.value = "";
-  updateSuggestions();
+  setSelectedAnswer(null);
+  renderSuggestions();
 
   if (result.status === "empty") {
     return;
@@ -288,6 +328,7 @@ function submitAnswer(event) {
 
 function finishGame(label, canReveal) {
   answerInput.disabled = true;
+  setSelectedAnswer(null);
   answerForm.classList.add("hidden");
   gameOver.classList.remove("hidden");
   gameOverLabel.textContent = label;
@@ -328,7 +369,26 @@ async function init() {
 
 modeForm.addEventListener("submit", startGame);
 answerForm.addEventListener("submit", submitAnswer);
-answerInput.addEventListener("input", updateSuggestions);
+answerInput.addEventListener("input", () => {
+  setSelectedAnswer(null);
+  renderSuggestions();
+});
+answerInput.addEventListener("keydown", (event) => {
+  if (event.key !== "Enter" || selectedAnswer) {
+    return;
+  }
+
+  const first = matchingSuggestions(answerInput.value)[0];
+
+  if (!first) {
+    return;
+  }
+
+  event.preventDefault();
+  setSelectedAnswer(first);
+  answerInput.value = first.name;
+  playerSuggestions.replaceChildren();
+});
 revealButton.addEventListener("click", revealAnswers);
 menuButton.addEventListener("click", showMenu);
 backButton.addEventListener("click", showMenu);
