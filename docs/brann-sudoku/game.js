@@ -23,6 +23,28 @@ const slotIds = [
   "col-1",
   "col-2",
 ];
+const categoryDiversityProfiles = [
+  {
+    maxPerAxis: 1,
+    maxTotal: 1,
+    attempts: 1000,
+  },
+  {
+    maxPerAxis: 1,
+    maxTotal: 2,
+    attempts: 2000,
+  },
+  {
+    maxPerAxis: 2,
+    maxTotal: 2,
+    attempts: 1500,
+  },
+  {
+    maxPerAxis: 3,
+    maxTotal: 6,
+    attempts: 1500,
+  },
+];
 
 function $(selector) {
   return document.querySelector(selector);
@@ -161,8 +183,17 @@ function ruleFromCriterion(criterion) {
     label: criterion.label,
     players: criterionPlayerSet(criterion),
     count: criterion.count,
+    category: criterion.category || "unknown",
     criterion,
   };
+}
+
+function axisForSlotId(slotId) {
+  return slotId.startsWith("row") ? "row" : "col";
+}
+
+function categoryForRule(rule) {
+  return rule?.category || rule?.criterion?.category || "unknown";
 }
 
 function oppositeSlotIds(slotId) {
@@ -199,6 +230,44 @@ function ruleFitsSlot(
   });
 }
 
+function ruleFitsCategoryProfile(slotId, rule, assignments, profile) {
+  const counts = categoryCountsForSlot(slotId, rule, assignments);
+
+  return (
+    counts.total < profile.maxTotal
+    && counts.axis < profile.maxPerAxis
+  );
+}
+
+function categoryCountsForSlot(slotId, rule, assignments) {
+  const category = categoryForRule(rule);
+  const axis = axisForSlotId(slotId);
+  let totalCount = 0;
+  let axisCount = 0;
+
+  for (const [assignedSlotId, assignedRule] of Object.entries(assignments)) {
+    if (categoryForRule(assignedRule) !== category) {
+      continue;
+    }
+
+    totalCount += 1;
+
+    if (axisForSlotId(assignedSlotId) === axis) {
+      axisCount += 1;
+    }
+  }
+
+  return {
+    total: totalCount,
+    axis: axisCount,
+  };
+}
+
+function categoryPressure(slotId, rule, assignments) {
+  const counts = categoryCountsForSlot(slotId, rule, assignments);
+  return (counts.axis * 10) + counts.total;
+}
+
 function validateAssignments(
   assignments,
   minimum,
@@ -222,6 +291,56 @@ function validateAssignments(
   );
 }
 
+function firstMatchingRule(
+  candidates,
+  used,
+  slotId,
+  assignments,
+  profile,
+  minimum,
+  maximum,
+  allowOverlappingAnswers
+) {
+  let bestRule = null;
+  let bestPressure = Infinity;
+
+  for (const criterion of shuffle(candidates)) {
+    if (used.has(criterion.id)) {
+      continue;
+    }
+
+    const rule = ruleFromCriterion(criterion);
+
+    if (!ruleFitsCategoryProfile(slotId, rule, assignments, profile)) {
+      continue;
+    }
+
+    if (!ruleFitsSlot(
+      slotId,
+      rule,
+      assignments,
+      minimum,
+      maximum,
+      allowOverlappingAnswers
+    )) {
+      continue;
+    }
+
+    const pressure = categoryPressure(slotId, rule, assignments);
+
+    if (pressure < bestPressure) {
+      bestRule = rule;
+      bestPressure = pressure;
+
+      if (pressure === 0) {
+        return bestRule;
+      }
+    }
+  }
+
+  return bestRule;
+}
+
 function randomizableCriteria(minimum) {
   return Object.values(state.criteriaIndex.criteria)
     .filter((criterion) => (
@@ -234,45 +353,45 @@ function randomizableCriteria(minimum) {
 
 function findRandomBoard(minimum, maximum, allowOverlappingAnswers) {
   const candidates = randomizableCriteria(minimum);
-  const maxAttempts = 20000;
 
-  for (let attempt = 0; attempt < maxAttempts; attempt += 1) {
-    const assignments = {};
-    const used = new Set();
-    let failed = false;
+  for (const profile of categoryDiversityProfiles) {
+    for (let attempt = 0; attempt < profile.attempts; attempt += 1) {
+      const assignments = {};
+      const used = new Set();
+      let failed = false;
 
-    for (const slotId of slotIds) {
-      const matching = shuffle(candidates)
-        .filter((criterion) => !used.has(criterion.id))
-        .map(ruleFromCriterion)
-        .filter((rule) => ruleFitsSlot(
+      for (const slotId of slotIds) {
+        const rule = firstMatchingRule(
+          candidates,
+          used,
           slotId,
-          rule,
+          assignments,
+          profile,
+          minimum,
+          maximum,
+          allowOverlappingAnswers
+        );
+
+        if (!rule) {
+          failed = true;
+          break;
+        }
+
+        assignments[slotId] = rule;
+        used.add(rule.id);
+      }
+
+      if (
+        !failed
+        && validateAssignments(
           assignments,
           minimum,
           maximum,
           allowOverlappingAnswers
-        ));
-
-      if (!matching.length) {
-        failed = true;
-        break;
+        )
+      ) {
+        return assignments;
       }
-
-      assignments[slotId] = matching[0];
-      used.add(matching[0].id);
-    }
-
-    if (
-      !failed
-      && validateAssignments(
-        assignments,
-        minimum,
-        maximum,
-        allowOverlappingAnswers
-      )
-    ) {
-      return assignments;
     }
   }
 

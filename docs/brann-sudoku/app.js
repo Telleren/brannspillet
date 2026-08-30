@@ -32,6 +32,28 @@ const editorSlots = [
   { id: "col-1", axis: "column", index: 1, label: "Kolonne 2" },
   { id: "col-2", axis: "column", index: 2, label: "Kolonne 3" },
 ];
+const categoryDiversityProfiles = [
+  {
+    maxPerAxis: 1,
+    maxTotal: 1,
+    attempts: 1000,
+  },
+  {
+    maxPerAxis: 1,
+    maxTotal: 2,
+    attempts: 2000,
+  },
+  {
+    maxPerAxis: 2,
+    maxTotal: 2,
+    attempts: 1500,
+  },
+  {
+    maxPerAxis: 3,
+    maxTotal: 6,
+    attempts: 1500,
+  },
+];
 
 const ruleKinds = [
   ["fixed", "Ferdig kategori"],
@@ -549,8 +571,17 @@ function ruleFromCriterion(criterion) {
     players: criterionPlayerSet(criterion),
     count: criterion.count,
     criterionId: criterion.id,
+    category: criterion.category || "unknown",
     criterion,
   };
+}
+
+function axisForSlotId(slotId) {
+  return slotId.startsWith("row") ? "row" : "column";
+}
+
+function categoryForRule(rule) {
+  return rule?.category || rule?.criterion?.category || "unknown";
 }
 
 function oppositeSlotIds(slot) {
@@ -578,6 +609,44 @@ function ruleFitsSlot(slot, rule, assignments, minimum, maximum) {
   });
 }
 
+function ruleFitsCategoryProfile(slot, rule, assignments, profile) {
+  const counts = categoryCountsForSlot(slot, rule, assignments);
+
+  return (
+    counts.total < profile.maxTotal
+    && counts.axis < profile.maxPerAxis
+  );
+}
+
+function categoryCountsForSlot(slot, rule, assignments) {
+  const category = categoryForRule(rule);
+  const axis = slot.axis;
+  let totalCount = 0;
+  let axisCount = 0;
+
+  for (const [assignedSlotId, assignedRule] of Object.entries(assignments)) {
+    if (categoryForRule(assignedRule) !== category) {
+      continue;
+    }
+
+    totalCount += 1;
+
+    if (axisForSlotId(assignedSlotId) === axis) {
+      axisCount += 1;
+    }
+  }
+
+  return {
+    total: totalCount,
+    axis: axisCount,
+  };
+}
+
+function categoryPressure(slot, rule, assignments) {
+  const counts = categoryCountsForSlot(slot, rule, assignments);
+  return (counts.axis * 10) + counts.total;
+}
+
 function validateAssignments(assignments, minimum, maximum) {
   for (let rowIndex = 0; rowIndex < 3; rowIndex += 1) {
     for (let colIndex = 0; colIndex < 3; colIndex += 1) {
@@ -598,6 +667,48 @@ function validateAssignments(assignments, minimum, maximum) {
   return cellPlayerSetsAreDisjoint(assignments);
 }
 
+function firstMatchingRule(
+  candidates,
+  usedCriterionIds,
+  slot,
+  assignments,
+  profile,
+  minimum,
+  maximum
+) {
+  let bestRule = null;
+  let bestPressure = Infinity;
+
+  for (const criterion of shuffle(candidates)) {
+    if (usedCriterionIds.has(criterion.id)) {
+      continue;
+    }
+
+    const rule = ruleFromCriterion(criterion);
+
+    if (!ruleFitsCategoryProfile(slot, rule, assignments, profile)) {
+      continue;
+    }
+
+    if (!ruleFitsSlot(slot, rule, assignments, minimum, maximum)) {
+      continue;
+    }
+
+    const pressure = categoryPressure(slot, rule, assignments);
+
+    if (pressure < bestPressure) {
+      bestRule = rule;
+      bestPressure = pressure;
+
+      if (pressure === 0) {
+        return bestRule;
+      }
+    }
+  }
+
+  return bestRule;
+}
+
 function unlockedSlotsOrdered(assignments) {
   return editorSlots
     .filter((slot) => !assignments[slot.id])
@@ -612,43 +723,42 @@ function unlockedSlotsOrdered(assignments) {
 
 function findRandomBoard(minimum, maximum, lockedRules = {}) {
   const candidates = randomizableCriteria(minimum);
-  const maxAttempts = 20000;
 
   if (!validateAssignments(lockedRules, minimum, maximum)) return null;
 
-  for (let attempt = 0; attempt < maxAttempts; attempt += 1) {
-    const assignments = { ...lockedRules };
-    const usedCriterionIds = new Set(
-      Object.values(assignments)
-        .map((rule) => rule.criterionId)
-        .filter(Boolean)
-    );
-    let failed = false;
+  for (const profile of categoryDiversityProfiles) {
+    for (let attempt = 0; attempt < profile.attempts; attempt += 1) {
+      const assignments = { ...lockedRules };
+      const usedCriterionIds = new Set(
+        Object.values(assignments)
+          .map((rule) => rule.criterionId)
+          .filter(Boolean)
+      );
+      let failed = false;
 
-    for (const slot of unlockedSlotsOrdered(assignments)) {
-      const matching = shuffle(candidates)
-        .filter((criterion) => !usedCriterionIds.has(criterion.id))
-        .map(ruleFromCriterion)
-        .filter((rule) => ruleFitsSlot(
+      for (const slot of unlockedSlotsOrdered(assignments)) {
+        const rule = firstMatchingRule(
+          candidates,
+          usedCriterionIds,
           slot,
-          rule,
           assignments,
+          profile,
           minimum,
           maximum
-        ));
+        );
 
-      if (!matching.length) {
-        failed = true;
-        break;
+        if (!rule) {
+          failed = true;
+          break;
+        }
+
+        assignments[slot.id] = rule;
+        usedCriterionIds.add(rule.criterionId);
       }
 
-      const rule = matching[0];
-      assignments[slot.id] = rule;
-      usedCriterionIds.add(rule.criterionId);
-    }
-
-    if (!failed && validateAssignments(assignments, minimum, maximum)) {
-      return { assignments, minimum };
+      if (!failed && validateAssignments(assignments, minimum, maximum)) {
+        return { assignments, minimum };
+      }
     }
   }
 
@@ -681,6 +791,7 @@ function evaluateFixed(editor) {
     players: setFromArray(criterion.players),
     count: criterion.count,
     criterionId,
+    category: criterion.category || "unknown",
   };
 }
 
@@ -723,6 +834,7 @@ function evaluateMetric(editor) {
     label,
     players: setFromArray(players),
     count: players.length,
+    category: family.category || "metrics",
   };
 }
 
@@ -761,6 +873,7 @@ function evaluateDate(editor) {
     label: `${fieldLabel} ${suffix}`,
     players: setFromArray(players),
     count: players.length,
+    category: "dates",
   };
 }
 
@@ -796,6 +909,7 @@ function evaluateAge(editor) {
     label: `${labelBase} ${operatorText(operator)} ${threshold}`,
     players: setFromArray(players),
     count: players.length,
+    category: "age",
   };
 }
 
@@ -834,6 +948,7 @@ function evaluateSetCount(editor) {
     label: label.replace("X", threshold),
     players: setFromArray(players),
     count: players.length,
+    category: `setCount:${setName}`,
   };
 }
 
@@ -865,6 +980,7 @@ function evaluateName(editor) {
     label,
     players: setFromArray(players),
     count: players.length,
+    category: "identity",
   };
 }
 
